@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TimemeterFunctions.cs" />
     <EmbeddedResource Include="CL-Timemeter.resx">
       <DependentUpon>CL-Timemeter.cs</DependentUpon>
     </EmbeddedResource>

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.main_system_timer = new System.Windows.Forms.Timer(this.components);
             this.StartButton = new System.Windows.Forms.Button();
             this.StopButton = new System.Windows.Forms.Button();
             this.Timemeter_Label = new System.Windows.Forms.Label();
@@ -53,14 +53,16 @@
             this.Pause_Button = new System.Windows.Forms.Button();
             this.ShowCheckGroup_Button = new System.Windows.Forms.Button();
             this.ShowTime_Button = new System.Windows.Forms.Button();
+            this.timer_for_cover = new System.Windows.Forms.Timer(this.components);
+            this.Fixated_CheckBox = new System.Windows.Forms.CheckBox();
             this.TimeValuesLabels_GroupBox.SuspendLayout();
             this.TimemeterCheckGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // timer1
+            // main_system_timer
             // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.main_system_timer.Interval = 1000;
+            this.main_system_timer.Tick += new System.EventHandler(this.main_system_timer_Tick);
             // 
             // StartButton
             // 
@@ -108,6 +110,7 @@
             this.CloseButton_Custom.TabIndex = 3;
             this.CloseButton_Custom.Text = "X";
             this.CloseButton_Custom.UseVisualStyleBackColor = false;
+            this.CloseButton_Custom.Visible = false;
             this.CloseButton_Custom.Click += new System.EventHandler(this.CloseButton_Custom_Click);
             // 
             // Seconds_Label
@@ -211,6 +214,7 @@
             this.Minimise_Button.TabIndex = 10;
             this.Minimise_Button.Text = "_";
             this.Minimise_Button.UseVisualStyleBackColor = true;
+            this.Minimise_Button.Visible = false;
             this.Minimise_Button.Click += new System.EventHandler(this.Minimise_Button_Click);
             // 
             // Full_Day_Over_Label
@@ -279,12 +283,13 @@
             // 
             // Pause_Button
             // 
+            this.Pause_Button.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Pause_Button.Location = new System.Drawing.Point(112, 219);
             this.Pause_Button.Name = "Pause_Button";
             this.Pause_Button.Size = new System.Drawing.Size(75, 75);
             this.Pause_Button.TabIndex = 17;
             this.Pause_Button.Text = "Pause";
-            this.Pause_Button.UseVisualStyleBackColor = true;
+            this.Pause_Button.UseVisualStyleBackColor = false;
             this.Pause_Button.Visible = false;
             this.Pause_Button.Click += new System.EventHandler(this.Pause_Button_Click);
             // 
@@ -308,11 +313,28 @@
             this.ShowTime_Button.UseVisualStyleBackColor = true;
             this.ShowTime_Button.Click += new System.EventHandler(this.ShowTime_Button_Click);
             // 
+            // timer_for_cover
+            // 
+            this.timer_for_cover.Interval = 10000;
+            this.timer_for_cover.Tick += new System.EventHandler(this.timer_for_cover_Tick);
+            // 
+            // Fixated_CheckBox
+            // 
+            this.Fixated_CheckBox.AutoSize = true;
+            this.Fixated_CheckBox.Location = new System.Drawing.Point(120, 8);
+            this.Fixated_CheckBox.Name = "Fixated_CheckBox";
+            this.Fixated_CheckBox.Size = new System.Drawing.Size(60, 17);
+            this.Fixated_CheckBox.TabIndex = 21;
+            this.Fixated_CheckBox.Text = "Fixated";
+            this.Fixated_CheckBox.UseVisualStyleBackColor = true;
+            this.Fixated_CheckBox.CheckedChanged += new System.EventHandler(this.Fixated_CheckBox_CheckedChanged);
+            // 
             // CL_Timemeter_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 300);
+            this.Controls.Add(this.Fixated_CheckBox);
             this.Controls.Add(this.ShowTime_Button);
             this.Controls.Add(this.ShowCheckGroup_Button);
             this.Controls.Add(this.Pause_Button);
@@ -328,6 +350,7 @@
             this.Name = "CL_Timemeter_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CL-Timemeter";
+            this.Load += new System.EventHandler(this.CL_Timemeter_Form_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CL_Timemeter_Form_MouseDown);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.CL_Timemeter_Form_MouseUp);
             this.TimeValuesLabels_GroupBox.ResumeLayout(false);
@@ -341,7 +364,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer main_system_timer;
         private System.Windows.Forms.Button CloseButton_Custom;
         public System.Windows.Forms.Label Timemeter_Label;
         private System.Windows.Forms.GroupBox TimeValuesLabels_GroupBox;
@@ -365,6 +388,8 @@
         public System.Windows.Forms.GroupBox TimemeterCheckGroupBox;
         private System.Windows.Forms.Button ShowCheckGroup_Button;
         private System.Windows.Forms.Button ShowTime_Button;
+        private System.Windows.Forms.Timer timer_for_cover;
+        private System.Windows.Forms.CheckBox Fixated_CheckBox;
     }
 }
 

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,10 +24,11 @@ namespace CL_Timemeter
             this.Close();
         }
 
-        //System.Drawing.Color
 
-        object BGState = CL_Timemeter_Form.DefaultBackColor;
 
+        /// <summary>
+        /// Timmeter Template Variables
+        /// </summary>
         //void BGState = System.Drawing.Color.FromArgb(((int)(((byte)(01)
         public string Show_current_seconds;
         public string Show_current_minutes;
@@ -38,6 +40,19 @@ namespace CL_Timemeter
         public double current_minutes = 0.00;
         public double current_hours = 0.00;
 
+        /// <summary>
+        /// Colors Settings Values
+        /// </summary>
+        //System.Drawing.Color
+        object BGState = CL_Timemeter_Form.DefaultBackColor;
+        //255 номеров RGB:
+        int[] Arr_ColorNumbers = new int[255];
+
+        //генерация случайных чисел до 255
+        static Random RandNumb = new Random();
+        public int Set_RGB_Chanel_R; //= RandNumb.Next(150, 201); in function TimemeterCover()   // set R chanel from 150 to 200
+        public int Set_RGB_Chanel_G; //= RandNumb.Next(150, 201);   // set G chanel from 0 to 255
+        public int Set_RGB_Chanel_B; //= RandNumb.Next(150, 201);   // set B chanel from 150 to 200
 
         public void SecondsIncr()
         {
@@ -86,7 +101,9 @@ namespace CL_Timemeter
         }
 
 
-
+        /// <summary>
+        /// Main Timemeter element function
+        /// </summary>
         public void Timemeter_Core()
         {
             //object current_seconds = Environment.TickCount;
@@ -171,11 +188,56 @@ namespace CL_Timemeter
 
         }
 
+        /// <summary>
+        /// System Timer Method (interval 1000)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void main_system_timer_Tick(object sender, EventArgs e)
+        {
+            Timemeter_Core();
+            //MessageBox.Show(Show_current_seconds);
 
+        }
+
+        /// <summary>
+        /// System Timer Method 2 for function"Cover" (interval 9000)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void timer_for_cover_Tick(object sender, EventArgs e)
+        {
+            //Set_RGB_Chanel_R = RandNumb.Next(50, 100);   // set R chanel from 150 to 200
+            //Set_RGB_Chanel_G = RandNumb.Next(50, 100);   // set G chanel from 0 to 255
+            //Set_RGB_Chanel_B = RandNumb.Next(50, 100);
+
+            Timemeter_Cover();
+        }
+
+        /// <summary>
+        /// Timemeter Customisation Function
+        /// </summary>
         public void Timemeter_Cover()
         {
-            
+            Random Rand1 = new Random();
+            Rand1.Next();
 
+            //object BG_Value = this.BackColor;
+            //BG_Value = BG_Value.ToString();
+            //BG_Value = new Random();
+
+            TimeValuesLabels_GroupBox.ForeColor = System.Drawing.Color.White;
+
+            Set_RGB_Chanel_R = RandNumb.Next(50, 100);   // set R chanel from 150 to 200
+            Set_RGB_Chanel_G = RandNumb.Next(50, 100);   // set G chanel from 0 to 255
+            Set_RGB_Chanel_B = RandNumb.Next(50, 100);   // set B chanel from 150 to 200
+
+            //Array Arr_ColorValuesRGB = new int Arr_ColorValuesRGB[];
+
+            //string Arr_ColorValuesRGB[] = { BG_Value, BG_Value };
+
+            //MessageBox.Show(BG_Value.ToString());
+            this.BackColor = System.Drawing.Color.FromArgb(255, Set_RGB_Chanel_R, Set_RGB_Chanel_G, Set_RGB_Chanel_B);
         }
 
 
@@ -188,29 +250,47 @@ namespace CL_Timemeter
             //current_hours = 23.00; //temp for test runing
 
             TimemeterON = true;
-            timer1.Enabled = true;
+            main_system_timer.Enabled = true;
             Timemeter_Core();
 
-            //Timemeter_Cover();
             StopButton.Visible = true;
             StartButton.Visible = false;
             Pause_Button.Visible = true;
+
+            //customuse form
+            timer_for_cover.Enabled = true;
+            Timemeter_Cover(); // TO DO once used - only for first start.
+            this.Opacity = 1;
 
         }
 
         public void StopButton_Click(object sender, EventArgs e)
         {
+            //disable core:
             TimemeterON = false;
-            timer1.Enabled = false;
+            main_system_timer.Enabled = false;
             Timemeter_ClearVolumes(); //full stop timer
             StopButton.Visible = false;
             StartButton.Visible = true;
+            Pause_Button.Visible = false;
+            //disable cover:
+            //Timemeter_Cover(); //test
+            this.BackColor = default;
+            TimeValuesLabels_GroupBox.ForeColor = default;
+            this.Opacity = 1;
+            timer_for_cover.Enabled = false;
         }
 
-        public void timer1_Tick(object sender, EventArgs e)
+        private void Pause_Button_Click(object sender, EventArgs e)
         {
-            Timemeter_Core();
-            //MessageBox.Show(Show_current_seconds);
+            Pause_Button.Visible = false;
+            StartButton.Visible = true;
+            main_system_timer.Enabled = false;
+            this.BackColor = System.Drawing.Color.DarkGray;
+            TimeValuesLabels_GroupBox.ForeColor = default;
+            //this.Opacity = 0.5;
+            timer_for_cover.Stop();
+            timer_for_cover.Enabled = false;
 
         }
 
@@ -222,20 +302,17 @@ namespace CL_Timemeter
         private void CL_Timemeter_Form_MouseDown(object sender, MouseEventArgs e)
         {
             //this.OnMove(e); // moving window
-            this.BackColor = System.Drawing.Color.BurlyWood;
+            //this.BackColor = System.Drawing.Color.BurlyWood;
+            this.Cursor = Cursors.SizeAll;
+
         }
 
         private void CL_Timemeter_Form_MouseUp(object sender, MouseEventArgs e)
         {
-            this.BackColor = default;
+            //this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.Cursor = Cursors.Default;
+            this.Opacity = 1;
 
-        }
-
-        private void Pause_Button_Click(object sender, EventArgs e)
-        {
-            Pause_Button.Visible = false;
-            StartButton.Visible = true;
-            timer1.Enabled = false;
         }
 
         public void groupBox1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -266,5 +343,52 @@ namespace CL_Timemeter
             //hide time
             }
         }
+
+        private void CL_Timemeter_Form_Load(object sender, EventArgs e)
+        {
+            this.AcceptButton = StartButton;
+        }
+
+        private void CL_Timemeter_Form_MouseEnter(object sender, EventArgs e)
+        {
+            //TimeValuesLabels_GroupBox.BackColor = Color.Transparent;
+        }
+
+        private void TimeValuesLabels_GroupBox_Enter(object sender, EventArgs e)
+        {
+            //TimeValuesLabels_GroupBox.BackColor = Color.Red;
+            this.Cursor = Cursors.Hand;
+            this.Cursor = Cursors.Default;
+        }
+
+        /// <summary>
+        /// Fixate Windows and Disable Border Functions
+        /// </summary>
+        public void On_Border()
+        {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+        }
+        public void Off_Border()
+        {
+            this.FormBorderStyle = FormBorderStyle.None;
+        }
+        private void Fixated_CheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Fixated_CheckBox.Checked) {
+                Off_Border();
+                CloseButton_Custom.Visible = true;
+                Minimise_Button.Visible = true;
+            } else {
+                On_Border();
+                CloseButton_Custom.Visible = false;
+                Minimise_Button.Visible = false;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+
+
     }
 }

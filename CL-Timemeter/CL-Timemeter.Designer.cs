@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CL_Timemeter_Form));
             this.main_system_timer = new System.Windows.Forms.Timer(this.components);
             this.StartButton = new System.Windows.Forms.Button();
             this.StopButton = new System.Windows.Forms.Button();
             this.Timemeter_Label = new System.Windows.Forms.Label();
             this.CloseButton_Custom = new System.Windows.Forms.Button();
-            this.Seconds_Label = new System.Windows.Forms.Label();
-            this.TimeValuesLabels_GroupBox = new System.Windows.Forms.GroupBox();
-            this.Split_Label_1 = new System.Windows.Forms.Label();
-            this.Split_Label_2 = new System.Windows.Forms.Label();
-            this.Minutes_Label = new System.Windows.Forms.Label();
-            this.Hours_Label = new System.Windows.Forms.Label();
+            this.TimeMeterFunctions_GroupBox = new System.Windows.Forms.GroupBox();
+            this.ShowCheckGroup_Button = new System.Windows.Forms.Button();
+            this.ShowTime_Button = new System.Windows.Forms.Button();
+            this.DefaultMode_Button = new System.Windows.Forms.Button();
+            this.Switch_Mode_Button = new System.Windows.Forms.Button();
             this.Full_Seconds_Label = new System.Windows.Forms.Label();
             this.Full_Minutes_Label = new System.Windows.Forms.Label();
             this.Full_Hours_Label = new System.Windows.Forms.Label();
@@ -51,12 +51,20 @@
             this.label4 = new System.Windows.Forms.Label();
             this.TimemeterCheckGroupBox = new System.Windows.Forms.GroupBox();
             this.Pause_Button = new System.Windows.Forms.Button();
-            this.ShowCheckGroup_Button = new System.Windows.Forms.Button();
-            this.ShowTime_Button = new System.Windows.Forms.Button();
             this.timer_for_cover = new System.Windows.Forms.Timer(this.components);
             this.Fixated_CheckBox = new System.Windows.Forms.CheckBox();
-            this.TimeValuesLabels_GroupBox.SuspendLayout();
+            this.StartBtn_PictureBox = new System.Windows.Forms.PictureBox();
+            this.Split_Label_1 = new System.Windows.Forms.Label();
+            this.Split_Label_2 = new System.Windows.Forms.Label();
+            this.Minutes_Label = new System.Windows.Forms.Label();
+            this.Hours_Label = new System.Windows.Forms.Label();
+            this.Seconds_Label = new System.Windows.Forms.Label();
+            this.Enable_Group_TimemeterFunctions = new System.Windows.Forms.CheckBox();
+            this.Align_Button = new System.Windows.Forms.Button();
+            this.RealTime_Label = new System.Windows.Forms.Label();
+            this.TimeMeterFunctions_GroupBox.SuspendLayout();
             this.TimemeterCheckGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.StartBtn_PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // main_system_timer
@@ -67,13 +75,19 @@
             // StartButton
             // 
             this.StartButton.BackColor = System.Drawing.Color.Transparent;
+            this.StartButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("StartButton.BackgroundImage")));
+            this.StartButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.StartButton.FlatAppearance.BorderSize = 0;
+            this.StartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.StartButton.Location = new System.Drawing.Point(112, 219);
             this.StartButton.Name = "StartButton";
             this.StartButton.Size = new System.Drawing.Size(75, 75);
             this.StartButton.TabIndex = 0;
             this.StartButton.Text = "Start";
-            this.StartButton.UseVisualStyleBackColor = false;
-            this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
+            this.StartButton.UseVisualStyleBackColor = true;
+            this.StartButton.Click += new System.EventHandler(this.Activate_TimemeterElement_Click);
+            this.StartButton.MouseEnter += new System.EventHandler(this.Cursor_enters_element_Style);
+            this.StartButton.MouseLeave += new System.EventHandler(this.Cursor_leaves_element_Style);
             // 
             // StopButton
             // 
@@ -91,7 +105,7 @@
             // 
             this.Timemeter_Label.AutoSize = true;
             this.Timemeter_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.Timemeter_Label.Location = new System.Drawing.Point(92, 41);
+            this.Timemeter_Label.Location = new System.Drawing.Point(92, 35);
             this.Timemeter_Label.Name = "Timemeter_Label";
             this.Timemeter_Label.Size = new System.Drawing.Size(120, 31);
             this.Timemeter_Label.TabIndex = 2;
@@ -113,71 +127,62 @@
             this.CloseButton_Custom.Visible = false;
             this.CloseButton_Custom.Click += new System.EventHandler(this.CloseButton_Custom_Click);
             // 
-            // Seconds_Label
+            // TimeMeterFunctions_GroupBox
             // 
-            this.Seconds_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
-            this.Seconds_Label.Location = new System.Drawing.Point(205, 30);
-            this.Seconds_Label.Name = "Seconds_Label";
-            this.Seconds_Label.Size = new System.Drawing.Size(90, 60);
-            this.Seconds_Label.TabIndex = 5;
-            this.Seconds_Label.Text = "00";
-            this.Seconds_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.TimeMeterFunctions_GroupBox.BackColor = System.Drawing.Color.Transparent;
+            this.TimeMeterFunctions_GroupBox.Controls.Add(this.ShowCheckGroup_Button);
+            this.TimeMeterFunctions_GroupBox.Controls.Add(this.ShowTime_Button);
+            this.TimeMeterFunctions_GroupBox.Controls.Add(this.DefaultMode_Button);
+            this.TimeMeterFunctions_GroupBox.Controls.Add(this.Switch_Mode_Button);
+            this.TimeMeterFunctions_GroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.TimeMeterFunctions_GroupBox.Location = new System.Drawing.Point(12, 65);
+            this.TimeMeterFunctions_GroupBox.Name = "TimeMeterFunctions_GroupBox";
+            this.TimeMeterFunctions_GroupBox.Size = new System.Drawing.Size(280, 60);
+            this.TimeMeterFunctions_GroupBox.TabIndex = 6;
+            this.TimeMeterFunctions_GroupBox.TabStop = false;
+            this.TimeMeterFunctions_GroupBox.Text = "CL Timemeter Functions";
+            this.TimeMeterFunctions_GroupBox.Visible = false;
             // 
-            // TimeValuesLabels_GroupBox
+            // ShowCheckGroup_Button
             // 
-            this.TimeValuesLabels_GroupBox.BackColor = System.Drawing.Color.Transparent;
-            this.TimeValuesLabels_GroupBox.Controls.Add(this.Split_Label_1);
-            this.TimeValuesLabels_GroupBox.Controls.Add(this.Split_Label_2);
-            this.TimeValuesLabels_GroupBox.Controls.Add(this.Minutes_Label);
-            this.TimeValuesLabels_GroupBox.Controls.Add(this.Hours_Label);
-            this.TimeValuesLabels_GroupBox.Controls.Add(this.Seconds_Label);
-            this.TimeValuesLabels_GroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.TimeValuesLabels_GroupBox.Location = new System.Drawing.Point(12, 75);
-            this.TimeValuesLabels_GroupBox.Name = "TimeValuesLabels_GroupBox";
-            this.TimeValuesLabels_GroupBox.Size = new System.Drawing.Size(280, 115);
-            this.TimeValuesLabels_GroupBox.TabIndex = 6;
-            this.TimeValuesLabels_GroupBox.TabStop = false;
-            this.TimeValuesLabels_GroupBox.Text = "CL Timemeter";
+            this.ShowCheckGroup_Button.Location = new System.Drawing.Point(234, 15);
+            this.ShowCheckGroup_Button.Name = "ShowCheckGroup_Button";
+            this.ShowCheckGroup_Button.Size = new System.Drawing.Size(40, 40);
+            this.ShowCheckGroup_Button.TabIndex = 18;
+            this.ShowCheckGroup_Button.Text = "chk";
+            this.ShowCheckGroup_Button.UseVisualStyleBackColor = true;
+            this.ShowCheckGroup_Button.Click += new System.EventHandler(this.ShowCheckGroup_Button_Click);
             // 
-            // Split_Label_1
+            // ShowTime_Button
             // 
-            this.Split_Label_1.AutoSize = true;
-            this.Split_Label_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
-            this.Split_Label_1.Location = new System.Drawing.Point(65, 30);
-            this.Split_Label_1.Name = "Split_Label_1";
-            this.Split_Label_1.Size = new System.Drawing.Size(42, 63);
-            this.Split_Label_1.TabIndex = 7;
-            this.Split_Label_1.Text = ":";
+            this.ShowTime_Button.Location = new System.Drawing.Point(188, 15);
+            this.ShowTime_Button.Name = "ShowTime_Button";
+            this.ShowTime_Button.Size = new System.Drawing.Size(40, 40);
+            this.ShowTime_Button.TabIndex = 19;
+            this.ShowTime_Button.Text = "T";
+            this.ShowTime_Button.UseVisualStyleBackColor = true;
+            this.ShowTime_Button.Click += new System.EventHandler(this.ShowTime_Button_Click);
             // 
-            // Split_Label_2
+            // DefaultMode_Button
             // 
-            this.Split_Label_2.AutoSize = true;
-            this.Split_Label_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
-            this.Split_Label_2.Location = new System.Drawing.Point(173, 30);
-            this.Split_Label_2.Name = "Split_Label_2";
-            this.Split_Label_2.Size = new System.Drawing.Size(42, 63);
-            this.Split_Label_2.TabIndex = 8;
-            this.Split_Label_2.Text = ":";
+            this.DefaultMode_Button.Enabled = false;
+            this.DefaultMode_Button.Location = new System.Drawing.Point(52, 15);
+            this.DefaultMode_Button.Name = "DefaultMode_Button";
+            this.DefaultMode_Button.Size = new System.Drawing.Size(40, 40);
+            this.DefaultMode_Button.TabIndex = 31;
+            this.DefaultMode_Button.Text = "DM";
+            this.DefaultMode_Button.UseVisualStyleBackColor = true;
+            this.DefaultMode_Button.Click += new System.EventHandler(this.DefMode_ON);
             // 
-            // Minutes_Label
+            // Switch_Mode_Button
             // 
-            this.Minutes_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
-            this.Minutes_Label.Location = new System.Drawing.Point(97, 30);
-            this.Minutes_Label.Name = "Minutes_Label";
-            this.Minutes_Label.Size = new System.Drawing.Size(90, 60);
-            this.Minutes_Label.TabIndex = 4;
-            this.Minutes_Label.Text = "00";
-            this.Minutes_Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Hours_Label
-            // 
-            this.Hours_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
-            this.Hours_Label.Location = new System.Drawing.Point(-21, 30);
-            this.Hours_Label.Name = "Hours_Label";
-            this.Hours_Label.Size = new System.Drawing.Size(100, 60);
-            this.Hours_Label.TabIndex = 6;
-            this.Hours_Label.Text = "00";
-            this.Hours_Label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Switch_Mode_Button.Location = new System.Drawing.Point(6, 15);
+            this.Switch_Mode_Button.Name = "Switch_Mode_Button";
+            this.Switch_Mode_Button.Size = new System.Drawing.Size(40, 40);
+            this.Switch_Mode_Button.TabIndex = 29;
+            this.Switch_Mode_Button.Text = "SW";
+            this.Switch_Mode_Button.UseVisualStyleBackColor = true;
+            this.Switch_Mode_Button.Click += new System.EventHandler(this.Switch_Mode_Button_Click);
             // 
             // Full_Seconds_Label
             // 
@@ -283,7 +288,11 @@
             // 
             // Pause_Button
             // 
-            this.Pause_Button.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Pause_Button.BackColor = System.Drawing.Color.Transparent;
+            this.Pause_Button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Pause_Button.BackgroundImage")));
+            this.Pause_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Pause_Button.FlatAppearance.BorderSize = 0;
+            this.Pause_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Pause_Button.Location = new System.Drawing.Point(112, 219);
             this.Pause_Button.Name = "Pause_Button";
             this.Pause_Button.Size = new System.Drawing.Size(75, 75);
@@ -292,26 +301,8 @@
             this.Pause_Button.UseVisualStyleBackColor = false;
             this.Pause_Button.Visible = false;
             this.Pause_Button.Click += new System.EventHandler(this.Pause_Button_Click);
-            // 
-            // ShowCheckGroup_Button
-            // 
-            this.ShowCheckGroup_Button.Location = new System.Drawing.Point(2, -5);
-            this.ShowCheckGroup_Button.Name = "ShowCheckGroup_Button";
-            this.ShowCheckGroup_Button.Size = new System.Drawing.Size(40, 40);
-            this.ShowCheckGroup_Button.TabIndex = 18;
-            this.ShowCheckGroup_Button.Text = "chk";
-            this.ShowCheckGroup_Button.UseVisualStyleBackColor = true;
-            this.ShowCheckGroup_Button.Click += new System.EventHandler(this.ShowCheckGroup_Button_Click);
-            // 
-            // ShowTime_Button
-            // 
-            this.ShowTime_Button.Location = new System.Drawing.Point(48, -5);
-            this.ShowTime_Button.Name = "ShowTime_Button";
-            this.ShowTime_Button.Size = new System.Drawing.Size(40, 40);
-            this.ShowTime_Button.TabIndex = 19;
-            this.ShowTime_Button.Text = "T";
-            this.ShowTime_Button.UseVisualStyleBackColor = true;
-            this.ShowTime_Button.Click += new System.EventHandler(this.ShowTime_Button_Click);
+            this.Pause_Button.MouseEnter += new System.EventHandler(this.Cursor_enters_element_Style);
+            this.Pause_Button.MouseLeave += new System.EventHandler(this.Cursor_leaves_element_Style);
             // 
             // timer_for_cover
             // 
@@ -329,22 +320,128 @@
             this.Fixated_CheckBox.UseVisualStyleBackColor = true;
             this.Fixated_CheckBox.CheckedChanged += new System.EventHandler(this.Fixated_CheckBox_CheckedChanged);
             // 
+            // StartBtn_PictureBox
+            // 
+            this.StartBtn_PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("StartBtn_PictureBox.Image")));
+            this.StartBtn_PictureBox.Location = new System.Drawing.Point(193, 219);
+            this.StartBtn_PictureBox.Name = "StartBtn_PictureBox";
+            this.StartBtn_PictureBox.Size = new System.Drawing.Size(75, 75);
+            this.StartBtn_PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.StartBtn_PictureBox.TabIndex = 22;
+            this.StartBtn_PictureBox.TabStop = false;
+            this.StartBtn_PictureBox.Visible = false;
+            this.StartBtn_PictureBox.Click += new System.EventHandler(this.Activate_TimemeterElement_Click);
+            this.StartBtn_PictureBox.MouseEnter += new System.EventHandler(this.StartBtn_PictureBox_MouseEnter);
+            this.StartBtn_PictureBox.MouseLeave += new System.EventHandler(this.StartBtn_PictureBox_MouseLeave);
+            // 
+            // Split_Label_1
+            // 
+            this.Split_Label_1.AutoSize = true;
+            this.Split_Label_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
+            this.Split_Label_1.Location = new System.Drawing.Point(78, 119);
+            this.Split_Label_1.Name = "Split_Label_1";
+            this.Split_Label_1.Size = new System.Drawing.Size(42, 63);
+            this.Split_Label_1.TabIndex = 26;
+            this.Split_Label_1.Text = ":";
+            this.Split_Label_1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // Split_Label_2
+            // 
+            this.Split_Label_2.AutoSize = true;
+            this.Split_Label_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
+            this.Split_Label_2.Location = new System.Drawing.Point(186, 119);
+            this.Split_Label_2.Name = "Split_Label_2";
+            this.Split_Label_2.Size = new System.Drawing.Size(42, 63);
+            this.Split_Label_2.TabIndex = 27;
+            this.Split_Label_2.Text = ":";
+            this.Split_Label_2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // Minutes_Label
+            // 
+            this.Minutes_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
+            this.Minutes_Label.Location = new System.Drawing.Point(110, 122);
+            this.Minutes_Label.Name = "Minutes_Label";
+            this.Minutes_Label.Size = new System.Drawing.Size(90, 60);
+            this.Minutes_Label.TabIndex = 23;
+            this.Minutes_Label.Text = "00";
+            this.Minutes_Label.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // Hours_Label
+            // 
+            this.Hours_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
+            this.Hours_Label.Location = new System.Drawing.Point(-8, 122);
+            this.Hours_Label.Name = "Hours_Label";
+            this.Hours_Label.Size = new System.Drawing.Size(100, 60);
+            this.Hours_Label.TabIndex = 25;
+            this.Hours_Label.Text = "00";
+            this.Hours_Label.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // Seconds_Label
+            // 
+            this.Seconds_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
+            this.Seconds_Label.Location = new System.Drawing.Point(218, 122);
+            this.Seconds_Label.Name = "Seconds_Label";
+            this.Seconds_Label.Size = new System.Drawing.Size(90, 60);
+            this.Seconds_Label.TabIndex = 24;
+            this.Seconds_Label.Text = "00";
+            this.Seconds_Label.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // Enable_Group_TimemeterFunctions
+            // 
+            this.Enable_Group_TimemeterFunctions.AutoSize = true;
+            this.Enable_Group_TimemeterFunctions.Location = new System.Drawing.Point(14, 8);
+            this.Enable_Group_TimemeterFunctions.Name = "Enable_Group_TimemeterFunctions";
+            this.Enable_Group_TimemeterFunctions.Size = new System.Drawing.Size(99, 17);
+            this.Enable_Group_TimemeterFunctions.TabIndex = 28;
+            this.Enable_Group_TimemeterFunctions.Text = "ShowFunctions";
+            this.Enable_Group_TimemeterFunctions.UseVisualStyleBackColor = true;
+            this.Enable_Group_TimemeterFunctions.CheckedChanged += new System.EventHandler(this.Enable_Group_TimemeterFunctions_CheckedChanged);
+            // 
+            // Align_Button
+            // 
+            this.Align_Button.Location = new System.Drawing.Point(264, 34);
+            this.Align_Button.Name = "Align_Button";
+            this.Align_Button.Size = new System.Drawing.Size(40, 40);
+            this.Align_Button.TabIndex = 29;
+            this.Align_Button.Text = ">";
+            this.Align_Button.UseVisualStyleBackColor = true;
+            this.Align_Button.Click += new System.EventHandler(this.Align_Button_Click);
+            // 
+            // RealTime_Label
+            // 
+            this.RealTime_Label.AutoSize = true;
+            this.RealTime_Label.BackColor = System.Drawing.Color.Transparent;
+            this.RealTime_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
+            this.RealTime_Label.Location = new System.Drawing.Point(31, 128);
+            this.RealTime_Label.Name = "RealTime_Label";
+            this.RealTime_Label.Size = new System.Drawing.Size(237, 63);
+            this.RealTime_Label.TabIndex = 30;
+            this.RealTime_Label.Text = "00:00:00";
+            this.RealTime_Label.Visible = false;
+            // 
             // CL_Timemeter_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 300);
+            this.Controls.Add(this.RealTime_Label);
+            this.Controls.Add(this.Align_Button);
+            this.Controls.Add(this.TimeMeterFunctions_GroupBox);
+            this.Controls.Add(this.Enable_Group_TimemeterFunctions);
+            this.Controls.Add(this.Split_Label_1);
+            this.Controls.Add(this.Split_Label_2);
+            this.Controls.Add(this.Minutes_Label);
+            this.Controls.Add(this.Hours_Label);
+            this.Controls.Add(this.Seconds_Label);
+            this.Controls.Add(this.StartBtn_PictureBox);
             this.Controls.Add(this.Fixated_CheckBox);
-            this.Controls.Add(this.ShowTime_Button);
-            this.Controls.Add(this.ShowCheckGroup_Button);
-            this.Controls.Add(this.Pause_Button);
             this.Controls.Add(this.Minimise_Button);
             this.Controls.Add(this.Timemeter_Label);
             this.Controls.Add(this.CloseButton_Custom);
             this.Controls.Add(this.StopButton);
-            this.Controls.Add(this.StartButton);
-            this.Controls.Add(this.TimeValuesLabels_GroupBox);
             this.Controls.Add(this.TimemeterCheckGroupBox);
+            this.Controls.Add(this.Pause_Button);
+            this.Controls.Add(this.StartButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "CL_Timemeter_Form";
@@ -353,10 +450,10 @@
             this.Load += new System.EventHandler(this.CL_Timemeter_Form_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CL_Timemeter_Form_MouseDown);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.CL_Timemeter_Form_MouseUp);
-            this.TimeValuesLabels_GroupBox.ResumeLayout(false);
-            this.TimeValuesLabels_GroupBox.PerformLayout();
+            this.TimeMeterFunctions_GroupBox.ResumeLayout(false);
             this.TimemeterCheckGroupBox.ResumeLayout(false);
             this.TimemeterCheckGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.StartBtn_PictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -367,12 +464,7 @@
         private System.Windows.Forms.Timer main_system_timer;
         private System.Windows.Forms.Button CloseButton_Custom;
         public System.Windows.Forms.Label Timemeter_Label;
-        private System.Windows.Forms.GroupBox TimeValuesLabels_GroupBox;
-        public System.Windows.Forms.Label Seconds_Label;
-        public System.Windows.Forms.Label Hours_Label;
-        public System.Windows.Forms.Label Minutes_Label;
-        public System.Windows.Forms.Label Split_Label_1;
-        public System.Windows.Forms.Label Split_Label_2;
+        private System.Windows.Forms.GroupBox TimeMeterFunctions_GroupBox;
         public System.Windows.Forms.Label Full_Seconds_Label;
         public System.Windows.Forms.Label Full_Minutes_Label;
         public System.Windows.Forms.Label Full_Hours_Label;
@@ -390,6 +482,17 @@
         private System.Windows.Forms.Button ShowTime_Button;
         private System.Windows.Forms.Timer timer_for_cover;
         private System.Windows.Forms.CheckBox Fixated_CheckBox;
+        private System.Windows.Forms.PictureBox StartBtn_PictureBox;
+        public System.Windows.Forms.Label Split_Label_1;
+        public System.Windows.Forms.Label Split_Label_2;
+        public System.Windows.Forms.Label Minutes_Label;
+        public System.Windows.Forms.Label Hours_Label;
+        public System.Windows.Forms.Label Seconds_Label;
+        private System.Windows.Forms.CheckBox Enable_Group_TimemeterFunctions;
+        private System.Windows.Forms.Button Switch_Mode_Button;
+        private System.Windows.Forms.Button Align_Button;
+        private System.Windows.Forms.Label RealTime_Label;
+        public System.Windows.Forms.Button DefaultMode_Button;
     }
 }
 

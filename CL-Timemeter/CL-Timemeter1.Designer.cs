@@ -61,16 +61,6 @@ namespace CL_Timemeter {
         }
         
         /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap banner_blue {
-            get {
-                object obj = ResourceManager.GetObject("banner_blue", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Point, аналогичного {X=17,Y=17}.
         /// </summary>
         public static System.Drawing.Point main_system_timer_TrayLocation {
@@ -93,9 +83,9 @@ namespace CL_Timemeter {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap StartBtn_PictureBox_Image {
+        public static System.Drawing.Bitmap PauseButton_PictureBox_BackgroundImage {
             get {
-                object obj = ResourceManager.GetObject("StartBtn_PictureBox.Image", resourceCulture);
+                object obj = ResourceManager.GetObject("PauseButton_PictureBox.BackgroundImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -106,6 +96,26 @@ namespace CL_Timemeter {
         public static System.Drawing.Bitmap StartButton_BackgroundImage {
             get {
                 object obj = ResourceManager.GetObject("StartButton.BackgroundImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap StartButton_PictureBox_Image {
+            get {
+                object obj = ResourceManager.GetObject("StartButton_PictureBox.Image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap StopButton_PictureBox_Image {
+            get {
+                object obj = ResourceManager.GetObject("StopButton_PictureBox.Image", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

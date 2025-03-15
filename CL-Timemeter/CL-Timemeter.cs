@@ -20,6 +20,7 @@ using Microsoft.Win32;
 using CL_Timemeter.Properties;
 using System.Drawing.Configuration;//test
 
+
 namespace CL_Timemeter
 {
 
@@ -72,8 +73,10 @@ namespace CL_Timemeter
         object BGState = CL_Timemeter_Form.DefaultBackColor;
         //255 номеров RGB:
         int[] Arr_ColorNumbers = new int[255];
-
-        //генерация случайных чисел до 255
+        /// <summary>
+        /// для смены цвета фона
+        /// </summary>
+        //генерация случайных чисел до 255 
         static Random RandNumb = new Random();
         public int Set_RGB_Chanel_R; //= RandNumb.Next(150, 201); in function TimemeterCover()   // set R chanel from 150 to 200
         public int Set_RGB_Chanel_G; //= RandNumb.Next(150, 201);   // set G chanel from 0 to 255
@@ -123,6 +126,8 @@ namespace CL_Timemeter
             Full_Minutes_Label.Text = "00";
             Full_Seconds_Label.Text = "00";
             Full_Day_Over_Label.Text = "0";
+
+            Minute_Progress_Label.Text = "";
         }
 
 
@@ -222,7 +227,16 @@ namespace CL_Timemeter
         {
             Timemeter_Core();
             //MessageBox.Show(Show_current_seconds);
-
+            //for progress label minutes
+            if ((int)current_seconds >= 1)
+            {
+                //Minute_Progress_Label.Text = "";
+                Minute_Progress_Label.Text += ".";
+            }
+            else if ((int)current_seconds == 0)
+            {
+                Minute_Progress_Label.Text = "";
+            }
         }
 
         /// <summary>
@@ -237,6 +251,7 @@ namespace CL_Timemeter
             //Set_RGB_Chanel_B = RandNumb.Next(50, 100);
 
             Timemeter_Cover();
+            
         }
 
         /// <summary>
@@ -244,14 +259,11 @@ namespace CL_Timemeter
         /// </summary>
         public void Timemeter_Cover()
         {
-            Random Rand1 = new Random();
-            Rand1.Next();
-
             //object BG_Value = this.BackColor;
             //BG_Value = BG_Value.ToString();
             //BG_Value = new Random();
 
-            TimeMeterFunctions_GroupBox.ForeColor = System.Drawing.Color.White;
+            //TimeMeterFunctions_GroupBox.ForeColor = System.Drawing.Color.White; // disabled
             Seconds_Label.ForeColor = System.Drawing.Color.White;
             Minutes_Label.ForeColor = System.Drawing.Color.White;
             Hours_Label.ForeColor = System.Drawing.Color.White;
@@ -269,6 +281,7 @@ namespace CL_Timemeter
 
             //MessageBox.Show(BG_Value.ToString());
             this.BackColor = System.Drawing.Color.FromArgb(255, Set_RGB_Chanel_R, Set_RGB_Chanel_G, Set_RGB_Chanel_B);
+           
         }
 
 
@@ -280,6 +293,36 @@ namespace CL_Timemeter
         //public Path PlayImg1 = new Path();
 
 
+        /// <summary>
+        /// Execution Status Compare:  4=Continue; 3=Active;  2=Pause; 1=Stop;
+        /// </summary>
+        public int ExecutionStatus;
+        public void ExecutionStatus_Changed()
+        {
+            if (ExecutionStatus == 3 || ExecutionStatus == 4) {
+                //call base app functions
+                Timemeter_Core();
+                Timemeter_Cover();
+                //main_system_timer.Start();
+                main_system_timer.Enabled = true;
+                //timer_for_cover.Start();
+                timer_for_cover.Enabled = true;
+                //ExecutionStatus = 4;                
+            } else if (ExecutionStatus == 2){
+                //main_system_timer.Stop();
+
+            } else {
+              
+            }
+        }
+
+        /// <summary>
+        /// START TIMMETER FUNCTION
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public string ImagePauseActivated_FilePath = Path.GetFileName(@"PauseActivated_Button_Image.png");
+        /// 
         public void Activate_TimemeterElement_Click(object sender, EventArgs e)
         {
 
@@ -293,31 +336,99 @@ namespace CL_Timemeter
 
             Timemeter_Core();
 
-            StopButton.Visible = true;
-            StartButton.Visible = false;
-            StartBtn_PictureBox.Visible = false; 
-            Pause_Button.Visible = true;
+            //StopButton.Visible = true; //// Button Element - disabled
+            //Pause_Button.Visible = true; //// Button Element - disabled
+            //StartButton.Visible = false; //// Control Element - disable
+
+            StartButton_PictureBox.Visible = false;
+            PauseButton_PictureBox.Visible = true;
+            StopButton_PictureBox.Visible = true; 
+
             //StartButton.BackgroundImage = Bitmap.FromFile(filename: SetImgPlayBtn, useEmbeddedColorManagement: true);
             //StartButton.BackgroundImage = NewPLayButtonImage;
             //StartButton.BackgroundImage = new System.Drawing.Image();
+
+            //show label "Running"
 
             //customuse form
             timer_for_cover.Enabled = true;
             Timemeter_Cover(); // TO DO once used - only for first start.
             this.Opacity = 1;
 
+
+
+            //Activate Style PauseBtn:
+            //MessageBox.Show(ImagePauseActivated_FilePath);
+            PauseButton_PictureBox.Image = Bitmap.FromFile(filename: ImagePauseActivated_FilePath);
+
         }
 
+
+        /// <summary>
+        /// PAUSE FUNCTION
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Pause_Button_Click(object sender, EventArgs e)
+        {
+            //Pause_Button.Visible = false;
+            //StartButton.Visible = true;
+            main_system_timer.Enabled = false; 
+            main_system_timer.Stop();
+            this.BackColor = System.Drawing.Color.DarkGray;
+            TimeMeterFunctions_GroupBox.ForeColor = default;
+            //this.Opacity = 0.5;
+            timer_for_cover.Stop();
+            timer_for_cover.Enabled = false;
+            PauseButton_PictureBox.Image = Bitmap.FromFile(filename: ImagePauseActivated_FilePath);
+            if (ExecutionStatus != 2){
+                ExecutionStatus = 2;
+                main_system_timer.Enabled = false;
+                //timer_for_cover.Stop();
+                timer_for_cover.Enabled = false;
+                ExecutionStatus_Changed();
+            }
+            else {
+                ExecutionStatus = 4;
+                ExecutionStatus_Changed(); 
+            }
+            //show label "Paused"
+        }
+
+
+        public string ImagePauseHover_FilePath = Path.GetFileName(@"Pause_Button_Image.png");
+        public void PauseButton_PictureBox_MouseEnter(object sender, EventArgs e)
+        {
+            PauseButton_PictureBox.Image = Bitmap.FromFile(filename: ImagePauseHover_FilePath);
+            Cursor = Cursors.Hand;
+        }
+        public string ImagePause_FilePath = Path.GetFileName(@"Pause_Button_Image_Transparent.png");
+        public void PauseButton_PictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            PauseButton_PictureBox.Image = Bitmap.FromFile(filename: ImagePause_FilePath);
+            Cursor = Cursors.Default;
+        }
+
+
+        /// <summary>
+        /// STOP TIMEMETER FUNCTION
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void StopButton_Click(object sender, EventArgs e)
         {
             //disable core:
             TimemeterON = false;
             main_system_timer.Enabled = false;
             Timemeter_ClearVolumes(); //full stop timer
-            StopButton.Visible = false;
-            StartButton.Visible = true;
-            StartBtn_PictureBox.Visible = true;
+            //StopButton.Visible = false; // Button Element - disabled
+            //StartButton.Visible = true; // Button Element - disabled
+            StartButton_PictureBox.Visible = true;
             Pause_Button.Visible = false;
+            StopButton.Visible = false;
+            PauseButton_PictureBox.Visible = false;
+            StopButton_PictureBox.Visible = false;
+
             //disable cover:
             //Timemeter_Cover(); //test
             this.BackColor = default;
@@ -329,20 +440,13 @@ namespace CL_Timemeter
             Split_Label_2.ForeColor = default;
             this.Opacity = 1;
             timer_for_cover.Enabled = false;
-        }
-
-        private void Pause_Button_Click(object sender, EventArgs e)
-        {
-            Pause_Button.Visible = false;
-            StartButton.Visible = true;
-            main_system_timer.Enabled = false;
-            this.BackColor = System.Drawing.Color.DarkGray;
             TimeMeterFunctions_GroupBox.ForeColor = default;
-            //this.Opacity = 0.5;
-            timer_for_cover.Stop();
-            timer_for_cover.Enabled = false;
-
+            //show Label "Stoped"
+            Minute_Progress_Label.Text = "";
         }
+
+
+
 
         private void Minimise_Button_Click(object sender, EventArgs e)
         {
@@ -375,6 +479,8 @@ namespace CL_Timemeter
             if (TimemeterCheckGroupBox.Visible == false)
             {
                 TimemeterCheckGroupBox.Visible = true;
+                MessageBox.Show("Details group enabled", caption: "Details group", buttons: MessageBoxButtons.OK, icon: iM1, defaultButton: MessageBoxDefaultButton.Button1, options: 0, displayHelpButton: false);
+
             }
             else {
                 TimemeterCheckGroupBox.Visible = false;
@@ -384,12 +490,12 @@ namespace CL_Timemeter
 
         private void ShowTime_Button_Click(object sender, EventArgs e)
         {
-            if (Timemeter_Label.Visible == false)
+            if (Small_Timemeter_Label.Visible == false)
             {
-                Timemeter_Label.Visible = true;
+                Small_Timemeter_Label.Visible = true;
                 //show time
             } else { 
-            Timemeter_Label.Visible = false;
+            Small_Timemeter_Label.Visible = false;
             //hide time
             }
         }
@@ -397,13 +503,12 @@ namespace CL_Timemeter
         private void CL_Timemeter_Form_MouseEnter(object sender, EventArgs e)
         {
             //TimeValuesLabels_GroupBox.BackColor = Color.Transparent;
+            this.Cursor = Cursors.PanNW;
         }
 
         private void TimeValuesLabels_GroupBox_Enter(object sender, EventArgs e)
         {
-            //TimeValuesLabels_GroupBox.BackColor = Color.Red;
             this.Cursor = Cursors.Hand;
-            this.Cursor = Cursors.Default;
         }
 
         /// <summary>
@@ -412,21 +517,29 @@ namespace CL_Timemeter
         public void On_Border()
         {
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            Align_Button.Visible = true;
+
         }
         public void Off_Border()
         {
             this.FormBorderStyle = FormBorderStyle.None;
         }
-        private void Fixated_CheckBox_CheckedChanged(object sender, EventArgs e)
+        public void Fixated_CheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (Fixated_CheckBox.Checked) {
                 Off_Border();
                 CloseButton_Custom.Visible = true;
                 //Minimise_Button.Visible = true;
-            } else {
+                Align_Button.Visible = true;
+                Align_Button.SetBounds(221, -1, 40, 40);
+            }
+            else {
                 On_Border();
                 CloseButton_Custom.Visible = false;
                 Minimise_Button.Visible = false;
+                Align_Button.Visible = true;
+                Align_Button.SetBounds(260, 35, 40, -1);
+
             }
         }
 
@@ -434,36 +547,46 @@ namespace CL_Timemeter
         {
 
         }
-
-        private void StartBtn_PictureBox_MouseEnter(object sender, EventArgs e)
+        public static string ImageStartHover_FilePath = Path.GetFileName(@"Start_Button_Image.png");
+        //public static string ImageStartHover_FilePath = Path.GetFileName(@"Start_Button_Image.png");
+        
+        private void StartButton_PictureBox_MouseEnter(object sender, EventArgs e)
         {
-            StartBtn_PictureBox.Image = null;
+
+            //MessageBox.Show(ImageStartFile_FilePath);
+            //Bitmap ImageStartFile = new Bitmap(filename: ImageStartFile_FilePath);
+            StartButton_PictureBox.Image = Bitmap.FromFile(filename: ImageStartHover_FilePath);
+            StartButton_PictureBox.Cursor = Cursors.Hand;
         }
 
-        private void StartBtn_PictureBox_MouseLeave(object sender, EventArgs e)
+        private void StartButton_PictureBox_MouseLeave(object sender, EventArgs e)
         {
-            string PlayBtnPAth = "Start_Button_Image.png";
-            //StartBtn_PictureBox.Image = System.Drawing.Bitmap.FromFile(filename: );
-            //StartBtn_PictureBox.Image = System.Drawing.Image.FromFile(filename: CL_Timemeter.ResourceManager());
-            StartBtn_PictureBox.Image = default;
-            //StartBtn_PictureBox.Image = System.Drawing.Image.FromFile(filename: PlayBtnPAth);
-
-            //(bitmapName: "Start_Button_Image_Transparent");
+            //string ImagePauseFile_FilePath = Path.GetFileName(@"Pause_Button_Image.png");
+            //StartBtn_PictureBox.Image = Bitmap.FromFile(filename: ImagePauseFile_FilePath);
+            string ImageStart_FilePath = Path.GetFileName(@"Start_Button_Image_Transparent.png");
+            StartButton_PictureBox.Image = Bitmap.FromFile(filename: ImageStart_FilePath);
         }
 
-        private void Cursor_enters_element_Style(object sender, EventArgs e)
+        public void Cursor_enters_element_Style(object sender, EventArgs e)
         {
             StartButton.Cursor = Cursors.Hand;
             Pause_Button.Cursor = Cursors.Hand;
             StopButton.Cursor = Cursors.Hand;
+            PauseButton_PictureBox.Cursor = Cursors.Hand;
         }        
         private void Cursor_leaves_element_Style(object sender, EventArgs e)
         {
-            StartButton.Cursor = Cursors.Hand;
-            Pause_Button.Cursor = Cursors.Hand;
-            StopButton.Cursor = Cursors.Hand;
+            StartButton.Cursor = Cursors.Default;
+            Pause_Button.Cursor = Cursors.Default;
+            StopButton.Cursor = Cursors.Default;
+            PauseButton_PictureBox.Cursor = Cursors.Default;
         }
 
+        /// <summary>
+        /// Display Functions GroupBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Enable_Group_TimemeterFunctions_CheckedChanged(object sender, EventArgs e)
         {
             if (Enable_Group_TimemeterFunctions.Checked) {
@@ -481,55 +604,76 @@ namespace CL_Timemeter
         
         //public static string BG_Mode2_FilePath = Path.GetFileName(@"\\imgControls\\banner_blue.jpg");
         //public static string BG_Mode2_FilePath = Path.GetFileName(@"\\imgControls\\u9_1715.jpg");
-        public static string BG_Mode2_FilePath = Path.GetFileName(@"\\imgControls\\u9_2923.jpg");
+        public static string BG_Mode4_FilePath = Path.GetFileName(@"\\imgControls\\u9_2923.jpg");
+        public static string BG_Mode3_FilePath = Path.GetFileName(@"\\imgControls\\u9_3282.jpg");
+        public static string BG_Mode2_FilePath = Path.GetFileName(@"\\imgControls\\u9_3282_light.png");
         public Bitmap BG_mode2 = new Bitmap(filename: BG_Mode2_FilePath);
         
         //public Bitmap BG_mode2 = (Bitmap)BG_Form; //приведение типа Image к типу Bitmap
 
+        Form CustomInfoBoxMessage1 = new TimeModeEnableInfoDialog();
+
         public void Switch_Mode_Button_Click(object sender, EventArgs e)
         {
-
+            CustomInfoBoxMessage1.Show();
+            StopButton_Click(sender, e);
             //string V1 = Path.GetFileName(Path.GetDirectoryName(Application.CommonAppDataPath.ToLower());
 
             //Bitmap testc = (Bitmap)BG_Form;
             //MessageBox.Show(testc.GetHbitmap().ToString());
             //
-            MessageBox.Show(BG_Mode2_FilePath);
+            //MessageBox.Show(BG_Mode2_FilePath);
+            //MessageBox.Show("Time mode enabled");
 
 
             RealTime_Label.Visible = true;
-                Seconds_Label.Visible = false;
-                Minutes_Label.Visible = false;
-                Hours_Label.Visible = false;
-                Split_Label_1.Visible = false;
-                Split_Label_2.Visible = false;
-                Fixated_CheckBox.Visible = false;
-                ShowCheckGroup_Button.Visible = false;
-                ShowTime_Button.Visible = false; 
+            Seconds_Label.Visible = false;
+            Minutes_Label.Visible = false;
+            Hours_Label.Visible = false;
+            Split_Label_1.Visible = false;
+            Split_Label_2.Visible = false;
+            //Fixated_CheckBox.Visible = false;
+            ShowCheckGroup_Button.Visible = false;
+            ShowTime_Button.Visible = false; 
             //switch mode buttons:
             Switch_Mode_Button.Enabled = false;
             DefaultMode_Button.Enabled = true;
-            //this.BackColor = Color.White;
-            //this.BackColor = System.Drawing.Color.FromArgb(50,100,100,100);
+            //Align Button Align:
             RealTime_Label.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255, 255);
             this.BackgroundImage = Bitmap.FromFile(filename: BG_Mode2_FilePath);
             
             //this.BackgroundImage = Bitmap.FromFile(filename: @"banner_blue.jpg");
             this.BackgroundImageLayout = ImageLayout.Stretch;
 
+
+            Align_Button_Click(sender,e);
+            Enable_Group_TimemeterFunctions.Checked = false;
+            Fixated_CheckBox.Checked = true;
+            RealTime_Label_Click(sender, e);
+            StartButton_PictureBox.Enabled = false;
+            StartButton_PictureBox.Visible = false;
+
+            //Hide Secondary Timemeter Labels:
+            Small_Timemeter_Label.Visible = false;
+            TimemeterCheckGroupBox.Visible = false;
+
+            //stop timemeter main and cover timers
+            main_system_timer.Enabled = false;
+            timer_for_cover.Enabled = false;
+            //Timer_ShowRealTime.Enabled = Enabled;
+            Timemeter_ClearVolumes();
+
+
+            //Minute_Progress_Label.ForeColor = System.Drawing.Color.White;
+
+            //Fixated_CheckBox_CheckedChanged(sender, e);
+
             //public static string Path = new Path.GetRelativePath("E:\\_Мои файлы\\Разработка\\_ПроектыWMit\\_CL - TimeMeter\\CL - TimemeterDesktop(WinForms)\\CL - Timemeter\\CL - Timemeter\\imgControls\\banner_blue.jpg");
-        //{
+            //{
 
             //    string relativeTo = "E:\\_Мои файлы\\Разработка\\_ПроектыWMit\\_CL - TimeMeter\\CL - TimemeterDesktop(WinForms)\\CL - Timemeter\\CL - Timemeter\\imgControls\\banner_blue.jpg";
             //    path
             //} 
-
-
-
-            //this.BackgroundImage = Bitmap.FromFile(filename: BackGrImgFile);
-
-            //this.BackgroundImage = Bitmap.FromFile(filename: BackGrImgFile);
-
 
             //string path1 = @"c:\temp\MyTest.txt";
             //string path2 = @"c:\temp\MyTest";
@@ -540,8 +684,34 @@ namespace CL_Timemeter
             //    RealTime_Label.Visible = false;
             //}
         }
+        public MessageBox CustomMessageMode;
+        public MessageBox DefaultMessageMode;
+
+        public MessageBoxIcon iM1 = MessageBoxIcon.Information;
+
+
         public void DefMode_ON(object sender, EventArgs e)
         {
+            //CustomMessageMode.
+            //CustomMessageMode.Show("Default mode enabled");
+            //string A1 = 256.ToString().Substring(A1.ToString());
+            //MessageBox.Show(A1);
+            //MessageBox.Show("1");
+
+            //Tiemeter buttons enabled:
+            //MessageBox.Show("Default Mode Enabled", caption: "Default Mode", buttons:MessageBoxButtons.OK, icon: iM1, defaultButton: MessageBoxDefaultButton.Button1, options: 0, displayHelpButton: false );
+            TimeModeEnableInfoDialog Def_ModeEnableInfoDialog = new TimeModeEnableInfoDialog();
+            Def_ModeEnableInfoDialog.BackColor = System.Drawing.Color.DarkKhaki;
+            Def_ModeEnableInfoDialog.TimeModeInfo_MessageLabel.ForeColor = System.Drawing.Color.Black;
+            Def_ModeEnableInfoDialog.TimeModeInfo_MessageLabel.Text = "Timemeter mode enabled";
+
+            //Def_ModeEnableInfoDialog.TimeModeInfo_MessageLabel.BackColor = BackColor = System.Drawing.Color.Black;
+
+            Def_ModeEnableInfoDialog.Show();
+            StartButton_PictureBox.Visible = true;
+            StartButton_PictureBox.Enabled = true;
+
+
             RealTime_Label.Visible = false;
             Seconds_Label.Visible = true;
             Minutes_Label.Visible = true; 
@@ -553,39 +723,184 @@ namespace CL_Timemeter
             ShowTime_Button.Visible = true;
             this.BackgroundImage = default;
 
+            ShowCheckGroup_Button.Visible = true;
+            ShowTime_Button.Visible = true;
+
+            //function buttons:
+            ChangeBG_Button.Enabled = false;
+            Default_BG_Button.Enabled = false;
+
             //switch mode buttons:
             Switch_Mode_Button.Enabled = true;
             DefaultMode_Button.Enabled = false;
-        }
 
+            //stop all timers
+            main_system_timer.Enabled = false;
+            timer_for_cover.Enabled = false;
+            Timer_ShowRealTime.Enabled = false;
+            Timemeter_ClearVolumes();
+        }
+        /// <summary>
+        /// Align Form to corner
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Align_Button_Click(object sender, EventArgs e)
         {
             //Get Primary Screen Size:
             Size Screen_Resolution = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Size;
             //Size Screen_Width = System.Windows.SystemParameters.PrimaryScreenWidth;
             //Size Screen_Height = System.Windows.SystemParameters.PrimaryScreenHeight;
-            //Size Screen_Height
+            //MessageBox.Show(Screen_Resolution.Width.ToString()); //test
+            string Screen_Width = Screen_Resolution.Width.ToString();
+            int Horisontal_Align = ((Screen_Resolution.Width) - 375);
+            this.SetDesktopLocation(Horisontal_Align, 50);
+        }
 
-            //Screen_Resolution.int
-            this.SetDesktopLocation(1000, 50);
+        private void Default_BG_Button_Click(object sender, EventArgs e)
+        {
+            this.BackgroundImage = default;
+        }
+        /// <summary>
+        /// Функция изменения фона главной формы
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ChangeBG_Button_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog OpenBG_Image = new OpenFileDialog();
+            OpenBG_Image.ShowDialog();
+            string FileAndPathNameBGImage = OpenBG_Image.FileName;
+            MessageBox.Show(FileAndPathNameBGImage);
+            Image CustomBG_Image_File = Bitmap.FromFile(filename: @FileAndPathNameBGImage);
+            Image DefaultBG_Image_File = Bitmap.FromFile(filename: @"u9_2923.jpg");
+            if (FileAndPathNameBGImage == null)
+            {
+                this.BackgroundImage = DefaultBG_Image_File;
+            }
+            else
+            {
+                this.BackgroundImage = CustomBG_Image_File;
+            }
+        }
+
+        private void CL_Timemeter_Form_MouseLeave(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
+        }
+
+
+        /// <summary>
+        /// Real Time Output functions and control element
+        /// </summary>
+        public Timer Timer_ShowRealTime = new Timer();
+    
+        public System.DateTime RealTimeElement = DateTime.UtcNow;
+        public string TimeOutputValume;
+
+        public void Get_RealTime()
+        {
+
+            
+            RealDate_Label.Text = RealTimeElement.ToString("HH:mm:ss");
+
+            //RealTimeElement.GetDateTimeFormats();
+
+            //RealTimeElement.GetDateTimeFormats().FirstOrDefault();
+            //RealTimeElement.ToLocalTime();
+            //RealTimeElement.ToUniversalTime();
+            //RealTimeElement.TimeOfDay.ToString();
+
+            //MessageBox.Show(RealTimeElement.ToUniversalTime().ToString());
+            //MessageBox.Show(T2.ToLocalTime().ToLongTimeString());
+            //MessageBox.Show(T2.ToLocalTime().ToLongDateString());
+            //MessageBox.Show(T2.ToLocalTime().GetDateTimeFormats()[25].ToString());
+            //MessageBox.Show(RealTimeElement.ToUniversalTime().ToString());
+            //MessageBox.Show(RealTimeElement.ToLocalTime().ToString());
+            //MessageBox.Show(TimeOutputValume);
+            //MessageBox.Show(RealTimeElement.GetDateTimeFormats().FirstOrDefault());
+
+
+            //RealTime_Label.Text = RealTimeElement.TimeOfDay.ToString();
+
+        }
+        
+        public void Timer_ShowRealTime_Tick(object sender, EventArgs e)
+        {
+            //Timer_ShowRealTime.Start();
+            //Get_RealTime();
+            //RealTimeElement.AddMinutes(5);
+            //RealTimeElement.AddMinutes(5);
+            //System.Timers.Timer timer1 = new System.Timers.Timer();
+            //DateTimeOffset
+            //RealTimeElement.Add(TimeSpan.Zero);
+
+            //RealTime_Label.Text = RealTimeElement.Date.GetDateTimeFormats()[60].ToString();
+            //RealTime_Label.Text = RealTimeElement.Date.GetDateTimeFormats()[51].ToString();
+            //RealTime_Label.Text = RealTimeElement.Date.AddMinutes(5).ToString("HH:mm:ss");
+            //RealTime_Label.Text = RealTimeElement.Add(TimeSpan.FromSeconds(1518148484)).ToString("HH:mm:ss"); 
+
+
+            //RealTime_Label.Text = RealTimeElement.ToLocalTime().ToString("HH:mm:ss");  /////////////////////
+
+
+            //RealTime_Label.Text = RealTimeElement.Date.ToString("HH:mm:ss");
+
+
+
+            //RealDate_Label.Text = RealTimeElement.Date.ToString("dd:MM:yyyy");          ///////////////////
+
+            //TimeSpan.FromHours
+            //string Rtime = RealTimeElement.ToLocalTime().ToOADate().ToString();
+
+            //string Rtime = RealTimeElement.ToString(DateTimeKind.Local.ToString("HH:mm:ss"));
+            //string Rtime = RealTimeElement.ToOADate().(DateTimeKind.Local.ToString("HH:mm:ss"));
+
+            //string Rtime = RealTimeElement.ToOADate().ToString();
+            //RealTimeElement.ToLocalTime().ToShortTimeString();
+            //string RealTimeOutput =
+            
+            ////RealTimeElement.Second.ToString() + ":" +
+            ////RealTimeElement.Minute.ToString() + ":" +
+            ////RealTimeElement.Hour.ToString();
+            //RealTime_Label.Text = RealTimeOutput;
+            //MessageBox.Show(Rtime);
+
+            //RealTime_Label.Text = RealTimeElement.Date.ToString("dd.MM.yyyy");
+            System.DateTime RealTimeOutput2 = DateTime.Now;
+     
+
+            //RealTime_Label.Text = RealTimeOutput;
+            RealTime_Label.Text = RealTimeOutput2.ToString("HH:mm:ss");
+            Get_RealTime();
+
+            //main_system_timer_Tick(sender, e);
+            //Minute_Progress_Label.Text += ".";
 
         }
 
-        //object Image1 = null;
-
-        /////test
-        //public partial class Image1 : Image
-        //{
-
-        //    public Image1()
-        //    {
-
-        //    }
-        //    EnvironmentVariableTarget
 
 
-        //    //IAppDomainSetup appSetup;
-        //}
+
+        public void RealTime_Label_Click(object sender, EventArgs e)
+        {
+            Timer_ShowRealTime.Interval = 1000;
+
+            Timer_ShowRealTime.Enabled = true;
+            //Timer_ShowRealTime.Start();
+            Timer_ShowRealTime.Tick += Timer_ShowRealTime_Tick;
+
+            //RealTime_Label.ForeColor = System.Drawing.Color.YellowGreen;
+            //Get_RealTime();
+            //MessageBox.Show(RealTimeElement.TimeOfDay.ToString());
+        }
+
+        private void RealTime_Label_Layout(object sender, LayoutEventArgs e)
+        {
+
+            //T1.Start();
+            //RealTime_Label.Text = T1.ToString();
+        }
 
         /// <summary>
         /// 

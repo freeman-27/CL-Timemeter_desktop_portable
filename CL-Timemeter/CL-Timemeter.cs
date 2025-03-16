@@ -492,18 +492,24 @@ namespace CL_Timemeter
         {
             if (Small_Timemeter_Label.Visible == false)
             {
+                //show time and date:
                 Small_Timemeter_Label.Visible = true;
-                //show time
-            } else { 
-            Small_Timemeter_Label.Visible = false;
-            //hide time
+                RealDate_Label.Visible = true;
+                RealTime_OutputToLabel(sender, e);
+            } else {
+                //hide time and date:
+                Small_Timemeter_Label.Visible = false;
+                RealDate_Label.Visible = false;
+
+
             }
         }
 
         private void CL_Timemeter_Form_MouseEnter(object sender, EventArgs e)
         {
             //TimeValuesLabels_GroupBox.BackColor = Color.Transparent;
-            this.Cursor = Cursors.PanNW;
+            //this.Cursor = Cursors.PanNW;
+            this.Cursor = Cursors.Default;
         }
 
         private void TimeValuesLabels_GroupBox_Enter(object sender, EventArgs e)
@@ -627,6 +633,7 @@ namespace CL_Timemeter
 
 
             RealTime_Label.Visible = true;
+            RealDate_Label.Visible = true;
             Seconds_Label.Visible = false;
             Minutes_Label.Visible = false;
             Hours_Label.Visible = false;
@@ -639,7 +646,7 @@ namespace CL_Timemeter
             Switch_Mode_Button.Enabled = false;
             DefaultMode_Button.Enabled = true;
             //Align Button Align:
-            RealTime_Label.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255, 255);
+            //// ====== //RealTime_Label.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255, 255);  //// ToDo Enable in ver. 2.0
             this.BackgroundImage = Bitmap.FromFile(filename: BG_Mode2_FilePath);
             
             //this.BackgroundImage = Bitmap.FromFile(filename: @"banner_blue.jpg");
@@ -649,7 +656,7 @@ namespace CL_Timemeter
             Align_Button_Click(sender,e);
             Enable_Group_TimemeterFunctions.Checked = false;
             Fixated_CheckBox.Checked = true;
-            RealTime_Label_Click(sender, e);
+            RealTime_OutputToLabel(sender, e);
             StartButton_PictureBox.Enabled = false;
             StartButton_PictureBox.Visible = false;
 
@@ -726,9 +733,10 @@ namespace CL_Timemeter
             ShowCheckGroup_Button.Visible = true;
             ShowTime_Button.Visible = true;
 
-            //function buttons:
-            ChangeBG_Button.Enabled = false;
-            Default_BG_Button.Enabled = false;
+            ////==== function buttons: 
+            /////Background functions buttons - Enable in ver. 2.0
+            //ChangeBG_Button.Enabled = false;
+            //Default_BG_Button.Enabled = false;
 
             //switch mode buttons:
             Switch_Mode_Button.Enabled = true;
@@ -795,7 +803,8 @@ namespace CL_Timemeter
         /// </summary>
         public Timer Timer_ShowRealTime = new Timer();
     
-        public System.DateTime RealTimeElement = DateTime.UtcNow;
+        //public System.DateTime RealTimeElement = DateTime.UtcNow;
+        public System.DateTime RealTimeElement = DateTime.Now;
         public string TimeOutputValume;
 
         public void Get_RealTime()
@@ -872,7 +881,9 @@ namespace CL_Timemeter
 
             //RealTime_Label.Text = RealTimeOutput;
             RealTime_Label.Text = RealTimeOutput2.ToString("HH:mm:ss");
-            Get_RealTime();
+            Small_Timemeter_Label.Text = RealTimeOutput2.ToString("HH:mm:ss");
+            RealDate_Label.Text = RealTimeOutput2.ToString("dd.MM.yyyy");
+            //Get_RealTime();
 
             //main_system_timer_Tick(sender, e);
             //Minute_Progress_Label.Text += ".";
@@ -882,7 +893,7 @@ namespace CL_Timemeter
 
 
 
-        public void RealTime_Label_Click(object sender, EventArgs e)
+        public void RealTime_OutputToLabel(object sender, EventArgs e)
         {
             Timer_ShowRealTime.Interval = 1000;
 
@@ -900,6 +911,42 @@ namespace CL_Timemeter
 
             //T1.Start();
             //RealTime_Label.Text = T1.ToString();
+        }
+
+        private void Align_Button_MouseEnter(object sender, EventArgs e)
+        {
+            //Align_Button.BackColor = System.Drawing.Color = global::System.Drawing.Color.FromArgb(((int)(((byte)()))));
+            Align_Button.BackColor = System.Drawing.Color.YellowGreen;
+        }
+
+        private void Align_Button_MouseLeave(object sender, EventArgs e)
+        {
+            Align_Button.BackColor = default;
+        }
+
+        private void CloseButton_Custom_MouseEnter(object sender, EventArgs e)
+        {
+            CloseButton_Custom.BackColor = System.Drawing.Color.IndianRed;
+            CloseButton_Custom.ForeColor = System.Drawing.Color.White;
+        }
+
+        private void CloseButton_Custom_MouseLeave(object sender, EventArgs e)
+        {
+            CloseButton_Custom.BackColor = default;
+            CloseButton_Custom.ForeColor = default;
+
+        }
+
+        private void StopButton_PictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            Image StopButton_Image = Bitmap.FromFile(filename: @"Stop_Button_Rectangle_Transparent_Image.png");
+            StopButton_PictureBox.Image = StopButton_Image;
+        }
+
+        private void StopButton_PictureBox_MouseEnter(object sender, EventArgs e)
+        {
+            Image StopButtonHover_Image = Bitmap.FromFile(filename: @"Stop_Button_Rectangle_Image.png");
+            StopButton_PictureBox.Image = StopButtonHover_Image;
         }
 
         /// <summary>

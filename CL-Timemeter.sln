@@ -5,11 +5,26 @@ VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CL-Timemeter", "CL-Timemeter\CL-Timemeter.csproj", "{B4BD9E94-471B-4B98-A0DE-1ACB9F2A2A71}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "imgControls", "imgControls", "{9882121B-857D-4F60-A6B3-6F5025C67D88}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{EEAE2621-9FF9-4074-B542-DAFFAD3F3E1F}"
 	ProjectSection(SolutionItems) = preProject
-		CL-Timemeter\imgControls\Start_Button_Image.png = CL-Timemeter\imgControls\Start_Button_Image.png
-		CL-Timemeter\imgControls\Start_Button_Image_Transparent.png = CL-Timemeter\imgControls\Start_Button_Image_Transparent.png
+		CL-Timemeter\imgControls\icons\CL-Timemeter_Main_Image.ico = CL-Timemeter\imgControls\icons\CL-Timemeter_Main_Image.ico
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CL_Timemeter_Installer", "CL-_Timemeter_Installer\CL_Timemeter_Installer.csproj", "{BD813437-A7E4-4CFF-8929-0443A92C1D3F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "imgControls", "imgControls", "{E1844C13-AD18-4145-ADB3-A093D3BD72BE}"
+	ProjectSection(SolutionItems) = preProject
+		..\img Controls prepare\PauseActivated_Button_Image.png = ..\img Controls prepare\PauseActivated_Button_Image.png
+		..\img Controls prepare\Pause_Button_Image.png = ..\img Controls prepare\Pause_Button_Image.png
+		..\img Controls prepare\Pause_Button_Image_Transparent.png = ..\img Controls prepare\Pause_Button_Image_Transparent.png
+		..\img Controls prepare\Start_Button_Image.png = ..\img Controls prepare\Start_Button_Image.png
+		..\img Controls prepare\Start_Button_Image_Transparent.png = ..\img Controls prepare\Start_Button_Image_Transparent.png
+		..\img Controls prepare\Stop_Button_Rectangle_Image.png = ..\img Controls prepare\Stop_Button_Rectangle_Image.png
+		..\img Controls prepare\Stop_Button_Rectangle_Transparent_Image.png = ..\img Controls prepare\Stop_Button_Rectangle_Transparent_Image.png
+		..\img Controls prepare\u9_3282_light.png = ..\img Controls prepare\u9_3282_light.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Новая папка1", "Новая папка1", "{3FABCC3F-050F-46BE-B927-D49CE361761B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,8 +36,16 @@ Global
 		{B4BD9E94-471B-4B98-A0DE-1ACB9F2A2A71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4BD9E94-471B-4B98-A0DE-1ACB9F2A2A71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4BD9E94-471B-4B98-A0DE-1ACB9F2A2A71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD813437-A7E4-4CFF-8929-0443A92C1D3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD813437-A7E4-4CFF-8929-0443A92C1D3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD813437-A7E4-4CFF-8929-0443A92C1D3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD813437-A7E4-4CFF-8929-0443A92C1D3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E1844C13-AD18-4145-ADB3-A093D3BD72BE} = {EEAE2621-9FF9-4074-B542-DAFFAD3F3E1F}
+		{3FABCC3F-050F-46BE-B927-D49CE361761B} = {EEAE2621-9FF9-4074-B542-DAFFAD3F3E1F}
 	EndGlobalSection
 EndGlobal

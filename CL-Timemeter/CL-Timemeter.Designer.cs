@@ -517,6 +517,7 @@
             this.StopButton_PictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.StopButton_PictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.StopButton_PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("StopButton_PictureBox.Image")));
+            this.StopButton_PictureBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("StopButton_PictureBox.InitialImage")));
             this.StopButton_PictureBox.Location = new System.Drawing.Point(115, 183);
             this.StopButton_PictureBox.Name = "StopButton_PictureBox";
             this.StopButton_PictureBox.Size = new System.Drawing.Size(68, 29);
@@ -545,6 +546,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 300);
+            this.Controls.Add(this.StopButton_PictureBox);
             this.Controls.Add(this.RealDate_Label);
             this.Controls.Add(this.TimeMeterFunctions_GroupBox);
             this.Controls.Add(this.Enable_Group_TimemeterFunctions);
@@ -564,12 +566,12 @@
             this.Controls.Add(this.Minute_Progress_Label);
             this.Controls.Add(this.Pause_Button);
             this.Controls.Add(this.StartButton);
-            this.Controls.Add(this.StopButton_PictureBox);
             this.Controls.Add(this.RealTime_TestLabel);
             this.Controls.Add(this.CloseButton_Custom);
             this.Controls.Add(this.Align_Button);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "CL_Timemeter_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

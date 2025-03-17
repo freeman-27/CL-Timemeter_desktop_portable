@@ -18,7 +18,8 @@ using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using Microsoft.Win32;
 using CL_Timemeter.Properties;
-using System.Drawing.Configuration;//test
+using System.Drawing.Configuration;
+using System.Diagnostics.CodeAnalysis;//test
 
 
 namespace CL_Timemeter
@@ -32,10 +33,14 @@ namespace CL_Timemeter
         {
             InitializeComponent();
         }
+        //public Image ImageIcon_CL_Timemeter = Bitmap.FromFile(filename: @"CL-Timemeter-icon64.png");
+        //public Icon Icon_CL_Timemeter;
+        //public System.Drawing.IconConverter Conv;
+
 
         private void CL_Timemeter_Form_Load(object sender, EventArgs e)
         {
-            this.AcceptButton = StartButton;
+            //this.AcceptButton = StartButton;
             Hide_All_ControlElement_Labels();
         }
 
@@ -321,7 +326,6 @@ namespace CL_Timemeter
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public string ImagePauseActivated_FilePath = Path.GetFileName(@"PauseActivated_Button_Image.png");
         /// 
         public void Activate_TimemeterElement_Click(object sender, EventArgs e)
         {
@@ -358,8 +362,8 @@ namespace CL_Timemeter
 
 
             //Activate Style PauseBtn:
-            //MessageBox.Show(ImagePauseActivated_FilePath);
-            PauseButton_PictureBox.Image = Bitmap.FromFile(filename: ImagePauseActivated_FilePath);
+            //MessageBox.Show(ImagePauseActivated_FileName);
+            PauseButton_PictureBox.Image = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImagePauseActivated_FileName));
 
         }
 
@@ -380,7 +384,7 @@ namespace CL_Timemeter
             //this.Opacity = 0.5;
             timer_for_cover.Stop();
             timer_for_cover.Enabled = false;
-            PauseButton_PictureBox.Image = Bitmap.FromFile(filename: ImagePauseActivated_FilePath);
+            PauseButton_PictureBox.Image = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImagePauseActivated_FileName));
             if (ExecutionStatus != 2){
                 ExecutionStatus = 2;
                 main_system_timer.Enabled = false;
@@ -396,16 +400,16 @@ namespace CL_Timemeter
         }
 
 
-        public string ImagePauseHover_FilePath = Path.GetFileName(@"Pause_Button_Image.png");
+        
         public void PauseButton_PictureBox_MouseEnter(object sender, EventArgs e)
         {
-            PauseButton_PictureBox.Image = Bitmap.FromFile(filename: ImagePauseHover_FilePath);
+            PauseButton_PictureBox.Image = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImagePauseHover_FileName));
             Cursor = Cursors.Hand;
         }
-        public string ImagePause_FilePath = Path.GetFileName(@"Pause_Button_Image_Transparent.png");
+        
         public void PauseButton_PictureBox_MouseLeave(object sender, EventArgs e)
         {
-            PauseButton_PictureBox.Image = Bitmap.FromFile(filename: ImagePause_FilePath);
+            PauseButton_PictureBox.Image = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImagePause_FileName));
             Cursor = Cursors.Default;
         }
 
@@ -553,24 +557,55 @@ namespace CL_Timemeter
         {
 
         }
-        public static string ImageStartHover_FilePath = Path.GetFileName(@"Start_Button_Image.png");
-        //public static string ImageStartHover_FilePath = Path.GetFileName(@"Start_Button_Image.png");
-        
-        private void StartButton_PictureBox_MouseEnter(object sender, EventArgs e)
+
+        /// <summary>
+        /// IMAGE CONTROLS Folders Names 
+        /// </summary>
+
+        //folder with images for control elements:
+        //relative path:
+        public static string ImageControlsFolder_RelativePath = @"imgControls\\";
+        //default installation folder:
+        public static string ImageContolElement_PathFolder = Path.GetDirectoryName(@"C:\Program files\WMit\CL-Timemeter\imgControls\"); //installation folder
+        //debug-release folder:        
+        public static string ImageContolElement_PathDebug = Path.Combine(Path.GetDirectoryName(Application.StartupPath) , @"imgControls\\"); //installation folder
+        //auto combine path folder
+        public static string ImageContolElement_AutoCombinePathFolder = Path.Combine(Path.GetDirectoryName(Application.StartupPath), ImageControlsFolder_RelativePath); //installation folder
+
+
+        //public static string ImageStartHover_FilePath = Path.GetDirectoryName(@"C:\Program files\wmit\CL-Timemeter\imgControls\"); //installation folder
+        //public static string ImageStartHover_FilePathDebug = Path.GetDirectoryName(Application.StartupPath); // debug and release testing folder
+
+
+        /// <summary>
+        /// IMAGE CONTROLS File Names 
+        /// </summary>
+        public static string ImageStartButtonHover_FileName = Path.GetFileName(@"Start_Button_Image.png");
+        public static string ImageStartButton_FileName = Path.GetFileName(@"Start_Button_Image_Transparent.png");
+        public static string ImagePauseActivated_FileName = Path.GetFileName(@"PauseActivated_Button_Image.png");
+        public static string ImagePauseHover_FileName = Path.GetFileName(@"Pause_Button_Image.png");
+        public static string ImagePause_FileName = Path.GetFileName(@"Pause_Button_Image_Transparent.png");
+        public static string ImageStopButton_FileName = Path.GetFileName(@"Stop_Button_Rectangle_Transparent_Image.png");
+        public static string ImageStopButtonHover_FileName = Path.GetFileName(@"Stop_Button_Rectangle_Image.png");
+        public static string DefaultBackgroundImage_FileName = Path.GetFileName(@"green_land_light.png");
+
+        public void StartButton_PictureBox_MouseEnter(object sender, EventArgs e)
         {
 
-            //MessageBox.Show(ImageStartFile_FilePath);
-            //Bitmap ImageStartFile = new Bitmap(filename: ImageStartFile_FilePath);
-            StartButton_PictureBox.Image = Bitmap.FromFile(filename: ImageStartHover_FilePath);
+            //MessageBox.Show(Path.Combine(ImageStartHover_FilePath, ImageStartHover_FileName));
+            //MessageBox.Show(Path.Combine(ImageContolElement_PathFolder, ImageStartButtonHover_FileName));
+            //MessageBox.Show(Path.Combine(ImageContolElement_PathDebug, ImageStartButtonHover_FileName));
+            //MessageBox.Show(Path.Combine(ImageControlsFolder_RelativePath, ImageStartButtonHover_FileName));
+
+            //MessageBox.Show(Path.Combine(ImageContolElement_AutoCombinePathFolder, ImageStartButtonHover_FileName));
+            //StartButton_PictureBox.Image = Bitmap.FromFile(filename: Path.Combine(Path.GetDirectoryName(Application.StartupPath), Path.GetFileName(ImageStartButtonHover_FileName)));
+            StartButton_PictureBox.Image = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImageStartButtonHover_FileName));
             StartButton_PictureBox.Cursor = Cursors.Hand;
         }
 
-        private void StartButton_PictureBox_MouseLeave(object sender, EventArgs e)
+        public void StartButton_PictureBox_MouseLeave(object sender, EventArgs e)
         {
-            //string ImagePauseFile_FilePath = Path.GetFileName(@"Pause_Button_Image.png");
-            //StartBtn_PictureBox.Image = Bitmap.FromFile(filename: ImagePauseFile_FilePath);
-            string ImageStart_FilePath = Path.GetFileName(@"Start_Button_Image_Transparent.png");
-            StartButton_PictureBox.Image = Bitmap.FromFile(filename: ImageStart_FilePath);
+            StartButton_PictureBox.Image = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImageStartButton_FileName));
         }
 
         public void Cursor_enters_element_Style(object sender, EventArgs e)
@@ -603,18 +638,12 @@ namespace CL_Timemeter
             }
         }
 
-        
+
         //public static Stream Stream_Image_BGForm = File.OpenRead(@"\\imgControls\\banner_blue.jpg");
-        //public static Stream Stream_Image_BGForm = File.OpenRead("E:\\_Мои файлы\\Разработка\\_ПроектыWMit\\_CL - TimeMeter\\CL - TimemeterDesktop(WinForms)\\CL - Timemeter\\CL - Timemeter\\imgControls\\banner_blue.jpg");
         //public static Image BG_Form = Image.FromStream(Stream_Image_BGForm);
-        
-        //public static string BG_Mode2_FilePath = Path.GetFileName(@"\\imgControls\\banner_blue.jpg");
-        //public static string BG_Mode2_FilePath = Path.GetFileName(@"\\imgControls\\u9_1715.jpg");
-        public static string BG_Mode4_FilePath = Path.GetFileName(@"\\imgControls\\u9_2923.jpg");
-        public static string BG_Mode3_FilePath = Path.GetFileName(@"\\imgControls\\u9_3282.jpg");
-        public static string BG_Mode2_FilePath = Path.GetFileName(@"\\imgControls\\u9_3282_light.png");
-        public Bitmap BG_mode2 = new Bitmap(filename: BG_Mode2_FilePath);
-        
+
+
+        public static string Background_For_TimeMode = DefaultBackgroundImage_FileName;
         //public Bitmap BG_mode2 = (Bitmap)BG_Form; //приведение типа Image к типу Bitmap
 
         Form CustomInfoBoxMessage1 = new TimeModeEnableInfoDialog();
@@ -647,7 +676,7 @@ namespace CL_Timemeter
             DefaultMode_Button.Enabled = true;
             //Align Button Align:
             //// ====== //RealTime_Label.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255, 255);  //// ToDo Enable in ver. 2.0
-            this.BackgroundImage = Bitmap.FromFile(filename: BG_Mode2_FilePath);
+            this.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, Background_For_TimeMode));
             
             //this.BackgroundImage = Bitmap.FromFile(filename: @"banner_blue.jpg");
             this.BackgroundImageLayout = ImageLayout.Stretch;
@@ -939,13 +968,13 @@ namespace CL_Timemeter
 
         private void StopButton_PictureBox_MouseLeave(object sender, EventArgs e)
         {
-            Image StopButton_Image = Bitmap.FromFile(filename: @"Stop_Button_Rectangle_Transparent_Image.png");
+            Image StopButton_Image = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImageStopButton_FileName));
             StopButton_PictureBox.Image = StopButton_Image;
         }
 
         private void StopButton_PictureBox_MouseEnter(object sender, EventArgs e)
         {
-            Image StopButtonHover_Image = Bitmap.FromFile(filename: @"Stop_Button_Rectangle_Image.png");
+            Image StopButtonHover_Image = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImageStopButtonHover_FileName));
             StopButton_PictureBox.Image = StopButtonHover_Image;
         }
 

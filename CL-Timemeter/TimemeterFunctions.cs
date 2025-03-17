@@ -16,21 +16,6 @@ namespace CL_Timemeter
 
     internal class TimemeterFunctions
     {
-        struct DateTime {  }
-        struct Time {  }
-        struct TimeSpan { }
-        struct Timestamp { }
-        struct Timestamp2 { }
-        struct Timestamp3 { }
-        
-        EnvironmentVariableTarget EnvironmentVariableTarget { get; }
-
-
-
-        public void Timemeter_Core_Global() 
-        {
-            
-        }
 
     }
 }

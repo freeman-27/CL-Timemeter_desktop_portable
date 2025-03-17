@@ -63,16 +63,6 @@ namespace CL_Timemeter.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BG_Mode2 {
-            get {
-                object obj = ResourceManager.GetObject("BG_Mode2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap u9_1715 {
             get {
                 object obj = ResourceManager.GetObject("u9_1715", resourceCulture);

@@ -121,6 +121,16 @@ namespace CL_Timemeter {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap StopButton_PictureBox_InitialImage {
+            get {
+                object obj = ResourceManager.GetObject("StopButton_PictureBox.InitialImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Point, аналогичного {X=173,Y=17}.
         /// </summary>
         public static System.Drawing.Point timer_for_cover_TrayLocation {

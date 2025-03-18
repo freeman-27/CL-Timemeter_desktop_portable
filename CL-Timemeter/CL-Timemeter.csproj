@@ -170,7 +170,46 @@
     <Content Include="about\about_cl-timemeter.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="about\AppView_Images\App_DetailsGroupBox_On.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="about\AppView_Images\App_FunctionsGroupBox_On.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="about\AppView_Images\App_ShowRealTime_Finc_On.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="about\AppView_Images\App_StartState.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="about\AppView_Images\App_TimemetePaused%282%29.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="about\AppView_Images\App_TimemetePaused.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="about\AppView_Images\App_TimemeterFunction_On%282%29.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="about\AppView_Images\App_TimemeterFunction_On.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="about\AppView_Images\App_TimeMode_Fixated.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="about\AppView_Images\App_TimeMode_NonFixeted.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="about\AppView_Images\App_WindowFixated.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="CL-Timemeter_Main_Image.ico" />
+    <Content Include="imgControls\Info_Button_Image.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="imgControls\Info_Button_Image_Transparent.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="imgControls\PauseActivated_Button_Image.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

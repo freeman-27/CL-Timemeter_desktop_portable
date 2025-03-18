@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Security.Policy;
@@ -66,6 +67,26 @@ namespace CL_Timemeter
             //MessageBox.Show(webBrowser1.Url.ToString());
 
 
+        }
+
+        private void Open_Local_Help_Button_Click(object sender, EventArgs e)
+        {
+
+            //// open html file//
+            Process RunBrowserFor_ViewHelp = new Process();
+            RunBrowserFor_ViewHelp.StartInfo.FileName = "chrome.exe";
+            Process.Start(fileName: Path.Combine(Path.GetDirectoryName(Application.StartupPath), @"about\", @"about_cl-timemeter.html"));
+            ////MessageBox.Show(Path.Combine(Path.GetDirectoryName(Application.StartupPath), @"about\", @"about.txt"));
+        }
+
+        private void Open_Local_AboutTXT_Button_Click(object sender, EventArgs e)
+        {
+            //// open txt file//
+            Process RunNotepadFor_ViewHelp = new Process();
+            RunNotepadFor_ViewHelp.StartInfo.FileName = "notepad.exe";
+            RunNotepadFor_ViewHelp.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+
+            Process.Start(fileName: Path.Combine(Path.GetDirectoryName(Application.StartupPath), @"about\", @"about.txt"));
         }
     }
 }

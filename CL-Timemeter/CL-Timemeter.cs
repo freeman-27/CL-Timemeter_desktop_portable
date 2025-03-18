@@ -562,13 +562,16 @@ namespace CL_Timemeter
 
         }
 
+        
+
         /// <summary>
         /// IMAGE CONTROLS Folders Names 
         /// </summary>
 
         //folder with images for control elements:
         //relative path:
-        public static string ImageControlsFolder_RelativePath = @"imgControls\\";
+        public static string ImageControlsFolder_RelativePath = @"imgControls\"; //Debug
+        //public static string ImageControlsFolder_RelativePath = @"imgControls\"; //Installation folder (release)
         //default installation folder:
         public static string ImageContolElement_PathFolder = Path.GetDirectoryName(@"C:\Program files\WMit\CL-Timemeter\imgControls\"); //installation folder
         //debug-release folder:        
@@ -990,23 +993,10 @@ namespace CL_Timemeter
         /// <param name="e"></param>
         private void Info_Button_PictureBox_Click(object sender, EventArgs e)
         {
-            //// open txt file//
-            Process RunNotepadFor_ViewHelp = new Process();
-            RunNotepadFor_ViewHelp.StartInfo.FileName = "notepad.exe";
-            RunNotepadFor_ViewHelp.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
-
-            Process.Start(fileName: Path.Combine(Path.GetDirectoryName(Application.StartupPath), @"about\", @"about.txt"));
-
-            //// open html file//
-            Process RunBrowserFor_ViewHelp = new Process();
-            RunBrowserFor_ViewHelp.StartInfo.FileName = "chrome.exe";
-            Process.Start(fileName: Path.Combine(Path.GetDirectoryName(Application.StartupPath), @"about\", @"about_cl-timemeter.html"));
-            ////MessageBox.Show(Path.Combine(Path.GetDirectoryName(Application.StartupPath), @"about\", @"about.txt"));
 
             ////Open form About
             About_Form AboutForm_Open = new About_Form();
             AboutForm_Open.Show();
-
         }
 
 

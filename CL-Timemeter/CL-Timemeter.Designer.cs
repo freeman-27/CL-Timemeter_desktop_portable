@@ -70,7 +70,6 @@
             this.StopButton_PictureBox = new System.Windows.Forms.PictureBox();
             this.RealDate_Label = new System.Windows.Forms.Label();
             this.Info_Button_PictureBox = new System.Windows.Forms.PictureBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.TimeMeterFunctions_GroupBox.SuspendLayout();
             this.TimemeterCheckGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StartButton_PictureBox)).BeginInit();
@@ -559,23 +558,11 @@
             this.Info_Button_PictureBox.MouseEnter += new System.EventHandler(this.Info_Button_PictureBox_MouseEnter);
             this.Info_Button_PictureBox.MouseLeave += new System.EventHandler(this.Info_Button_PictureBox_MouseLeave);
             // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(219, 46);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(55, 13);
-            this.linkLabel1.TabIndex = 37;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "linkLabel1";
-            this.linkLabel1.Click += new System.EventHandler(this.linkLabel1_Click);
-            // 
             // CL_Timemeter_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 300);
-            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.Info_Button_PictureBox);
             this.Controls.Add(this.StopButton_PictureBox);
             this.Controls.Add(this.RealDate_Label);
@@ -666,7 +653,6 @@
         private System.Windows.Forms.Label RealDate_Label;
         public System.Windows.Forms.Button CloseButton_Custom;
         private System.Windows.Forms.PictureBox Info_Button_PictureBox;
-        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

@@ -61,6 +61,16 @@ namespace CL_Timemeter {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Info_Button_PictureBox_Image {
+            get {
+                object obj = ResourceManager.GetObject("Info_Button_PictureBox.Image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Point, аналогичного {X=17,Y=17}.
         /// </summary>
         public static System.Drawing.Point main_system_timer_TrayLocation {

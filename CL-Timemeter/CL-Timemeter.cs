@@ -19,7 +19,8 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using Microsoft.Win32;
 using CL_Timemeter.Properties;
 using System.Drawing.Configuration;
-using System.Diagnostics.CodeAnalysis;//test
+using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics;//test
 
 
 namespace CL_Timemeter
@@ -542,6 +543,7 @@ namespace CL_Timemeter
                 //Minimise_Button.Visible = true;
                 Align_Button.Visible = true;
                 Align_Button.SetBounds(221, -1, 40, 40);
+                Info_Button_PictureBox.SetBounds(185, 0, 35, 35);
             }
             else {
                 On_Border();
@@ -549,6 +551,8 @@ namespace CL_Timemeter
                 Minimise_Button.Visible = false;
                 Align_Button.Visible = true;
                 Align_Button.SetBounds(260, 35, 40, -1);
+                Info_Button_PictureBox.SetBounds(260, 0, 35, 35);
+
 
             }
         }
@@ -568,7 +572,7 @@ namespace CL_Timemeter
         //default installation folder:
         public static string ImageContolElement_PathFolder = Path.GetDirectoryName(@"C:\Program files\WMit\CL-Timemeter\imgControls\"); //installation folder
         //debug-release folder:        
-        public static string ImageContolElement_PathDebug = Path.Combine(Path.GetDirectoryName(Application.StartupPath) , @"imgControls\\"); //installation folder
+        public static string ImageContolElement_PathDebug = Path.Combine(Path.GetDirectoryName(Application.StartupPath) , @"imgControls\"); //installation folder
         //auto combine path folder
         public static string ImageContolElement_AutoCombinePathFolder = Path.Combine(Path.GetDirectoryName(Application.StartupPath), ImageControlsFolder_RelativePath); //installation folder
 
@@ -588,6 +592,8 @@ namespace CL_Timemeter
         public static string ImageStopButton_FileName = Path.GetFileName(@"Stop_Button_Rectangle_Transparent_Image.png");
         public static string ImageStopButtonHover_FileName = Path.GetFileName(@"Stop_Button_Rectangle_Image.png");
         public static string DefaultBackgroundImage_FileName = Path.GetFileName(@"green_land_light.png");
+        public static string ImageInfoButtonHover_FileName = Path.GetFileName(@"info_Button_Image.png");
+        public static string ImageInfoButton_FileName = Path.GetFileName(@"info_Button_Image_Transparent.png");
 
         public void StartButton_PictureBox_MouseEnter(object sender, EventArgs e)
         {
@@ -646,11 +652,11 @@ namespace CL_Timemeter
         public static string Background_For_TimeMode = DefaultBackgroundImage_FileName;
         //public Bitmap BG_mode2 = (Bitmap)BG_Form; //приведение типа Image к типу Bitmap
 
-        Form CustomInfoBoxMessage1 = new TimeModeEnableInfoDialog();
+        Form CustomInfoBoxMessage = new TimeModeEnableInfoDialog();
 
         public void Switch_Mode_Button_Click(object sender, EventArgs e)
         {
-            CustomInfoBoxMessage1.Show();
+            CustomInfoBoxMessage.Show();
             StopButton_Click(sender, e);
             //string V1 = Path.GetFileName(Path.GetDirectoryName(Application.CommonAppDataPath.ToLower());
 
@@ -976,6 +982,50 @@ namespace CL_Timemeter
         {
             Image StopButtonHover_Image = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImageStopButtonHover_FileName));
             StopButton_PictureBox.Image = StopButtonHover_Image;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Info_Button_PictureBox_Click(object sender, EventArgs e)
+        {
+            //// open txt file//
+            Process RunNotepadFor_ViewHelp = new Process();
+            RunNotepadFor_ViewHelp.StartInfo.FileName = "notepad.exe";
+            RunNotepadFor_ViewHelp.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+
+            Process.Start(fileName: Path.Combine(Path.GetDirectoryName(Application.StartupPath), @"about\", @"about.txt"));
+
+            //// open html file//
+            Process RunBrowserFor_ViewHelp = new Process();
+            RunBrowserFor_ViewHelp.StartInfo.FileName = "chrome.exe";
+            Process.Start(fileName: Path.Combine(Path.GetDirectoryName(Application.StartupPath), @"about\", @"about_cl-timemeter.html"));
+            ////MessageBox.Show(Path.Combine(Path.GetDirectoryName(Application.StartupPath), @"about\", @"about.txt"));
+
+            ////Open form About
+            About_Form AboutForm_Open = new About_Form();
+            AboutForm_Open.Show();
+
+        }
+
+
+        private void Info_Button_PictureBox_MouseEnter(object sender, EventArgs e)
+        {
+            Image Info_ButtonHover_Image = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImageInfoButtonHover_FileName));
+            Info_Button_PictureBox.Image = Info_ButtonHover_Image;
+
+        }
+
+        private void Info_Button_PictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            Image Info_Button_Image = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImageInfoButton_FileName));
+            Info_Button_PictureBox.Image = Info_Button_Image;
+        }
+
+        private void linkLabel1_Click(object sender, EventArgs e)
+        {
+
         }
 
         /// <summary>

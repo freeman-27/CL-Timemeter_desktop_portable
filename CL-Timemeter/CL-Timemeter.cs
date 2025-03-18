@@ -562,7 +562,7 @@ namespace CL_Timemeter
 
         }
 
-        
+
 
         /// <summary>
         /// IMAGE CONTROLS Folders Names 
@@ -570,18 +570,16 @@ namespace CL_Timemeter
 
         //folder with images for control elements:
         //relative path:
-        public static string ImageControlsFolder_RelativePath = @"imgControls\"; //Debug
-        //public static string ImageControlsFolder_RelativePath = @"imgControls\"; //Installation folder (release)
-        //default installation folder:
-        public static string ImageContolElement_PathFolder = Path.GetDirectoryName(@"C:\Program files\WMit\CL-Timemeter\imgControls\"); //installation folder
-        //debug-release folder:        
-        public static string ImageContolElement_PathDebug = Path.Combine(Path.GetDirectoryName(Application.StartupPath) , @"imgControls\"); //installation folder
-        //auto combine path folder
+        //*** chenge folders path for create different builds: debug, release, distrib folder, installation folder
+        //public static string ImageControlsFolder_RelativePath = @"Debug\imgControls\"; //Debug folder/////////////////////////////////////////
+        //public static string ImageControlsFolder_RelativePath = @"Release\imgControls\"; //Release folder/////////////////////////////////////////
+        public static string ImageControlsFolder_RelativePath = @"Distrib_1.0\imgControls\"; //Distrib folder/////////////////////////////////////////
+        //public static string ImageControlsFolder_RelativePath = @"CL-Timemeter\imgControls\"; //Installation folder / destination folder for installer) //////////////////////////////////////////////////////
+        
+
         public static string ImageContolElement_AutoCombinePathFolder = Path.Combine(Path.GetDirectoryName(Application.StartupPath), ImageControlsFolder_RelativePath); //installation folder
 
 
-        //public static string ImageStartHover_FilePath = Path.GetDirectoryName(@"C:\Program files\wmit\CL-Timemeter\imgControls\"); //installation folder
-        //public static string ImageStartHover_FilePathDebug = Path.GetDirectoryName(Application.StartupPath); // debug and release testing folder
 
 
         /// <summary>

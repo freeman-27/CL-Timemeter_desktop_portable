@@ -45,7 +45,7 @@
             this.InstallerHeader.Location = new System.Drawing.Point(12, 9);
             this.InstallerHeader.Name = "InstallerHeader";
             this.InstallerHeader.Size = new System.Drawing.Size(287, 25);
-            this.InstallerHeader.TabIndex = 0;
+            this.InstallerHeader.TabIndex = 2;
             this.InstallerHeader.Text = "Instlation Wizard CL-Timemeter";
             // 
             // Cancel
@@ -63,7 +63,7 @@
             this.NextToMainForm_Button.Location = new System.Drawing.Point(281, 160);
             this.NextToMainForm_Button.Name = "NextToMainForm_Button";
             this.NextToMainForm_Button.Size = new System.Drawing.Size(75, 23);
-            this.NextToMainForm_Button.TabIndex = 2;
+            this.NextToMainForm_Button.TabIndex = 0;
             this.NextToMainForm_Button.Text = "Next";
             this.NextToMainForm_Button.UseVisualStyleBackColor = true;
             this.NextToMainForm_Button.Click += new System.EventHandler(this.NextToMainForm_Button_Click);

@@ -39,6 +39,7 @@
             this.OutputLog_ListBox = new System.Windows.Forms.ListBox();
             this.Installation_Done_Button = new System.Windows.Forms.Button();
             this.Test_PathFolder_Button = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // BackToStart_Button
@@ -47,7 +48,7 @@
             this.BackToStart_Button.Location = new System.Drawing.Point(40, 161);
             this.BackToStart_Button.Name = "BackToStart_Button";
             this.BackToStart_Button.Size = new System.Drawing.Size(75, 23);
-            this.BackToStart_Button.TabIndex = 0;
+            this.BackToStart_Button.TabIndex = 10;
             this.BackToStart_Button.Text = "Back";
             this.BackToStart_Button.UseVisualStyleBackColor = true;
             this.BackToStart_Button.Click += new System.EventHandler(this.BackToStart_Button_Click);
@@ -58,7 +59,7 @@
             this.Install_Button.Location = new System.Drawing.Point(265, 161);
             this.Install_Button.Name = "Install_Button";
             this.Install_Button.Size = new System.Drawing.Size(75, 23);
-            this.Install_Button.TabIndex = 1;
+            this.Install_Button.TabIndex = 0;
             this.Install_Button.Text = "Install";
             this.Install_Button.UseVisualStyleBackColor = true;
             this.Install_Button.Click += new System.EventHandler(this.Install_Button_Click);
@@ -129,11 +130,24 @@
             this.Test_PathFolder_Button.UseVisualStyleBackColor = true;
             this.Test_PathFolder_Button.Click += new System.EventHandler(this.Test_PathFolder_Button_Click);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Enabled = false;
+            this.checkBox1.Location = new System.Drawing.Point(216, 6);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(152, 17);
+            this.checkBox1.TabIndex = 8;
+            this.checkBox1.Text = "install YandexBrowser(test)";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.Visible = false;
+            // 
             // InstallerMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 211);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.Test_PathFolder_Button);
             this.Controls.Add(this.Installation_Done_Button);
             this.Controls.Add(this.Install_Form_Header_Label);
@@ -163,5 +177,6 @@
         private System.Windows.Forms.ListBox OutputLog_ListBox;
         private System.Windows.Forms.Button Installation_Done_Button;
         private System.Windows.Forms.Button Test_PathFolder_Button;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

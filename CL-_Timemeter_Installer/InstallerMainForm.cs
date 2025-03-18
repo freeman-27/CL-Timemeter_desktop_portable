@@ -114,6 +114,8 @@ namespace CL_Timemeter
         /// Создание каталогов установки
         /// </summary>
         //string DefaultProgramInstallPath = "E:\\Progtam files\\wmit\\CL-Timemeter\\";
+        public static string AboutFiles_InstallPath_Relative = "about\\";
+        public static string ImageControls_InstallPath_Relative = "imgControls\\";
         public static string DefaultProgramInstallPath_Relative = "WMit\\CL-Timemeter\\";
         public static string DefaultSystemProgramsFolder = "C:\\Program files\\";
         //public string DestinationFolder_PathCombined; //in finction DestinationPathPrepare()
@@ -123,6 +125,12 @@ namespace CL_Timemeter
         {
             System.IO.Directory.CreateDirectory(Path.Combine(DefaultSystemProgramsFolder, DefaultProgramInstallPath_Relative));
             OutputLog_ListBox.Items.Add("Program destination folder created.");
+            System.IO.Directory.CreateDirectory(Path.Combine(DefaultSystemProgramsFolder, ImageControls_InstallPath_Relative));
+            OutputLog_ListBox.Items.Add("Controls folder created.");
+            System.IO.Directory.CreateDirectory(Path.Combine(DefaultSystemProgramsFolder, AboutFiles_InstallPath_Relative));
+            OutputLog_ListBox.Items.Add("About files folder created.");
+
+
         }
         /// <summary>
         /// Копирование файлов в системный каталог
@@ -175,6 +183,8 @@ namespace CL_Timemeter
             File.Copy(@"imgControls\Stop_Button_Rectangle_Image.png", DestinationFolder_PathCombined + @"Stop_Button_Rectangle_Image.png");
             File.Copy(@"imgControls\Stop_Button_Rectangle_Transparent_Image.png", DestinationFolder_PathCombined + "Stop_Button_Rectangle_Transparent_Image.png");
             File.Copy(@"imgControls\green_land_light.png", DestinationFolder_PathCombined + @"green_land_light.png");
+            File.Copy(@"imgControls\info_Button_Image.png", DestinationFolder_PathCombined + @"info_Button_Image.png");
+            File.Copy(@"imgControls\info_Button_Image_Transparent.png", DestinationFolder_PathCombined + @"info_Button_Image_Transparent.png");
             OutputLog_ListBox.Items.Add("Controls Elements Installed");
 
             //OutputLog_ListBox.Items.Add("file Installed");

@@ -10,10 +10,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решен
 		CL-Timemeter\imgControls\icons\CL-Timemeter_Main_Image.ico = CL-Timemeter\imgControls\icons\CL-Timemeter_Main_Image.ico
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CL_Timemeter_Installer", "CL-_Timemeter_Installer\CL_Timemeter_Installer.csproj", "{BD813437-A7E4-4CFF-8929-0443A92C1D3F}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "imgControls", "imgControls", "{E1844C13-AD18-4145-ADB3-A093D3BD72BE}"
 	ProjectSection(SolutionItems) = preProject
+		..\img Controls prepare\CL-Timemeter-Installer-Image.png = ..\img Controls prepare\CL-Timemeter-Installer-Image.png
+		..\img Controls prepare\CL-Timemeter-UnInstaller-Image.png = ..\img Controls prepare\CL-Timemeter-UnInstaller-Image.png
+		Installer.ico = Installer.ico
 		..\img Controls prepare\PauseActivated_Button_Image.png = ..\img Controls prepare\PauseActivated_Button_Image.png
 		..\img Controls prepare\Pause_Button_Image.png = ..\img Controls prepare\Pause_Button_Image.png
 		..\img Controls prepare\Pause_Button_Image_Transparent.png = ..\img Controls prepare\Pause_Button_Image_Transparent.png
@@ -22,22 +23,38 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "imgControls", "imgControls"
 		..\img Controls prepare\Stop_Button_Rectangle_Image.png = ..\img Controls prepare\Stop_Button_Rectangle_Image.png
 		..\img Controls prepare\Stop_Button_Rectangle_Transparent_Image.png = ..\img Controls prepare\Stop_Button_Rectangle_Transparent_Image.png
 		..\img Controls prepare\u9_3282_light.png = ..\img Controls prepare\u9_3282_light.png
+		Uninstall.ico = Uninstall.ico
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Новая папка1", "Новая папка1", "{3FABCC3F-050F-46BE-B927-D49CE361761B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uninstaller_CL-Timemeter", "Uninstaller_CL-Timemeter\Uninstaller_CL-Timemeter.csproj", "{09F55525-CB75-4951-9111-DD2330D37595}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CL_Timemeter_Installer", "CL-Timemeter_Installer\CL_Timemeter_Installer.csproj", "{BD813437-A7E4-4CFF-8929-0443A92C1D3F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Distrib_folder|Any CPU = Distrib_folder|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{B4BD9E94-471B-4B98-A0DE-1ACB9F2A2A71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B4BD9E94-471B-4B98-A0DE-1ACB9F2A2A71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4BD9E94-471B-4B98-A0DE-1ACB9F2A2A71}.Distrib_folder|Any CPU.ActiveCfg = Distrib_folder|Any CPU
+		{B4BD9E94-471B-4B98-A0DE-1ACB9F2A2A71}.Distrib_folder|Any CPU.Build.0 = Distrib_folder|Any CPU
 		{B4BD9E94-471B-4B98-A0DE-1ACB9F2A2A71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4BD9E94-471B-4B98-A0DE-1ACB9F2A2A71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09F55525-CB75-4951-9111-DD2330D37595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09F55525-CB75-4951-9111-DD2330D37595}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09F55525-CB75-4951-9111-DD2330D37595}.Distrib_folder|Any CPU.ActiveCfg = Distrib_folder|Any CPU
+		{09F55525-CB75-4951-9111-DD2330D37595}.Distrib_folder|Any CPU.Build.0 = Distrib_folder|Any CPU
+		{09F55525-CB75-4951-9111-DD2330D37595}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09F55525-CB75-4951-9111-DD2330D37595}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BD813437-A7E4-4CFF-8929-0443A92C1D3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BD813437-A7E4-4CFF-8929-0443A92C1D3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD813437-A7E4-4CFF-8929-0443A92C1D3F}.Distrib_folder|Any CPU.ActiveCfg = Distrib_folder|Any CPU
+		{BD813437-A7E4-4CFF-8929-0443A92C1D3F}.Distrib_folder|Any CPU.Build.0 = Distrib_folder|Any CPU
 		{BD813437-A7E4-4CFF-8929-0443A92C1D3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD813437-A7E4-4CFF-8929-0443A92C1D3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection

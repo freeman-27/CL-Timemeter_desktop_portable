@@ -27,7 +27,7 @@
     <ProductName>CL-Timemeter</ProductName>
     <PublisherName>wmit.online</PublisherName>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -52,7 +52,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>CL-Timemeter_Main_Image.ico</ApplicationIcon>
+    <ApplicationIcon>icons\CL-Timemeter-Main-Image_R2.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>
@@ -72,6 +72,16 @@
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Distrib_folder|AnyCPU'">
+    <OutputPath>bin\Distrib_folder\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />
@@ -204,6 +214,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="CL-Timemeter_Main_Image.ico" />
+    <Content Include="icons\CL-Timemeter-Main-Image_R2.ico" />
+    <Content Include="icons\CL-Timemeter_Main_Image.ico" />
+    <Content Include="icons\Installer.ico" />
+    <Content Include="icons\Uninstall.ico" />
     <Content Include="imgControls\Info_Button_Image.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -228,11 +242,11 @@
     <Content Include="imgControls\Stop_Button_Rectangle_Image.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="imgControls\Stop_Button_Rectangle_Transparent_Image.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="imgControls\green_land_light.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="imgControls\Stop_Button_Rectangle_Transparent_Image.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup />

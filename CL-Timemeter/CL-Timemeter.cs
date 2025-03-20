@@ -27,9 +27,10 @@ namespace CL_Timemeter
 {
 
 
-
+    
     public partial class CL_Timemeter_Form : Form
     {
+        
         public CL_Timemeter_Form()
         {
             InitializeComponent();
@@ -37,7 +38,18 @@ namespace CL_Timemeter
         //public Image ImageIcon_CL_Timemeter = Bitmap.FromFile(filename: @"CL-Timemeter-icon64.png");
         //public Icon Icon_CL_Timemeter;
         //public System.Drawing.IconConverter Conv;
+        /// ==========================================================================================
+        /// <summary>
+        /// /Дополнительные Свойства класса CL_Timemeter_Form ->>> to other projects of control elements ===================================
+        /// </summary>
+        [Category("Appearance")]
+        [Description("Фон окна до запуска таймера")] //test
+        [DisplayName("DefMode_Background")] //test
+        [Browsable(true)]
+        public Color BGColor_Default_Mode { get; set; } = Color.Coral;
+        /// ==========================================================================================
 
+        
 
         private void CL_Timemeter_Form_Load(object sender, EventArgs e)
         {
@@ -568,15 +580,22 @@ namespace CL_Timemeter
         /// IMAGE CONTROLS Folders Names 
         /// </summary>
 
+        ///отностительные пути для тестовых экземпляров программы(только для отладки)
         //folder with images for control elements:
         //relative path:
         //*** chenge folders path for create different builds: debug, release, distrib folder, installation folder
         //public static string ImageControlsFolder_RelativePath = @"Debug\imgControls\"; //Debug folder/////////////////////////////////////////
         //public static string ImageControlsFolder_RelativePath = @"Release\imgControls\"; //Release folder/////////////////////////////////////////
-        public static string ImageControlsFolder_RelativePath = @"Distrib_1.0\imgControls\"; //Distrib folder/////////////////////////////////////////
-        //public static string ImageControlsFolder_RelativePath = @"CL-Timemeter\imgControls\"; //Installation folder / destination folder for installer) //////////////////////////////////////////////////////
-        
+        //public static string ImageControlsFolder_RelativePath = @"Distrib\imgControls\"; //Distrib folder/////////////////////////////////////////
 
+        ///отностительный путь для установленного экземпляра программы(!!!!!используется в финальной сборке)
+        public static string ImageControlsFolder_RelativePath = @"CL-Timemeter\imgControls"; //Installation folder ////////////////////////////// destination folder for installer) //////////////////////////////////////////////////////
+        
+        
+        //public string CustomUserPath = Path.GetDirectoryName(UserFolderNameInput); //TODO
+
+
+        //Составление полного пути к папке с изображениями элементов управления:
         public static string ImageContolElement_AutoCombinePathFolder = Path.Combine(Path.GetDirectoryName(Application.StartupPath), ImageControlsFolder_RelativePath); //installation folder
 
 

@@ -92,7 +92,7 @@
             this.StartButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.StartButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.StartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.StartButton.Location = new System.Drawing.Point(193, 219);
+            this.StartButton.Location = new System.Drawing.Point(193, 215);
             this.StartButton.Name = "StartButton";
             this.StartButton.Size = new System.Drawing.Size(75, 75);
             this.StartButton.TabIndex = 0;
@@ -341,7 +341,7 @@
             this.Pause_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Pause_Button.FlatAppearance.BorderSize = 0;
             this.Pause_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Pause_Button.Location = new System.Drawing.Point(193, 219);
+            this.Pause_Button.Location = new System.Drawing.Point(193, 215);
             this.Pause_Button.Name = "Pause_Button";
             this.Pause_Button.Size = new System.Drawing.Size(75, 75);
             this.Pause_Button.TabIndex = 17;
@@ -373,7 +373,10 @@
             // StartButton_PictureBox
             // 
             this.StartButton_PictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.StartButton_PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("StartButton_PictureBox.Image")));
+            this.StartButton_PictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("StartButton_PictureBox.BackgroundImage")));
+            this.StartButton_PictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.StartButton_PictureBox.ErrorImage = null;
+            this.StartButton_PictureBox.InitialImage = null;
             this.StartButton_PictureBox.Location = new System.Drawing.Point(112, 215);
             this.StartButton_PictureBox.Name = "StartButton_PictureBox";
             this.StartButton_PictureBox.Size = new System.Drawing.Size(75, 75);
@@ -480,6 +483,7 @@
             this.PauseButton_PictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PauseButton_PictureBox.BackgroundImage")));
             this.PauseButton_PictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PauseButton_PictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PauseButton_PictureBox.InitialImage = null;
             this.PauseButton_PictureBox.Location = new System.Drawing.Point(112, 215);
             this.PauseButton_PictureBox.Name = "PauseButton_PictureBox";
             this.PauseButton_PictureBox.Size = new System.Drawing.Size(75, 75);
@@ -516,9 +520,12 @@
             // 
             // StopButton_PictureBox
             // 
-            this.StopButton_PictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.StopButton_PictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.StopButton_PictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("StopButton_PictureBox.BackgroundImage")));
+            this.StopButton_PictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.StopButton_PictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.StopButton_PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("StopButton_PictureBox.Image")));
+            this.StopButton_PictureBox.ErrorImage = null;
+            this.StopButton_PictureBox.ImageLocation = "Stretch";
             this.StopButton_PictureBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("StopButton_PictureBox.InitialImage")));
             this.StopButton_PictureBox.Location = new System.Drawing.Point(115, 183);
             this.StopButton_PictureBox.Name = "StopButton_PictureBox";
@@ -579,14 +586,14 @@
             this.Controls.Add(this.Hours_Label);
             this.Controls.Add(this.Seconds_Label);
             this.Controls.Add(this.Split_Label_2);
-            this.Controls.Add(this.PauseButton_PictureBox);
-            this.Controls.Add(this.StartButton_PictureBox);
-            this.Controls.Add(this.Minute_Progress_Label);
-            this.Controls.Add(this.Pause_Button);
-            this.Controls.Add(this.StartButton);
             this.Controls.Add(this.RealTime_TestLabel);
             this.Controls.Add(this.CloseButton_Custom);
             this.Controls.Add(this.Align_Button);
+            this.Controls.Add(this.Pause_Button);
+            this.Controls.Add(this.StartButton);
+            this.Controls.Add(this.PauseButton_PictureBox);
+            this.Controls.Add(this.StartButton_PictureBox);
+            this.Controls.Add(this.Minute_Progress_Label);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

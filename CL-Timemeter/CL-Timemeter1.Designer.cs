@@ -113,9 +113,9 @@ namespace CL_Timemeter {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap StartButton_PictureBox_Image {
+        public static System.Drawing.Bitmap StartButton_PictureBox_BackgroundImage {
             get {
-                object obj = ResourceManager.GetObject("StartButton_PictureBox.Image", resourceCulture);
+                object obj = ResourceManager.GetObject("StartButton_PictureBox.BackgroundImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace CL_Timemeter {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap StopButton_PictureBox_Image {
+        public static System.Drawing.Bitmap StopButton_PictureBox_BackgroundImage {
             get {
-                object obj = ResourceManager.GetObject("StopButton_PictureBox.Image", resourceCulture);
+                object obj = ResourceManager.GetObject("StopButton_PictureBox.BackgroundImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

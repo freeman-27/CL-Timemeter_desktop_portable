@@ -49,7 +49,7 @@ namespace CL_Timemeter
         public Color BGColor_Default_Mode { get; set; } = Color.Coral;
         /// ==========================================================================================
 
-        
+        //TODO Cursor
 
         private void CL_Timemeter_Form_Load(object sender, EventArgs e)
         {
@@ -303,12 +303,54 @@ namespace CL_Timemeter
         }
 
 
-        public static string NewPLayButtonImage_FileName = "Start_Button_Image.png";
-        public string NewPLayButtonImage = Path.GetFileName(NewPLayButtonImage_FileName);
-        //public object SetImg = System.Drawing.Image.FromStream(stream: );
-        public string SetImgPlayBtn = Application.StartupPath + NewPLayButtonImage_FileName;
-        //Path P1 = new Path() { };
-        //public Path PlayImg1 = new Path();
+        //public static string NewPLayButtonImage_FileName = "Start_Button_Image.png";
+        //public string NewPLayButtonImage = Path.GetFileName(NewPLayButtonImage_FileName);
+        ////public object SetImg = System.Drawing.Image.FromStream(stream: );
+        //public string SetImgPlayBtn = Application.StartupPath + NewPLayButtonImage_FileName;
+        ////Path P1 = new Path() { };
+        ////public Path PlayImg1 = new Path();
+
+
+        /// <summary>
+        /// IMAGE CONTROLS Folders Names 
+        /// </summary>
+
+        ///отностительные пути для тестовых экземпляров программы(только для отладки)
+        //folder with images for control elements:
+        //relative path:
+        //*** chenge folders path for create different builds: debug, release, distrib folder, installation folder
+        //public static string ImageControlsFolder_RelativePath = @"Debug\imgControls\"; //Debug folder/////////////////////////////////////////
+        //public static string ImageControlsFolder_RelativePath = @"Release\imgControls\"; //Release folder/////////////////////////////////////////
+        //public static string ImageControlsFolder_RelativePath = @"Distrib\imgControls\"; //Distrib folder/////////////////////////////////////////
+
+        ///отностительный путь для установленного экземпляра программы(!!!!!используется в финальной сборке)
+        public static string ImageControlsFolder_RelativePath = "CL-Timemeter\\imgControls\\"; //Installation folder ////////////////////////////// destination folder for installer) //////////////////////////////////////////////////////
+
+
+        //public string CustomUserPath = Path.GetDirectoryName(UserFolderNameInput); //TODO
+
+
+        //Составление полного пути к папке с изображениями элементов управления:
+        public static string ImageContolElement_AutoCombinePathFolder = Path.Combine(Path.GetDirectoryName(Application.StartupPath), ImageControlsFolder_RelativePath); //installation folder
+
+        /// <summary>
+        /// IMAGE CONTROLS File Names 
+        /// </summary>
+        public static string ImageStartButtonHover_FileName = Path.GetFileName("Start_Button_Image.png");
+        public static string ImageStartButton_FileName = Path.GetFileName("Start_Button_Transparent_Image.png");
+
+        public static string ImagePauseActivated_FileName = Path.GetFileName("PauseActivated_Button_Image.png");
+        public static string ImagePauseHover_FileName = Path.GetFileName("Pause_Button_Image.png");
+        public static string ImagePause_FileName = Path.GetFileName("Pause_Button_Transparent_Image.png");
+
+        public static string ImageStopButton_FileName = Path.GetFileName("Stop_Button_Rectangle_Transparent_Image.png");
+        public static string ImageStopButtonHover_FileName = Path.GetFileName("Stop_Button_Rectangle_Image.png");
+
+        public static string ImageInfoButtonHover_FileName = Path.GetFileName("info_Button_Image.png");
+        public static string ImageInfoButton_FileName = Path.GetFileName("info_Button_Transparent_Image.png");
+        public static string DefaultBackgroundImage_FileName = Path.GetFileName("green_land_light.png");
+
+
 
 
         /// <summary>
@@ -474,8 +516,9 @@ namespace CL_Timemeter
         {
             //this.OnMove(e); // moving window
             //this.BackColor = System.Drawing.Color.BurlyWood;
-            this.Cursor = Cursors.SizeAll;
 
+            //this.Cursor = Cursors.SizeAll;  //// test
+            
         }
 
         private void CL_Timemeter_Form_MouseUp(object sender, MouseEventArgs e)
@@ -573,50 +616,12 @@ namespace CL_Timemeter
         {
 
         }
-
-
-
-        /// <summary>
-        /// IMAGE CONTROLS Folders Names 
-        /// </summary>
-
-        ///отностительные пути для тестовых экземпляров программы(только для отладки)
-        //folder with images for control elements:
-        //relative path:
-        //*** chenge folders path for create different builds: debug, release, distrib folder, installation folder
-        //public static string ImageControlsFolder_RelativePath = @"Debug\imgControls\"; //Debug folder/////////////////////////////////////////
-        //public static string ImageControlsFolder_RelativePath = @"Release\imgControls\"; //Release folder/////////////////////////////////////////
-        //public static string ImageControlsFolder_RelativePath = @"Distrib\imgControls\"; //Distrib folder/////////////////////////////////////////
-
-        ///отностительный путь для установленного экземпляра программы(!!!!!используется в финальной сборке)
-        public static string ImageControlsFolder_RelativePath = @"CL-Timemeter\imgControls"; //Installation folder ////////////////////////////// destination folder for installer) //////////////////////////////////////////////////////
         
-        
-        //public string CustomUserPath = Path.GetDirectoryName(UserFolderNameInput); //TODO
-
-
-        //Составление полного пути к папке с изображениями элементов управления:
-        public static string ImageContolElement_AutoCombinePathFolder = Path.Combine(Path.GetDirectoryName(Application.StartupPath), ImageControlsFolder_RelativePath); //installation folder
-
-
-
-
-        /// <summary>
-        /// IMAGE CONTROLS File Names 
-        /// </summary>
-        public static string ImageStartButtonHover_FileName = Path.GetFileName(@"Start_Button_Image.png");
-        public static string ImageStartButton_FileName = Path.GetFileName(@"Start_Button_Image_Transparent.png");
-        public static string ImagePauseActivated_FileName = Path.GetFileName(@"PauseActivated_Button_Image.png");
-        public static string ImagePauseHover_FileName = Path.GetFileName(@"Pause_Button_Image.png");
-        public static string ImagePause_FileName = Path.GetFileName(@"Pause_Button_Image_Transparent.png");
-        public static string ImageStopButton_FileName = Path.GetFileName(@"Stop_Button_Rectangle_Transparent_Image.png");
-        public static string ImageStopButtonHover_FileName = Path.GetFileName(@"Stop_Button_Rectangle_Image.png");
-        public static string DefaultBackgroundImage_FileName = Path.GetFileName(@"green_land_light.png");
-        public static string ImageInfoButtonHover_FileName = Path.GetFileName(@"info_Button_Image.png");
-        public static string ImageInfoButton_FileName = Path.GetFileName(@"info_Button_Image_Transparent.png");
 
         public void StartButton_PictureBox_MouseEnter(object sender, EventArgs e)
         {
+
+            //MessageBox.Show(ImageContolElement_AutoCombinePathFolder.ToString());
 
             //MessageBox.Show(Path.Combine(ImageStartHover_FilePath, ImageStartHover_FileName));
             //MessageBox.Show(Path.Combine(ImageContolElement_PathFolder, ImageStartButtonHover_FileName));

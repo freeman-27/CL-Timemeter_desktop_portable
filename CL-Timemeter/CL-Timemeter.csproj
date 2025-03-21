@@ -82,6 +82,9 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'test|AnyCPU'">
+    <OutputPath>bin\test\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />
@@ -219,10 +222,10 @@
     <Content Include="icons\Installer.ico" />
     <Content Include="icons\Uninstall.ico" />
     <Content Include="imgControls\Info_Button_Image.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="imgControls\Info_Button_Image_Transparent.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="imgControls\Info_Button_Transparent_Image.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="imgControls\PauseActivated_Button_Image.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -230,13 +233,13 @@
     <Content Include="imgControls\Pause_Button_Image.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="imgControls\Pause_Button_Image_Transparent.png">
+    <Content Include="imgControls\Pause_Button_Transparent_Image.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="imgControls\Start_Button_Image.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="imgControls\Start_Button_Image_Transparent.png">
+    <Content Include="imgControls\Start_Button_Transparent_Image.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="imgControls\Stop_Button_Rectangle_Image.png">
@@ -246,7 +249,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="imgControls\Stop_Button_Rectangle_Transparent_Image.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup />

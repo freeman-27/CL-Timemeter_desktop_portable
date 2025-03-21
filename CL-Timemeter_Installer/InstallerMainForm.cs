@@ -43,7 +43,7 @@ namespace CL_Timemeter
 
         public void Install_Button_Click(object sender, EventArgs e)
         {
-            this.BackToStart_Button.Visible = false;
+            this.BackToStart_Button.Enabled = false;
             this.Install_Button.Enabled = false;
 
             Installation_Progress_Bar.Visible = true;
@@ -107,32 +107,38 @@ namespace CL_Timemeter
         public void MainInstall_Func()
         {
             Creation_Folders();
-            DestinationPathPrepare();
+            //DestinationPathPrepare();
             CopyProgram_Files_To_OS_AndOutputLog();
         }
         /// <summary>
         /// Создание каталогов установки
         /// </summary>
+        public string Installer_Folder = Path.GetFullPath(Application.StartupPath); // Distrubution folder only for execution installer.exe
+        public string Distrib_SubFolder = Path.Combine(Path.GetFullPath(Application.StartupPath), "Distrib_folder\\"); // sub_folder for resources for installer.exe
+
 
         public static string DefaultSystemProgramsFolder = "C:\\Program files\\WMit\\";
 
         public static string DefaultProgramInstallPath_Relative = "CL-Timemeter\\";
-        public static string AboutFiles_InstallPath_Relative = "\\about\\";
-        public static string ImageControls_InstallPath_Relative = "\\imgControls\\";
+        public static string AboutFiles_InstallPath_Relative = "about\\";
+        public static string ImageControls_InstallPath_Relative = "imgControls\\";
 
-        public static string DestinationFolder_PathCombined  = Path.Combine(DefaultSystemProgramsFolder, DefaultProgramInstallPath_Relative);
+        public static string DestinationFolder_PathCombined  = Path.Combine(DefaultSystemProgramsFolder, DefaultProgramInstallPath_Relative);    
+
         public static string DestinationFolder_imgControls_PathCombined  = Path.Combine(DefaultSystemProgramsFolder, DefaultProgramInstallPath_Relative, ImageControls_InstallPath_Relative);
+
+
 
 
         public void Creation_Folders()
         {
-            System.IO.Directory.CreateDirectory(Path.Combine(DefaultSystemProgramsFolder, DefaultProgramInstallPath_Relative));
+            System.IO.Directory.CreateDirectory(Path.Combine(DefaultSystemProgramsFolder, "CL-Timemeter\\" ));
             OutputLog_ListBox.Items.Add("Program destination folder created.");
 
-            System.IO.Directory.CreateDirectory(Path.Combine(DefaultProgramInstallPath_Relative, ImageControls_InstallPath_Relative));
+            System.IO.Directory.CreateDirectory(Path.Combine(DefaultSystemProgramsFolder, DefaultProgramInstallPath_Relative, ImageControls_InstallPath_Relative));
             OutputLog_ListBox.Items.Add("Controls folder created.");
 
-            System.IO.Directory.CreateDirectory(Path.Combine(DefaultProgramInstallPath_Relative, AboutFiles_InstallPath_Relative));
+            System.IO.Directory.CreateDirectory(Path.Combine(DefaultSystemProgramsFolder, DefaultProgramInstallPath_Relative, AboutFiles_InstallPath_Relative));
             OutputLog_ListBox.Items.Add("About files folder created.");
 
 
@@ -147,23 +153,28 @@ namespace CL_Timemeter
         public static string Program_EXEconfig_FileName = Path.GetFileName("CL-Timemeter.exe.config");
 
         //2. пути основных файлов:
-        public static string Program_EXE_Distrib_FolderPath = Path.GetDirectoryName(@"Distrib_folder\\");
-        public static string Program_EXEconfig_Distrib_FolderPath = Path.GetDirectoryName(@"Distrib_folder\\");
+        public static string Program_EXE_Distrib_SubFolderPath = Path.GetDirectoryName("Distrib_folder\\");
+        public static string Program_EXEconfig_Distrib_SubFolderPath = Path.GetDirectoryName("Distrib_folder\\");
         //public static string EXE_FromDistrib_Path = Path.Combine(Program_EXE_Distrib_FolderPath, Program_EXE_FileName);
         //public static string EXEconfig_FromDistrib_Path = Path.Combine(Program_EXEconfig_Distrib_FolderPath, Program_EXEconfig_FileName);
 
-        public static string Program_EXE_FilePath = Path.Combine(Path.GetDirectoryName(Application.StartupPath), Program_EXE_Distrib_FolderPath, Program_EXE_FileName);
-        public static string Program_EXEconfig_FilePath = Path.Combine(Path.GetDirectoryName(Application.StartupPath), Program_EXEconfig_Distrib_FolderPath, Program_EXEconfig_FileName);
+        //(Path.GetDirectoryName(Application.StartupPath)
+
+        public static string Program_EXE_FilePath = Path.Combine(Path.GetDirectoryName(Application.StartupPath), Program_EXE_Distrib_SubFolderPath);
+
+        public static string Program_EXEconfig_FilePath = Path.Combine(Path.GetDirectoryName(Application.StartupPath), Program_EXEconfig_Distrib_SubFolderPath);
+   
 
         /// <summary>
         /// For instal proccess
         /// </summary>
         /// <returns></returns>
-        public string DestinationPathPrepare()
-        {
-            DestinationFolder_PathCombined = Path.Combine(DefaultSystemProgramsFolder, DefaultProgramInstallPath_Relative);
-            return DestinationFolder_PathCombined;
-        }
+        //public string DestinationPathPrepare()
+        //{
+        //    DestinationFolder_PathCombined = Path.Combine(DefaultSystemProgramsFolder, DefaultProgramInstallPath_Relative);
+        //    return DestinationFolder_PathCombined;
+        //}
+
         public void CopyProgram_Files_To_OS_AndOutputLog()
         {
             //File File_EXE;
@@ -175,30 +186,35 @@ namespace CL_Timemeter
             /// Копирование файлов установки. Copy main application files (FileName, @FolderPath):
             /// </summary>
             //File.Copy();
-            File.Copy(Program_EXE_FilePath, DestinationFolder_PathCombined + "CL-Timemeter.exe", overwrite: true);
+            File.Copy(Path.Combine(Installer_Folder, Program_EXE_Distrib_SubFolderPath, Program_EXE_FileName), DestinationFolder_PathCombined + "CL-Timemeter.exe", overwrite: true);
             OutputLog_ListBox.Items.Add("Cltimemeter.exe Installed");   
             
-            File.Copy(Program_EXEconfig_FilePath, DestinationFolder_PathCombined + "CL-Timemeter.exe.config", overwrite: true);
-            OutputLog_ListBox.Items.Add("CL-Timemeter.exe.config Installed"); 
-            
+            File.Copy(Path.Combine(Installer_Folder, Program_EXEconfig_Distrib_SubFolderPath, Program_EXEconfig_FileName), DestinationFolder_PathCombined + "CL-Timemeter.exe.config", overwrite: true);
+            OutputLog_ListBox.Items.Add("CL-Timemeter.exe.config Installed");
+
+            ///Copy Uninstaller:
+            File.Copy(Path.Combine(Installer_Folder, Distrib_SubFolder, "Uninstaller_CL-Timemeter.exe"), Path.Combine(DestinationFolder_PathCombined + "Uninstaller_CL-Timemeter.exe"), overwrite: true);
+
+
             //File.Copy(@"CL-Timemeter.exe.manifest", @DefaultProgramInstallPath_Relative + "CL-Timemeter.exe.manifest");
             //OutputLog_ListBox.Items.Add("CL-Timemeter.exe.manifest Installed");
 
             //copy controls images:
-            File.Copy(@"imgControls\Start_Button_Image.png", Path.Combine(DestinationFolder_imgControls_PathCombined, ImageControls_InstallPath_Relative, @"Start_Button_Image.png"), overwrite: true);
-            File.Copy(@"imgControls\Start_Button_Image_Transparent.png", Path.Combine(DestinationFolder_imgControls_PathCombined, @"Start_Button_Transparent_Image.png"), overwrite: true);
-                        
-            File.Copy(@"imgControls\Pause_Button_Image.png", Path.Combine(DestinationFolder_imgControls_PathCombined + @"Pause_Button_Image.png"), overwrite: true);
-            File.Copy(@"imgControls\Pause_Button_Image_Transparent.png", Path.Combine(DestinationFolder_imgControls_PathCombined + @"Pause_Button_Transparent_Image.png"), overwrite: true);
-            File.Copy(@"imgControls\PauseActivated_Button_Image.png", Path.Combine(DestinationFolder_imgControls_PathCombined + @"PauseActivated_Button_Image.png"), overwrite: true);
-                       
-            File.Copy(@"imgControls\Stop_Button_Rectangle_Image.png", Path.Combine(DestinationFolder_imgControls_PathCombined + @"Stop_Button_Rectangle_Image.png"), overwrite: true);
-            File.Copy(@"imgControls\Stop_Button_Rectangle_Transparent_Image.png", Path.Combine(DestinationFolder_imgControls_PathCombined + "Stop_Button_Rectangle_Transparent_Image.png"), overwrite: true);
-            
-            File.Copy(@"imgControls\green_land_light.png", Path.Combine(DestinationFolder_imgControls_PathCombined + @"green_land_light.png"), overwrite: true);
-            
-            File.Copy(@"imgControls\info_Button_Image.png", Path.Combine(DestinationFolder_imgControls_PathCombined + @"info_Button_Image.png"), overwrite: true);
-            File.Copy(@"imgControls\info_Button_Image_Transparent.png", Path.Combine(DestinationFolder_imgControls_PathCombined + @"info_Button_Image_Transparent.png"), overwrite: true);
+            File.Copy(Path.Combine(Installer_Folder, Distrib_SubFolder, @"imgControls\Start_Button_Image.png"), Path.Combine(DestinationFolder_imgControls_PathCombined, @"Start_Button_Image.png"), overwrite: true);
+            File.Copy(Path.Combine(Installer_Folder, Distrib_SubFolder, @"imgControls\Start_Button_Transparent_Image.png"), Path.Combine(DestinationFolder_imgControls_PathCombined, @"Start_Button_Transparent_Image.png"), overwrite: true);
+                                  
+            File.Copy(Path.Combine(Installer_Folder, Distrib_SubFolder, @"imgControls\Pause_Button_Image.png"), Path.Combine(DestinationFolder_imgControls_PathCombined + @"Pause_Button_Image.png"), overwrite: true);
+            File.Copy(Path.Combine(Installer_Folder, Distrib_SubFolder, @"imgControls\Pause_Button_Transparent_Image.png"), Path.Combine(DestinationFolder_imgControls_PathCombined + @"Pause_Button_Transparent_Image.png"), overwrite: true);
+            File.Copy(Path.Combine(Installer_Folder, Distrib_SubFolder, @"imgControls\PauseActivated_Button_Image.png"), Path.Combine(DestinationFolder_imgControls_PathCombined + @"PauseActivated_Button_Image.png"), overwrite: true);
+                             
+            File.Copy(Path.Combine(Installer_Folder, Distrib_SubFolder, @"imgControls\Stop_Button_Rectangle_Image.png"), Path.Combine(DestinationFolder_imgControls_PathCombined + @"Stop_Button_Rectangle_Image.png"), overwrite: true);
+            File.Copy(Path.Combine(Installer_Folder, Distrib_SubFolder, @"imgControls\Stop_Button_Rectangle_Transparent_Image.png"), Path.Combine(DestinationFolder_imgControls_PathCombined + "Stop_Button_Rectangle_Transparent_Image.png"), overwrite: true);
+                              
+            File.Copy(Path.Combine(Installer_Folder, Distrib_SubFolder, @"imgControls\green_land_light.png"), Path.Combine(DestinationFolder_imgControls_PathCombined + @"green_land_light.png"), overwrite: true);
+                                 
+            File.Copy(Path.Combine(Installer_Folder, Distrib_SubFolder, @"imgControls\info_Button_Image.png"), Path.Combine(DestinationFolder_imgControls_PathCombined + @"info_Button_Image.png"), overwrite: true);
+            File.Copy(Path.Combine(Installer_Folder, Distrib_SubFolder, @"imgControls\info_Button_Transparent_Image.png"), Path.Combine(DestinationFolder_imgControls_PathCombined + @"info_Button_Transparent_Image.png"), overwrite: true);
+
             
             OutputLog_ListBox.Items.Add("Controls Elements Installed");
 

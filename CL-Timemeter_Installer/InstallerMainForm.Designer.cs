@@ -128,6 +128,7 @@
             this.Test_PathFolder_Button.TabIndex = 7;
             this.Test_PathFolder_Button.Text = "testPath";
             this.Test_PathFolder_Button.UseVisualStyleBackColor = true;
+            this.Test_PathFolder_Button.Visible = false;
             this.Test_PathFolder_Button.Click += new System.EventHandler(this.Test_PathFolder_Button_Click);
             // 
             // checkBox1

@@ -81,6 +81,46 @@ namespace CL_Timemeter {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Point, аналогичного {X=277,Y=17}.
+        /// </summary>
+        public static System.Drawing.Point MainMenu_ContextMenuStrip_TrayLocation {
+            get {
+                object obj = ResourceManager.GetObject("MainMenu_ContextMenuStrip.TrayLocation", resourceCulture);
+                return ((System.Drawing.Point)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap MainMenu_Rounded_Button_BackgroundImage {
+            get {
+                object obj = ResourceManager.GetObject("MainMenu_Rounded_Button.BackgroundImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
+        /// </summary>
+        public static System.Drawing.Icon NotifyTayIcon_Icon {
+            get {
+                object obj = ResourceManager.GetObject("NotifyTayIcon.Icon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Point, аналогичного {X=475,Y=17}.
+        /// </summary>
+        public static System.Drawing.Point NotifyTayIcon_TrayLocation {
+            get {
+                object obj = ResourceManager.GetObject("NotifyTayIcon.TrayLocation", resourceCulture);
+                return ((System.Drawing.Point)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap Pause_Button_BackgroundImage {
@@ -93,9 +133,29 @@ namespace CL_Timemeter {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Pause_Rounded_Button_BackgroundImage {
+            get {
+                object obj = ResourceManager.GetObject("Pause_Rounded_Button.BackgroundImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap PauseButton_PictureBox_BackgroundImage {
             get {
                 object obj = ResourceManager.GetObject("PauseButton_PictureBox.BackgroundImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Start_Rounded_Button_BackgroundImage {
+            get {
+                object obj = ResourceManager.GetObject("Start_Rounded_Button.BackgroundImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,6 +183,16 @@ namespace CL_Timemeter {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap StopButton_BackgroundImage {
+            get {
+                object obj = ResourceManager.GetObject("StopButton.BackgroundImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap StopButton_PictureBox_BackgroundImage {
             get {
                 object obj = ResourceManager.GetObject("StopButton_PictureBox.BackgroundImage", resourceCulture);
@@ -141,11 +211,21 @@ namespace CL_Timemeter {
         }
         
         /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Point, аналогичного {X=173,Y=17}.
+        ///   Поиск локализованного ресурса типа System.Drawing.Point, аналогичного {X=157,Y=17}.
         /// </summary>
         public static System.Drawing.Point timer_for_cover_TrayLocation {
             get {
                 object obj = ResourceManager.GetObject("timer_for_cover.TrayLocation", resourceCulture);
+                return ((System.Drawing.Point)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Point, аналогичного {X=586,Y=17}.
+        /// </summary>
+        public static System.Drawing.Point Tray_MainContextMenuStrip_TrayLocation {
+            get {
+                object obj = ResourceManager.GetObject("Tray_MainContextMenuStrip.TrayLocation", resourceCulture);
                 return ((System.Drawing.Point)(obj));
             }
         }

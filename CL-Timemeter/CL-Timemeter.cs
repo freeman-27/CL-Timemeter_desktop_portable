@@ -20,12 +20,13 @@ using Microsoft.Win32;
 using CL_Timemeter.Properties;
 using System.Drawing.Configuration;
 using System.Diagnostics.CodeAnalysis;
-using System.Diagnostics;//test
+using System.Diagnostics;
+using System.Windows.Forms.VisualStyles;
+using System.Security.Cryptography.X509Certificates;//test
 
 
 namespace CL_Timemeter
 {
-
 
     
     public partial class CL_Timemeter_Form : Form
@@ -55,6 +56,7 @@ namespace CL_Timemeter
         {
             //this.AcceptButton = StartButton;
             Hide_All_ControlElement_Labels();
+
         }
 
         private void Hide_All_ControlElement_Labels()
@@ -99,6 +101,14 @@ namespace CL_Timemeter
         public int Set_RGB_Chanel_R; //= RandNumb.Next(150, 201); in function TimemeterCover()   // set R chanel from 150 to 200
         public int Set_RGB_Chanel_G; //= RandNumb.Next(150, 201);   // set G chanel from 0 to 255
         public int Set_RGB_Chanel_B; //= RandNumb.Next(150, 201);   // set B chanel from 150 to 200
+
+
+        /// <summary>
+        /// Tolltips for all elements
+        /// </summary>
+        public ToolTip ToolTip_TT1 = new ToolTip();
+        string PauseToolTipText = "";
+
 
         public void SecondsIncr()
         {
@@ -302,6 +312,15 @@ namespace CL_Timemeter
            
         }
 
+        public void Timemeter_Cover_Paused()
+        {
+            this.Seconds_Label.ForeColor = System.Drawing.Color.DimGray;
+            this.Minutes_Label.ForeColor = System.Drawing.Color.DimGray;
+            this.Hours_Label.ForeColor = System.Drawing.Color.DimGray;
+            Split_Label_1.ForeColor = System.Drawing.Color.DimGray;
+            Split_Label_2.ForeColor = System.Drawing.Color.DimGray;
+        }
+
 
         //public static string NewPLayButtonImage_FileName = "Start_Button_Image.png";
         //public string NewPLayButtonImage = Path.GetFileName(NewPLayButtonImage_FileName);
@@ -348,6 +367,10 @@ namespace CL_Timemeter
 
         public static string ImageInfoButtonHover_FileName = Path.GetFileName("info_Button_Image.png");
         public static string ImageInfoButton_FileName = Path.GetFileName("info_Button_Transparent_Image.png");
+
+        public static string ImageMainMenu_Button_Hover_FileName = Path.GetFileName("CL-Timemeter_Main_Hover_Image_R1.png");
+        public static string ImageMainMenu_Button_FileName = Path.GetFileName("CL-Timemeter_Main_Image_R1.png");
+
         public static string DefaultBackgroundImage_FileName = Path.GetFileName("green_land_light.png");
 
 
@@ -381,7 +404,7 @@ namespace CL_Timemeter
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        /// 
+        /// Execution Status:  4=Continue; 3=Active;  2=Pause; 1=Stop;
         public void Activate_TimemeterElement_Click(object sender, EventArgs e)
         {
 
@@ -395,13 +418,15 @@ namespace CL_Timemeter
 
             Timemeter_Core();
 
-            //StopButton.Visible = true; //// Button Element - disabled
+            StopButton.Visible = true; //// Button Element - Enabled
             //Pause_Button.Visible = true; //// Button Element - disabled
-            //StartButton.Visible = false; //// Control Element - disable
+            //StartButton.Visible = false; //// Control Element - disabled
+            Pause_Rounded_Button.Visible = true;
 
+            Start_Rounded_Button.Visible = false;
             StartButton_PictureBox.Visible = false;
-            PauseButton_PictureBox.Visible = true;
-            StopButton_PictureBox.Visible = true; 
+            //PauseButton_PictureBox.Visible = true; // Control Element - disabled
+            //StopButton_PictureBox.Visible = true; //Control Element - disabled
 
             //StartButton.BackgroundImage = Bitmap.FromFile(filename: SetImgPlayBtn, useEmbeddedColorManagement: true);
             //StartButton.BackgroundImage = NewPLayButtonImage;
@@ -418,8 +443,10 @@ namespace CL_Timemeter
 
             //Activate Style PauseBtn:
             //MessageBox.Show(ImagePauseActivated_FileName);
-            PauseButton_PictureBox.Image = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImagePauseActivated_FileName));
-
+            PauseButton_PictureBox.Image = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImagePauseHover_FileName));
+            Pause_Rounded_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImagePause_FileName));
+            PauseToolTipText = "Pause timemeter";
+            ExecutionStatus = 3;
         }
 
 
@@ -440,32 +467,66 @@ namespace CL_Timemeter
             timer_for_cover.Stop();
             timer_for_cover.Enabled = false;
             PauseButton_PictureBox.Image = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImagePauseActivated_FileName));
+            //PauseButton_PictureBox_MouseEnter(sender, e); 
+             Pause_Rounded_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImagePauseHover_FileName));
+            //Pause_Rounded_Button.
+
             if (ExecutionStatus != 2){
                 ExecutionStatus = 2;
                 main_system_timer.Enabled = false;
                 //timer_for_cover.Stop();
                 timer_for_cover.Enabled = false;
                 ExecutionStatus_Changed();
+                PauseToolTipText = "Start timemeter";
+
+                Timemeter_Cover_Paused();
             }
             else {
                 ExecutionStatus = 4;
-                ExecutionStatus_Changed(); 
+                ExecutionStatus_Changed();
+                PauseToolTipText = "Pause timemeter";
+                //Pause_Rounded_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImagePause_FileName));
+
             }
             //show label "Paused"
         }
 
 
-        
+
         public void PauseButton_PictureBox_MouseEnter(object sender, EventArgs e)
         {
-            PauseButton_PictureBox.Image = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImagePauseHover_FileName));
             Cursor = Cursors.Hand;
+
+            //PauseButton_PictureBox.Image = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImagePauseHover_FileName));
+
+            if (ExecutionStatus == 2)
+            {
+                Pause_Rounded_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImageStartButtonHover_FileName));
+            }
+            else if (ExecutionStatus == 1 || ExecutionStatus == 3 || ExecutionStatus == 4)
+            {
+                Pause_Rounded_Button.BackColor = System.Drawing.Color.Transparent;
+
+                Pause_Rounded_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImagePauseHover_FileName));
+            }
+
+            ToolTip_TT1.SetToolTip(this.PauseButton_PictureBox, PauseToolTipText);
+            ToolTip_TT1.SetToolTip(this.Pause_Rounded_Button, PauseToolTipText);
         }
         
         public void PauseButton_PictureBox_MouseLeave(object sender, EventArgs e)
         {
-            PauseButton_PictureBox.Image = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImagePause_FileName));
             Cursor = Cursors.Default;
+            if (ExecutionStatus == 2)
+            {
+                Pause_Rounded_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImagePauseActivated_FileName));
+            }
+            else if (ExecutionStatus == 3 || ExecutionStatus == 4)
+            {
+                PauseButton_PictureBox.Image = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImagePause_FileName));
+                Pause_Rounded_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImagePause_FileName));
+                Pause_Rounded_Button.BackColor = System.Drawing.Color.Transparent;
+            }
         }
 
 
@@ -480,12 +541,15 @@ namespace CL_Timemeter
             TimemeterON = false;
             main_system_timer.Enabled = false;
             Timemeter_ClearVolumes(); //full stop timer
-            //StopButton.Visible = false; // Button Element - disabled
+            StopButton.Visible = false; // Button Element - Enabled
             //StartButton.Visible = true; // Button Element - disabled
-            StartButton_PictureBox.Visible = true;
+            //StartButton_PictureBox.Visible = true; //Button Element -disabled
+            Start_Rounded_Button.Visible = true;
+            
             Pause_Button.Visible = false;
             StopButton.Visible = false;
             PauseButton_PictureBox.Visible = false;
+            Pause_Rounded_Button.Visible = false;
             StopButton_PictureBox.Visible = false;
 
             //disable cover:
@@ -502,6 +566,8 @@ namespace CL_Timemeter
             TimeMeterFunctions_GroupBox.ForeColor = default;
             //show Label "Stoped"
             Minute_Progress_Label.Text = "";
+
+            ExecutionStatus = 1;
         }
 
 
@@ -531,7 +597,6 @@ namespace CL_Timemeter
 
         public void groupBox1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-          
         }
 
         private void ShowCheckGroup_Button_Click(object sender, EventArgs e)
@@ -560,8 +625,6 @@ namespace CL_Timemeter
                 //hide time and date:
                 Small_Timemeter_Label.Visible = false;
                 RealDate_Label.Visible = false;
-
-
             }
         }
 
@@ -569,7 +632,9 @@ namespace CL_Timemeter
         {
             //TimeValuesLabels_GroupBox.BackColor = Color.Transparent;
             //this.Cursor = Cursors.PanNW;
-            this.Cursor = Cursors.Default;
+            //this.Cursor = CustomCursorsClass;
+            //
+            //public object DarkCursor1 = new object();
         }
 
         private void TimeValuesLabels_GroupBox_Enter(object sender, EventArgs e)
@@ -589,26 +654,25 @@ namespace CL_Timemeter
         public void Off_Border()
         {
             this.FormBorderStyle = FormBorderStyle.None;
+            Align_Button.Visible = true;
         }
         public void Fixated_CheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (Fixated_CheckBox.Checked) {
                 Off_Border();
                 CloseButton_Custom.Visible = true;
-                //Minimise_Button.Visible = true;
+                Minimise_Button.Visible = true;
                 Align_Button.Visible = true;
                 Align_Button.SetBounds(221, -1, 40, 40);
-                Info_Button_PictureBox.SetBounds(185, 0, 35, 35);
+                Info_Button_PictureBox.SetBounds(185, 2, 35, 35);
             }
-            else {
+            else if(!Fixated_CheckBox.Checked){
                 On_Border();
                 CloseButton_Custom.Visible = false;
                 Minimise_Button.Visible = false;
                 Align_Button.Visible = true;
-                Align_Button.SetBounds(260, 35, 40, -1);
-                Info_Button_PictureBox.SetBounds(260, 0, 35, 35);
-
-
+                Align_Button.SetBounds(260, -1, 40, 40);
+                Info_Button_PictureBox.SetBounds(221, 2, 35, 35);
             }
         }
 
@@ -663,9 +727,12 @@ namespace CL_Timemeter
         {
             if (Enable_Group_TimemeterFunctions.Checked) {
                 TimeMeterFunctions_GroupBox.Visible = true;
+                FunctionsGoup_ToolStripMenuItem.Checked = true;
             }
             else {
                 TimeMeterFunctions_GroupBox.Visible = false;
+                FunctionsGoup_ToolStripMenuItem.Checked = false;
+
             }
         }
 
@@ -674,6 +741,11 @@ namespace CL_Timemeter
         //public static Image BG_Form = Image.FromStream(Stream_Image_BGForm);
 
 
+        /// <summary>
+        /// APP MODE FUNCTIONS
+        /// </summary>
+        public string StatusModeName = "Timemeter"; // for tray context menu
+        ///  
         public static string Background_For_TimeMode = DefaultBackgroundImage_FileName;
         //public Bitmap BG_mode2 = (Bitmap)BG_Form; //приведение типа Image к типу Bitmap
 
@@ -707,8 +779,12 @@ namespace CL_Timemeter
             DefaultMode_Button.Enabled = true;
             //Align Button Align:
             //// ====== //RealTime_Label.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255, 255);  //// ToDo Enable in ver. 2.0
+
+            // enabled:
             this.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, Background_For_TimeMode));
-            
+            ////disabled:
+            //Background_PictureBox.Visible = true;
+
             //this.BackgroundImage = Bitmap.FromFile(filename: @"banner_blue.jpg");
             this.BackgroundImageLayout = ImageLayout.Stretch;
 
@@ -719,6 +795,7 @@ namespace CL_Timemeter
             RealTime_OutputToLabel(sender, e);
             StartButton_PictureBox.Enabled = false;
             StartButton_PictureBox.Visible = false;
+            Start_Rounded_Button.Visible = false;
 
             //Hide Secondary Timemeter Labels:
             Small_Timemeter_Label.Visible = false;
@@ -750,6 +827,12 @@ namespace CL_Timemeter
             //{
             //    RealTime_Label.Visible = false;
             //}
+
+            ///Main menu changes activity:
+            this.TimemeterMode_ToolStripMenuItem.Enabled = true; 
+            this.ClocksMode_ToolStripMenuItem.Enabled = false;
+            StatusModeName = "Clocks mode";
+            
         }
         public MessageBox CustomMessageMode;
         public MessageBox DefaultMessageMode;
@@ -807,13 +890,18 @@ namespace CL_Timemeter
             timer_for_cover.Enabled = false;
             Timer_ShowRealTime.Enabled = false;
             Timemeter_ClearVolumes();
+
+            ///Main menu changes activity:
+            this.TimemeterMode_ToolStripMenuItem.Enabled = true;
+            this.ClocksMode_ToolStripMenuItem.Enabled = false;
+            StatusModeName = "Timemeter";
         }
         /// <summary>
         /// Align Form to corner
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Align_Button_Click(object sender, EventArgs e)
+        protected void Align_Button_Click(object sender, EventArgs e)
         {
             //Get Primary Screen Size:
             Size Screen_Resolution = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Size;
@@ -977,6 +1065,8 @@ namespace CL_Timemeter
         {
             //Align_Button.BackColor = System.Drawing.Color = global::System.Drawing.Color.FromArgb(((int)(((byte)()))));
             Align_Button.BackColor = System.Drawing.Color.YellowGreen;
+            ToolTip_TT1.SetToolTip(this.Align_Button, "Align to corner");
+
         }
 
         private void Align_Button_MouseLeave(object sender, EventArgs e)
@@ -988,6 +1078,8 @@ namespace CL_Timemeter
         {
             CloseButton_Custom.BackColor = System.Drawing.Color.IndianRed;
             CloseButton_Custom.ForeColor = System.Drawing.Color.White;
+            ToolTip_TT1.SetToolTip(this.CloseButton_Custom, "Close App");
+
         }
 
         private void CloseButton_Custom_MouseLeave(object sender, EventArgs e)
@@ -1001,15 +1093,23 @@ namespace CL_Timemeter
         {
             Image StopButton_Image = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImageStopButton_FileName));
             StopButton_PictureBox.Image = StopButton_Image;
+            StopButton.BackgroundImage = StopButton_Image;
+            StopButton.BackColor = System.Drawing.Color.Transparent;
+
         }
 
         private void StopButton_PictureBox_MouseEnter(object sender, EventArgs e)
         {
             Image StopButtonHover_Image = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImageStopButtonHover_FileName));
             StopButton_PictureBox.Image = StopButtonHover_Image;
+            StopButton.BackgroundImage = StopButtonHover_Image;
+            StopButton.BackColor = System.Drawing.Color.White;
+
+            ToolTip_TT1.SetToolTip(this.StopButton_PictureBox, "Stop timemeter");
+            ToolTip_TT1.SetToolTip(this.StopButton, "Stop timemeter");
         }
         /// <summary>
-        /// 
+        /// Open form About
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -1041,9 +1141,189 @@ namespace CL_Timemeter
         }
 
         /// <summary>
-        /// 
+        /// ALt interface buttons test
         /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Start_Rounded_Button_MouseEnter(object sender, EventArgs e)
+        {
+            Start_Rounded_Button.BackColor = System.Drawing.Color.YellowGreen;
+            Start_Rounded_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImageStartButtonHover_FileName));
+            Start_Rounded_Button.BackgroundImageLayout = ImageLayout.Stretch;
+        }
+
+        private void Start_Rounded_Button_MouseLeave(object sender, EventArgs e)
+        {
+            Start_Rounded_Button.BackColor = default;
+            Start_Rounded_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImageStartButton_FileName));
+        }
+        /// <summary>
+        /// Hide app to tray
+        /// </summary>
+        private void WrapToTrayButton_Click(object sender, EventArgs e)
+        {
+            this.Tray_MainContextMenuStrip.Enabled = true;
+            this.ShowInTaskbar = true;
+
+            //this.WindowState = FormWindowState.Minimized;
+            this.NotifyTayIcon.Visible = true;
+            this.Hide();
+
+        }
 
 
+
+        private void NotifyTayIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            this.NotifyTayIcon.Visible = false;
+            //this.Tray_MainContextMenuStrip.Enabled = false;
+        }
+
+        private void Minimise_Button_Click_1(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        /// <summary>
+        /// For Windows Tray Functions
+        /// </summary>
+        private void WrapToTrayButton_MouseEnter(object sender, EventArgs e)
+        {
+            ToolTip_TT1.SetToolTip(this.WrapToTrayButton, "Wrap to tray");
+        }
+        /// <summary>
+        /// Main Menu Items //////////////////////////////////////////////////////
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
+        
+        private void MainMenu_Rounded_Button_Click(object sender, EventArgs e)
+        {
+            MainMenu_Rounded_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImageMainMenu_Button_Hover_FileName));
+            Open_MainMenu();
+
+            //Control MenuLocationX = new Control();
+            //Control MenuLocationY = new Control();
+
+            int MenuLocationX;
+            int MenuLocationY;
+
+            //MenuLocationX = this.MainMenu_Rounded_Button.Location.X;
+            //MenuLocationY = this.MainMenu_Rounded_Button.Location.Y;
+
+            if (CloseButton_Custom.Visible == true)
+            {
+                MenuLocationX = this.Location.X + 5;
+                MenuLocationY = this.Location.Y + 40;
+                this.MainMenu_ContextMenuStrip.Show(MenuLocationX, MenuLocationY);
+            }
+            else if (CloseButton_Custom.Visible != true)
+            {
+                MenuLocationX = this.Location.X + 10;
+                MenuLocationY = this.Location.Y + 72;
+                this.MainMenu_ContextMenuStrip.Show(MenuLocationX, MenuLocationY);
+            }
+        }
+        private void Exit_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        /// <summary>
+        /// System Tray Menu /////////////////////////////////////////////////
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        //StatusBar StatusMode1 = new StatusBar(); test
+        /// 
+        ///
+        private void Tray_MainContextMenuStrip_DoubleClick(object sender, EventArgs e)
+        {
+            this.Show();
+        }
+
+        private void NotifyTayIcon_Click(object sender, MouseEventArgs e)
+        {
+
+            this.Tray_MainContextMenuStrip.Show();
+            this.Tray_MainContextMenuStrip.Enabled = true;
+            ModeStatus_ToolStripMenuItem.Text = "Active mode:" + StatusModeName;
+            //StatusMode1.Enabled = true;
+        }
+
+        private void MainMenu_ContextMenuStrip_Opening(object sender, CancelEventArgs e)
+        {
+            //this.BackColor = default; //test
+            this.ForeColor = default; //test
+        }
+
+        private void FreeWindowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            On_Border();
+            Fixated_CheckBox.Checked = false;
+        }
+
+        private void FixatedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Off_Border();
+            Fixated_CheckBox.Checked = true;
+
+        }
+
+        private void Display_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Show();
+            this.NotifyTayIcon.Visible = false;
+        }
+
+        private void UnWrap_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Show();
+            this.Tray_MainContextMenuStrip.Visible = false;
+            this.NotifyTayIcon.Visible = false;
+        }
+
+        private void MainMenu_Rounded_Button_MouseEnter(object sender, EventArgs e)
+        {
+            //MainMenu_Rounded_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImageMainMenu_Button_Hover_FileName));
+            Check_MainContextMenu_Close(sender, e);
+            MainMenu_Rounded_Button.Cursor = Cursors.Hand;
+
+        }
+
+        private void MainMenu_Rounded_Button_MouseLeave(object sender, EventArgs e)
+        {
+            //MainMenu_Rounded_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImageMainMenu_Button_FileName));
+            Check_MainContextMenu_Close(sender, e);
+        }
+        private void Check_MainContextMenu_Close(object sender, EventArgs e)
+        {
+            if (this.MainMenu_ContextMenuStrip.Visible == false)
+            {
+                MainMenu_Rounded_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImageMainMenu_Button_FileName));
+
+            } else if ((this.MainMenu_ContextMenuStrip.Visible == true))
+            {
+                MainMenu_Rounded_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImageMainMenu_Button_Hover_FileName));
+            }
+
+        }
+
+        private void Open_MainMenu()
+        {
+            if (this.MainMenu_ContextMenuStrip.Visible == false)
+            {
+                this.MainMenu_ContextMenuStrip.Visible = true;
+            }
+            else this.MainMenu_ContextMenuStrip.Visible = false;
+        }
+
+        private void FunctionsGoup_ToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.FunctionsGoup_ToolStripMenuItem.Checked) this.Enable_Group_TimemeterFunctions.Checked = true; 
+            else if (!this.FunctionsGoup_ToolStripMenuItem.Checked) this.Enable_Group_TimemeterFunctions.Checked = false;
+        }
     }
+    
 }

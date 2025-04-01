@@ -7,6 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CL-Timemeter", "CL-Timemete
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{EEAE2621-9FF9-4074-B542-DAFFAD3F3E1F}"
 	ProjectSection(SolutionItems) = preProject
+		CL-Timemeter.lnk = CL-Timemeter.lnk
 		CL-Timemeter\imgControls\icons\CL-Timemeter_Main_Image.ico = CL-Timemeter\imgControls\icons\CL-Timemeter_Main_Image.ico
 	EndProjectSection
 EndProject
@@ -34,23 +35,30 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CL_Timemeter_Installer", "C
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CL-Timemeter|Any CPU = CL-Timemeter|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Distrib_folder|Any CPU = Distrib_folder|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4BD9E94-471B-4B98-A0DE-1ACB9F2A2A71}.CL-Timemeter|Any CPU.ActiveCfg = CL-Timemeter|Any CPU
+		{B4BD9E94-471B-4B98-A0DE-1ACB9F2A2A71}.CL-Timemeter|Any CPU.Build.0 = CL-Timemeter|Any CPU
 		{B4BD9E94-471B-4B98-A0DE-1ACB9F2A2A71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B4BD9E94-471B-4B98-A0DE-1ACB9F2A2A71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4BD9E94-471B-4B98-A0DE-1ACB9F2A2A71}.Distrib_folder|Any CPU.ActiveCfg = Distrib_folder|Any CPU
 		{B4BD9E94-471B-4B98-A0DE-1ACB9F2A2A71}.Distrib_folder|Any CPU.Build.0 = Distrib_folder|Any CPU
 		{B4BD9E94-471B-4B98-A0DE-1ACB9F2A2A71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4BD9E94-471B-4B98-A0DE-1ACB9F2A2A71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09F55525-CB75-4951-9111-DD2330D37595}.CL-Timemeter|Any CPU.ActiveCfg = CL-Timemeter|Any CPU
+		{09F55525-CB75-4951-9111-DD2330D37595}.CL-Timemeter|Any CPU.Build.0 = CL-Timemeter|Any CPU
 		{09F55525-CB75-4951-9111-DD2330D37595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{09F55525-CB75-4951-9111-DD2330D37595}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09F55525-CB75-4951-9111-DD2330D37595}.Distrib_folder|Any CPU.ActiveCfg = Distrib_folder|Any CPU
 		{09F55525-CB75-4951-9111-DD2330D37595}.Distrib_folder|Any CPU.Build.0 = Distrib_folder|Any CPU
 		{09F55525-CB75-4951-9111-DD2330D37595}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09F55525-CB75-4951-9111-DD2330D37595}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD813437-A7E4-4CFF-8929-0443A92C1D3F}.CL-Timemeter|Any CPU.ActiveCfg = CL-Timemeter|Any CPU
+		{BD813437-A7E4-4CFF-8929-0443A92C1D3F}.CL-Timemeter|Any CPU.Build.0 = CL-Timemeter|Any CPU
 		{BD813437-A7E4-4CFF-8929-0443A92C1D3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BD813437-A7E4-4CFF-8929-0443A92C1D3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD813437-A7E4-4CFF-8929-0443A92C1D3F}.Distrib_folder|Any CPU.ActiveCfg = Distrib_folder|Any CPU

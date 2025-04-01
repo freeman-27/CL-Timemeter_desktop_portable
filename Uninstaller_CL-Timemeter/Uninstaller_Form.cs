@@ -235,7 +235,7 @@ namespace Uninstaller_CL_Timemeter
             ////MessageBox.Show(ArrayText_ToLog.GetValue(9).ToString());
             ////MessageBox.Show(ArrayText_ToLog.GetValue(8).ToString());
             //MessageBox.Show(FullAray.ToString());
-
+            Uninstaller_Program.Program_Edit_RegKeys.Delete_Params_From_Reg();
         }
     }
 }

@@ -9,6 +9,10 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CL__Timemeter_Installer;
+
+//using IWshRuntimeLibrary;
+using Microsoft.Win32;
 
 namespace CL_Timemeter
 {
@@ -30,7 +34,7 @@ namespace CL_Timemeter
 
         }
         /// <summary>
-        /// 
+        /// BackToStart Form
         /// </summary>
         private void BackToStart_Button_Click(object sender, EventArgs e)
         {
@@ -47,7 +51,10 @@ namespace CL_Timemeter
             this.Install_Button.Enabled = false;
 
             Installation_Progress_Bar.Visible = true;
+            Install_Progress_Label.Visible = true;
             instalation_program_timer.Enabled = true;
+            Installation_Info_Label.Visible = false;
+
             //MessageBox.Show(Installation_Progress_Bar.Maximum.ToString());
             //Installation_Progress_Bar.BackColor = System.Drawing.Color.DarkGreen;
             progressBar_Full = 1;
@@ -109,6 +116,7 @@ namespace CL_Timemeter
             Creation_Folders();
             //DestinationPathPrepare();
             CopyProgram_Files_To_OS_AndOutputLog();
+            //CreateShortcut();
         }
         /// <summary>
         /// Создание каталогов установки
@@ -248,6 +256,89 @@ namespace CL_Timemeter
             //MessageBox.Show(Path.Combine(Program_EXE_FilePath, Program_EXE_FileName));
             //MessageBox.Show(Path.Combine(EXE_FromDistrib_Path));
             MessageBox.Show(DestinationFolder_PathCombined);
+            CreateShortcut("C:\\Program Files\\WMit\\CL-Timemeter\\CL-Timemeter.exe", "CL-Timemeter"); //test for link create
+            //Create_Registy_Keys_for_Installation_CL_Timemeter(); //test for reg key creation
         }
+
+
+        /// <summary>
+        /// Create desktop link
+        /// </summary>
+        /// <param name="targetFile"></param>
+        /// <param name="shortcutName"></param>
+        
+        //public void CreateShortcut(string targetFile = "C:\\Program Files\\WMit\\CL-Timemeter\\CL-Timemeter.exe", string shortcutName = "CL-Timemeter")
+        public void CreateShortcut(string targetFile, string shortcutName)
+        {
+            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); //Program_EXE_FilePath, Program_EXE_FileName
+            string shortcutPath = Path.Combine(desktopPath, shortcutName + ".lnk");
+
+            using (StreamWriter writer = new StreamWriter(shortcutPath))
+            {
+                writer.Write("[InternetShortcut]");
+                //writer.Write("URL=file:///" + targetFile);
+                writer.WriteLine("URL=file:///" + targetFile);
+                writer.WriteLine("IconIndex=0");
+                writer.WriteLine("IconFile=" + targetFile);
+                writer.Flush();
+            }
+
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="targetFile"></param>
+        /// <param name="shortcutName"></param>
+        public void Create_Registy_Keys_for_Installation_CL_Timemeter()
+        {
+            //using (RegistryKey registry = Microsoft.Win32.RegistryKey.FromHandle(handle: ))
+            //using (RegistryKey registry = Microsoft.Win32.RegistryKey.OpenBaseKey(hKey: Registry.LocalMachine.OpenSubKey(), view: RegistryHive.LocalMachine.ToString())
+            //using (RegistryKey registry = Microsoft.Win32.RegistryKey.OpenBaseKey(hKey: Registry.LocalMachine.OpenSubKey(string Software, ), view: RegistryHive.LocalMachine.ToString())
+
+
+            //RegistryKey key = Registry.LocalMachine.OpenSubKey("SYSTEM\\CurrentControlSet\\services\\Tomcat7", true);
+            //key.SetValue("Start", 2, RegistryValueKind.DWord);
+
+            using (RegistryKey registryView = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software"))
+            using (RegistryKey registryAdd = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("Software").OpenSubKey("Microsoft").OpenSubKey("Windows").OpenSubKey("CurrentVersion").OpenSubKey("Uninstall"))
+            //using (RegistryKey registryAdd_2 = Microsoft.Win32.Registry.LocalMachine.OpenSubKey("Software").OpenSubKey("Microsoft").OpenSubKey("Windows").OpenSubKey("CurrentVersion").OpenSubKey("Uninstall").CreateSubKey(subkey: "CL-Timemeter").CreateSubKey("CL-Timemeter-test", true))
+            //using (RegistryKey registryAdd_2 = Microsoft.Win32.Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall").CreateSubKey(subkey: "CL-Timemeter").CreateSubKey("CL-Timemeter-test", true))
+            //using (RegistryKey registryAdd_2 = Microsoft.Win32.Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall").CreateSubKey(subkey: "CL-Timemeter").CreateSubKey("CL-Timemeter-test", true))
+            //!!!!!!!!!!!!! using (RegistryKey registryAdd_2 = Microsoft.Win32.Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall"))//.CreateSubKey(subkey: "CL-Timemeter").CreateSubKey("CL-Timemeter-test", true))
+            using (RegistryKey registryAdd_2 = Microsoft.Win32.Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft"))//.CreateSubKey(subkey: "CL-Timemeter").CreateSubKey("CL-Timemeter-test", true))
+
+            //using (RegistryKey registry = Microsoft.Win32.RegistryKey.FromHandle
+            {
+                //registryAdd_2.SetValue(name: "testValue", value: "TestVAlueContent", valueKind: RegistryValueKind.String);
+                registryAdd_2.OpenSubKey("\\Windows");
+
+                registryAdd_2.GetValue(name: "testValue");
+                registryAdd_2.Close();
+
+
+                MessageBox.Show(registryAdd_2.Name);
+                MessageBox.Show(registryAdd_2.GetValue(name: "testValue").ToString());
+            }
+
+
+            //System.Environment.SetEnvironmentVariable();
+            //System.Environment.GetEnvironmentVariable();
+        }
+
+        private void Test_RegistryParameters_Button_Click(object sender, EventArgs e)
+        {
+            Installer_CL_Timemeter.Program_Edit_RegKeys.Install_To_Reg();
+
+        }
+
+        private void testApplist_Btn_Click(object sender, EventArgs e)
+        {
+            //Get_Installed_AppsList.SetFilePath();
+            Get_Installed_AppsList.GetAppsList();
+        }
+        //Microsoft.Win32.SystemEvents // for autodelete uninstaller todo
+
+        //registry = new Microsoft.Win32.RegistryKey;
+
     }
 }

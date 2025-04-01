@@ -40,6 +40,9 @@
             this.Installation_Done_Button = new System.Windows.Forms.Button();
             this.Test_PathFolder_Button = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.Installation_Info_Label = new System.Windows.Forms.Label();
+            this.Test_RegistryParameters_Button = new System.Windows.Forms.Button();
+            this.testApplist_Btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BackToStart_Button
@@ -83,6 +86,7 @@
             this.Install_Progress_Label.Size = new System.Drawing.Size(84, 13);
             this.Install_Progress_Label.TabIndex = 3;
             this.Install_Progress_Label.Text = "Install_Progress:";
+            this.Install_Progress_Label.Visible = false;
             // 
             // Install_Form_Header_Label
             // 
@@ -128,7 +132,6 @@
             this.Test_PathFolder_Button.TabIndex = 7;
             this.Test_PathFolder_Button.Text = "testPath";
             this.Test_PathFolder_Button.UseVisualStyleBackColor = true;
-            this.Test_PathFolder_Button.Visible = false;
             this.Test_PathFolder_Button.Click += new System.EventHandler(this.Test_PathFolder_Button_Click);
             // 
             // checkBox1
@@ -143,11 +146,43 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.Visible = false;
             // 
+            // Installation_Info_Label
+            // 
+            this.Installation_Info_Label.AutoSize = true;
+            this.Installation_Info_Label.Location = new System.Drawing.Point(40, 66);
+            this.Installation_Info_Label.Name = "Installation_Info_Label";
+            this.Installation_Info_Label.Size = new System.Drawing.Size(163, 13);
+            this.Installation_Info_Label.TabIndex = 11;
+            this.Installation_Info_Label.Text = "To start installation press \"Install\"";
+            // 
+            // Test_RegistryParameters_Button
+            // 
+            this.Test_RegistryParameters_Button.Location = new System.Drawing.Point(184, 185);
+            this.Test_RegistryParameters_Button.Name = "Test_RegistryParameters_Button";
+            this.Test_RegistryParameters_Button.Size = new System.Drawing.Size(75, 23);
+            this.Test_RegistryParameters_Button.TabIndex = 12;
+            this.Test_RegistryParameters_Button.Text = "Test Reg";
+            this.Test_RegistryParameters_Button.UseVisualStyleBackColor = true;
+            this.Test_RegistryParameters_Button.Click += new System.EventHandler(this.Test_RegistryParameters_Button_Click);
+            // 
+            // testApplist_Btn
+            // 
+            this.testApplist_Btn.Location = new System.Drawing.Point(40, 185);
+            this.testApplist_Btn.Name = "testApplist_Btn";
+            this.testApplist_Btn.Size = new System.Drawing.Size(138, 23);
+            this.testApplist_Btn.TabIndex = 13;
+            this.testApplist_Btn.Text = "AppList to txt";
+            this.testApplist_Btn.UseVisualStyleBackColor = true;
+            this.testApplist_Btn.Click += new System.EventHandler(this.testApplist_Btn_Click);
+            // 
             // InstallerMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 211);
+            this.Controls.Add(this.testApplist_Btn);
+            this.Controls.Add(this.Test_RegistryParameters_Button);
+            this.Controls.Add(this.Installation_Info_Label);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.Test_PathFolder_Button);
             this.Controls.Add(this.Installation_Done_Button);
@@ -181,5 +216,8 @@
         private System.Windows.Forms.Button Installation_Done_Button;
         private System.Windows.Forms.Button Test_PathFolder_Button;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label Installation_Info_Label;
+        private System.Windows.Forms.Button Test_RegistryParameters_Button;
+        private System.Windows.Forms.Button testApplist_Btn;
     }
 }

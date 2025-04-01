@@ -16,5 +16,15 @@ namespace CL__Timemeter_Installer
         {
             InitializeComponent();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            colorDialog1.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(backgroundWorker1.ToString());
+        }
     }
 }

@@ -52,7 +52,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>icons\CL-Timemeter-Main-Image_R2.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>
@@ -251,14 +252,40 @@
       <CustomToolNamespace>CL_Timemeter</CustomToolNamespace>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="icons\CL-Timemeter-Main-Image_R2.ico" />
-    <Content Include="icons\CL-Timemeter_Main_Image.ico" />
-    <Content Include="icons\Installer.ico" />
-    <Content Include="icons\Uninstall.ico" />
     <EmbeddedResource Include="imgControls\CL-Timemeter_Main_Hover_Image_R1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <Content Include="imgControls\CL-Timemeter_ClocksImage.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="imgControls\CL-Timemeter_Main_Image_R2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="imgControls\CL-Timemeter_Main_Image_R1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="imgControls\icons\CL-Timemeter_ClocksImage.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="imgControls\icons\CL-Timemeter_Installer-Image.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="imgControls\icons\CL-Timemeter_Main_Image_R2.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="imgControls\icons\CL-Timemeter_UnInstaller-Image.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="imgControls\icons\CL-Timemeter_Main_Hover_Image_R1.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="imgControls\icons\CL-Timemeter_Main_Image_R1.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="imgControls\icons\Installer.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="imgControls\icons\Uninstall.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="imgControls\Info_Button_Image.png">

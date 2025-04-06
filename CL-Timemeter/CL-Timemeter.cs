@@ -55,15 +55,42 @@ namespace CL_Timemeter
         private void CL_Timemeter_Form_Load(object sender, EventArgs e)
         {
             //this.AcceptButton = StartButton;
-            Hide_All_ControlElement_Labels();
+            ResetLabels_ForControlsWithImages();
+
+            ///ToolTipes for all elements:
+            string DefaultModeTip = "Switch to Default Mode";
+            string ClocksModeTip = "Switch to Cloks Mode";
+            string ShowTimeLabelTip = "Show current time";
+            string AlignToCornerToolTip = "";
+            string StartButtonToolTip = "Start timemeter";
+            string MainMenuToolTip = "Open main menu";
+            string Minimise_ButtonToolTip = "Minimise window";
+            string Info_Button_PictureBox_ToolTip = "About App";
+            
+            //ToolTip_TT1.SetToolTip(this.PauseButton_PictureBox, PauseToolTipText);
+
+            //ToolTip_TT1.SetToolTip(this.StartButton_PictureBox, StartToolTipText);
+            //ToolTip_TT1.SetToolTip(this.StopButton_PictureBox, PauseToolTipText);
+
+            //ToolTip_TT1.SetToolTip(this.Info_Button_PictureBox, PauseToolTipText);
+            ToolTip_TT1.SetToolTip(this.Switch_Mode_Button, ClocksModeTip);
+            ToolTip_TT1.SetToolTip(this.DefaultMode_Button, DefaultModeTip);
+            ToolTip_TT1.SetToolTip(this.Show_Time_RoundedButton, ShowTimeLabelTip);
+            ToolTip_TT1.SetToolTip(this.ShowTime_Button, ShowTimeLabelTip);
+            ToolTip_TT1.SetToolTip(this.MainMenu_Rounded_Button, MainMenuToolTip);
+            ToolTip_TT1.SetToolTip(this.Start_Rounded_Button, StartButtonToolTip);
+            ToolTip_TT1.SetToolTip(this.Minimise_Button, Minimise_ButtonToolTip);
+            ToolTip_TT1.SetToolTip(this.Info_Button_PictureBox, Info_Button_PictureBox_ToolTip);
+
 
         }
 
-        public void Hide_All_ControlElement_Labels()
+        public void ResetLabels_ForControlsWithImages()
         {
-
             StartButton.Text = "";
             Pause_Button.Text = "";
+            Switch_Mode_Button.Text = "";
+            DefaultMode_Button.Text = "";
         }
 
         private void CloseButton_Custom_Click(object sender, EventArgs e)
@@ -352,6 +379,7 @@ namespace CL_Timemeter
         //public static string ImageControlsFolder_RelativePath = @"Release\imgControls\"; //Release folder/////////////////////////////////////////
         //public static string ImageControlsFolder_RelativePath = @"Distrib_folder\imgControls\"; //Distrib folder/////////////////////////////////////////
         public static string ImageControlsFolder_RelativePath = @"imgControls\"; //Distrib folder/////////////////////////////////////////
+        public static string IconsFolder_RelativePath = @"imgControls\icons\"; //Distrib folder/////////////////////////////////////////
 
         ///отностительный путь для установленного экземпляра программы(!!!!!используется в финальной сборке)
         //public static string ImageControlsFolder_RelativePath = "CL-Timemeter\\imgControls\\"; //Installation folder ////////////////////////////// destination folder for installer) //////////////////////////////////////////////////////
@@ -363,6 +391,7 @@ namespace CL_Timemeter
         //Составление полного пути к папке с изображениями элементов управления:
         //public static string ImageContolElement_AutoCombinePathFolder = Path.Combine(Path.GetDirectoryName(Application.StartupPath), ImageControlsFolder_RelativePath); //installation folder
         public static string ImageContolElement_AutoCombinePathFolder = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), ImageControlsFolder_RelativePath); //installation folder
+        public static string Icons_AutoCombinePathFolder = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), IconsFolder_RelativePath); //installation folder
 
         /// <summary>
         /// IMAGE CONTROLS File Names 
@@ -384,6 +413,13 @@ namespace CL_Timemeter
         public static string ImageMainMenu_Button_FileName = Path.GetFileName("CL-Timemeter_Main_Image_R1.png");
 
         public static string DefaultBackgroundImage_FileName = Path.GetFileName("green_land_light.png");
+
+        public static string ClocksImage_FileName = Path.GetFileName("CL-Timemeter_ClocksImage.png");
+        public static string ClocksIcon_Image_FileName = Path.GetFileName("CL-Timemeter_ClocksImage.ico");
+
+        public static string MainImage = Path.GetFileName("CL-Timemeter_Main_Image_R2.png");
+
+
 
 
 
@@ -676,7 +712,7 @@ namespace CL_Timemeter
                 Minimise_Button.Visible = true;
                 Align_Button.Visible = true;
                 Align_Button.SetBounds(221, -1, 40, 40);
-                Info_Button_PictureBox.SetBounds(185, 2, 35, 35);
+                Info_Button_PictureBox.SetBounds(185, 2, 30, 30);
             }
             else if(!Fixated_CheckBox.Checked){
                 On_Border();
@@ -684,7 +720,7 @@ namespace CL_Timemeter
                 Minimise_Button.Visible = false;
                 Align_Button.Visible = true;
                 Align_Button.SetBounds(260, -1, 40, 40);
-                Info_Button_PictureBox.SetBounds(221, 2, 35, 35);
+                Info_Button_PictureBox.SetBounds(221, 2, 30, 30);
             }
         }
 
@@ -783,11 +819,25 @@ namespace CL_Timemeter
             Hours_Label.Visible = false;
             Split_Label_1.Visible = false;
             Split_Label_2.Visible = false;
+            Show_Time_RoundedButton.Visible = false;
+            //MainMenu_Rounded_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(IconsFolder_RelativePath, ClocksIcon_Image_FileName));
+            MainMenu_Rounded_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageControlsFolder_RelativePath, ClocksImage_FileName));
+            MainMenu_Rounded_Button.BackColor = Color.Transparent;
+
+
+
+
+
+            //MainMenu_Rounded_Button.BackgroundImage
             //Fixated_CheckBox.Visible = false;
             ShowCheckGroup_Button.Visible = false;
-            ShowTime_Button.Visible = false; 
+            ShowTime_Button.Visible = false;
             //switch mode buttons:
+            Switch_Mode_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageControlsFolder_RelativePath, ImageMainMenu_Button_Hover_FileName));
+            Switch_Mode_Button.BackColor = Color.Transparent;
             Switch_Mode_Button.Enabled = false;
+
+            DefaultMode_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageControlsFolder_RelativePath, MainImage));
             DefaultMode_Button.Enabled = true;
             //Align Button Align:
             //// ====== //RealTime_Label.ForeColor = System.Drawing.Color.FromArgb(255, 255, 255, 255);  //// ToDo Enable in ver. 2.0
@@ -802,7 +852,7 @@ namespace CL_Timemeter
 
 
             Align_Button_Click(sender,e);
-            Enable_Group_TimemeterFunctions.Checked = false;
+
             Fixated_CheckBox.Checked = true;
             RealTime_OutputToLabel(sender, e);
             StartButton_PictureBox.Enabled = false;
@@ -841,8 +891,10 @@ namespace CL_Timemeter
             //}
 
             ///Main menu changes activity:
-            this.TimemeterMode_ToolStripMenuItem.Enabled = true; 
             this.ClocksMode_ToolStripMenuItem.Enabled = false;
+            this.ClocksMode_ToolStripMenuItem.Checked = true;
+            this.TimemeterMode_ToolStripMenuItem.Enabled = true;
+            this.TimemeterMode_ToolStripMenuItem.Checked = false;
             StatusModeName = "Clocks mode";
             
         }
@@ -870,23 +922,28 @@ namespace CL_Timemeter
             //Def_ModeEnableInfoDialog.TimeModeInfo_MessageLabel.BackColor = BackColor = System.Drawing.Color.Black;
 
             Def_ModeEnableInfoDialog.Show();
-            StartButton_PictureBox.Visible = true;
-            StartButton_PictureBox.Enabled = true;
+            MainMenu_Rounded_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageControlsFolder_RelativePath, ImageMainMenu_Button_FileName));
+
+            //StartButton_PictureBox.Visible = true; //disabled element
+            //StartButton_PictureBox.Enabled = true; //disabled element
+            Start_Rounded_Button.Visible = true; 
 
 
             RealTime_Label.Visible = false;
+            RealDate_Label.Visible = false;
             Seconds_Label.Visible = true;
             Minutes_Label.Visible = true; 
             Hours_Label.Visible = true;
             Split_Label_1.Visible = true;
             Split_Label_2.Visible = true;
-            Fixated_CheckBox.Visible = true;
-            ShowCheckGroup_Button.Visible = true;
+            //Fixated_CheckBox.Visible = true; //disabled element
+            //ShowCheckGroup_Button.Visible = true; //disabled element
             ShowTime_Button.Visible = true;
             this.BackgroundImage = default;
 
             ShowCheckGroup_Button.Visible = true;
             ShowTime_Button.Visible = true;
+            Show_Time_RoundedButton.Visible = true;
 
             ////==== function buttons: 
             /////Background functions buttons - Enable in ver. 2.0
@@ -894,8 +951,14 @@ namespace CL_Timemeter
             //Default_BG_Button.Enabled = false;
 
             //switch mode buttons:
-            Switch_Mode_Button.Enabled = true;
+            DefaultMode_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageControlsFolder_RelativePath, ImageMainMenu_Button_Hover_FileName));
+            DefaultMode_Button.BackColor = Color.Transparent;
             DefaultMode_Button.Enabled = false;
+
+
+            Switch_Mode_Button.Enabled = true;
+            Switch_Mode_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageControlsFolder_RelativePath, ClocksImage_FileName));
+            Switch_Mode_Button.BackColor = Color.YellowGreen;
 
             //stop all timers
             main_system_timer.Enabled = false;
@@ -904,8 +967,10 @@ namespace CL_Timemeter
             Timemeter_ClearVolumes();
 
             ///Main menu changes activity:
-            this.TimemeterMode_ToolStripMenuItem.Enabled = true;
-            this.ClocksMode_ToolStripMenuItem.Enabled = false;
+            this.TimemeterMode_ToolStripMenuItem.Enabled = false;
+            this.TimemeterMode_ToolStripMenuItem.Checked = true;
+            this.ClocksMode_ToolStripMenuItem.Enabled = true;
+            this.ClocksMode_ToolStripMenuItem.Checked = false;
             StatusModeName = "Timemeter";
         }
         /// <summary>
@@ -1136,15 +1201,18 @@ namespace CL_Timemeter
 
         private void Info_Button_PictureBox_MouseEnter(object sender, EventArgs e)
         {
-            Image Info_ButtonHover_Image = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImageInfoButtonHover_FileName));
-            Info_Button_PictureBox.Image = Info_ButtonHover_Image;
+            //    Image Info_ButtonHover_Image = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImageInfoButtonHover_FileName));
+            //    Info_Button_PictureBox.Image = Info_ButtonHover_Image;
+            Info_Button_PictureBox.BackColor = Color.YellowGreen;
 
         }
 
         private void Info_Button_PictureBox_MouseLeave(object sender, EventArgs e)
         {
-            Image Info_Button_Image = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImageInfoButton_FileName));
-            Info_Button_PictureBox.Image = Info_Button_Image;
+            //Image Info_Button_Image = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImageInfoButton_FileName));
+            //Info_Button_PictureBox.Image = Info_Button_Image;
+            Info_Button_PictureBox.BackColor = Color.Transparent;
+
         }
 
         private void linkLabel1_Click(object sender, EventArgs e)
@@ -1274,13 +1342,17 @@ namespace CL_Timemeter
         {
             On_Border();
             Fixated_CheckBox.Checked = false;
+            FixatedToolStripMenuItem.Checked = false;
+            FreeWindowToolStripMenuItem.Checked = true;
+
         }
 
         private void FixatedToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Off_Border();
+            FreeWindowToolStripMenuItem.Checked = false;
             Fixated_CheckBox.Checked = true;
-
+            FixatedToolStripMenuItem.Checked = true;
         }
 
         private void Display_ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1314,7 +1386,10 @@ namespace CL_Timemeter
             if (this.MainMenu_ContextMenuStrip.Visible == false)
             {
                 MainMenu_Rounded_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImageMainMenu_Button_FileName));
-
+                if (StatusModeName == "Clocks mode")
+                {
+                    MainMenu_Rounded_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageControlsFolder_RelativePath, ClocksImage_FileName));
+                }
             } else if ((this.MainMenu_ContextMenuStrip.Visible == true))
             {
                 MainMenu_Rounded_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImageMainMenu_Button_Hover_FileName));
@@ -1350,6 +1425,17 @@ namespace CL_Timemeter
 
             //InstallationProgramFilesClass InstallationProcess = new InstallationProgramFilesClass();
             //InstallationProcess.Show_Installation_Array();
+        }
+
+        private void Show_Time_RoundedButton_MouseEnter(object sender, EventArgs e)
+        {
+            Show_Time_RoundedButton.BackColor = Color.YellowGreen;
+        }
+
+        private void Show_Time_RoundedButton_MouseLeave(object sender, EventArgs e)
+        {
+            Show_Time_RoundedButton.BackColor = Color.Transparent;
+
         }
     }
     

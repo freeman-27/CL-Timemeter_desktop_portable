@@ -41,8 +41,8 @@
             this.ShowCheckGroup_Button = new System.Windows.Forms.Button();
             this.WrapToTrayButton = new System.Windows.Forms.Button();
             this.ShowTime_Button = new System.Windows.Forms.Button();
-            this.DefaultMode_Button = new System.Windows.Forms.Button();
             this.Switch_Mode_Button = new System.Windows.Forms.Button();
+            this.DefaultMode_Button = new System.Windows.Forms.Button();
             this.Full_Seconds_Label = new System.Windows.Forms.Label();
             this.Full_Minutes_Label = new System.Windows.Forms.Label();
             this.Full_Hours_Label = new System.Windows.Forms.Label();
@@ -189,8 +189,8 @@
             this.TimeMeterFunctions_GroupBox.Controls.Add(this.ShowCheckGroup_Button);
             this.TimeMeterFunctions_GroupBox.Controls.Add(this.WrapToTrayButton);
             this.TimeMeterFunctions_GroupBox.Controls.Add(this.ShowTime_Button);
-            this.TimeMeterFunctions_GroupBox.Controls.Add(this.DefaultMode_Button);
             this.TimeMeterFunctions_GroupBox.Controls.Add(this.Switch_Mode_Button);
+            this.TimeMeterFunctions_GroupBox.Controls.Add(this.DefaultMode_Button);
             this.TimeMeterFunctions_GroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.TimeMeterFunctions_GroupBox.Location = new System.Drawing.Point(12, 45);
             this.TimeMeterFunctions_GroupBox.Name = "TimeMeterFunctions_GroupBox";
@@ -263,6 +263,8 @@
             // 
             // ShowTime_Button
             // 
+            this.ShowTime_Button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ShowTime_Button.BackgroundImage")));
+            this.ShowTime_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ShowTime_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ShowTime_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.ShowTime_Button.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -270,18 +272,36 @@
             this.ShowTime_Button.Name = "ShowTime_Button";
             this.ShowTime_Button.Size = new System.Drawing.Size(30, 30);
             this.ShowTime_Button.TabIndex = 19;
-            this.ShowTime_Button.Text = "tm";
             this.ShowTime_Button.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.ShowTime_Button.UseVisualStyleBackColor = true;
             this.ShowTime_Button.Click += new System.EventHandler(this.ShowTime_Button_Click);
             // 
+            // Switch_Mode_Button
+            // 
+            this.Switch_Mode_Button.BackColor = System.Drawing.Color.YellowGreen;
+            this.Switch_Mode_Button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Switch_Mode_Button.BackgroundImage")));
+            this.Switch_Mode_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Switch_Mode_Button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Switch_Mode_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.Switch_Mode_Button.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.Switch_Mode_Button.Location = new System.Drawing.Point(38, 15);
+            this.Switch_Mode_Button.Name = "Switch_Mode_Button";
+            this.Switch_Mode_Button.Size = new System.Drawing.Size(30, 30);
+            this.Switch_Mode_Button.TabIndex = 29;
+            this.Switch_Mode_Button.Text = "m1";
+            this.Switch_Mode_Button.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.Switch_Mode_Button.UseVisualStyleBackColor = false;
+            this.Switch_Mode_Button.Click += new System.EventHandler(this.Switch_Mode_Button_Click);
+            // 
             // DefaultMode_Button
             // 
+            this.DefaultMode_Button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("DefaultMode_Button.BackgroundImage")));
+            this.DefaultMode_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.DefaultMode_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DefaultMode_Button.Enabled = false;
             this.DefaultMode_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.DefaultMode_Button.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.DefaultMode_Button.Location = new System.Drawing.Point(38, 15);
+            this.DefaultMode_Button.Location = new System.Drawing.Point(6, 15);
             this.DefaultMode_Button.Name = "DefaultMode_Button";
             this.DefaultMode_Button.Size = new System.Drawing.Size(30, 30);
             this.DefaultMode_Button.TabIndex = 31;
@@ -289,20 +309,6 @@
             this.DefaultMode_Button.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.DefaultMode_Button.UseVisualStyleBackColor = true;
             this.DefaultMode_Button.Click += new System.EventHandler(this.DefMode_ON);
-            // 
-            // Switch_Mode_Button
-            // 
-            this.Switch_Mode_Button.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Switch_Mode_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.Switch_Mode_Button.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.Switch_Mode_Button.Location = new System.Drawing.Point(6, 15);
-            this.Switch_Mode_Button.Name = "Switch_Mode_Button";
-            this.Switch_Mode_Button.Size = new System.Drawing.Size(30, 30);
-            this.Switch_Mode_Button.TabIndex = 29;
-            this.Switch_Mode_Button.Text = "m1";
-            this.Switch_Mode_Button.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.Switch_Mode_Button.UseVisualStyleBackColor = true;
-            this.Switch_Mode_Button.Click += new System.EventHandler(this.Switch_Mode_Button_Click);
             // 
             // Full_Seconds_Label
             // 
@@ -636,7 +642,7 @@
             this.Info_Button_PictureBox.BackColor = System.Drawing.Color.Transparent;
             this.Info_Button_PictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Info_Button_PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("Info_Button_PictureBox.Image")));
-            this.Info_Button_PictureBox.Location = new System.Drawing.Point(226, 5);
+            this.Info_Button_PictureBox.Location = new System.Drawing.Point(226, 2);
             this.Info_Button_PictureBox.Name = "Info_Button_PictureBox";
             this.Info_Button_PictureBox.Size = new System.Drawing.Size(30, 30);
             this.Info_Button_PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -753,7 +759,6 @@
             this.MainMenu_Rounded_Button.Size = new System.Drawing.Size(40, 40);
             this.MainMenu_Rounded_Button.TabIndex = 103;
             this.MainMenu_Rounded_Button.UseVisualStyleBackColor = true;
-            this.MainMenu_Rounded_Button.Visible = false;
             this.MainMenu_Rounded_Button.Click += new System.EventHandler(this.MainMenu_Rounded_Button_Click);
             this.MainMenu_Rounded_Button.MouseEnter += new System.EventHandler(this.MainMenu_Rounded_Button_MouseEnter);
             this.MainMenu_Rounded_Button.MouseLeave += new System.EventHandler(this.MainMenu_Rounded_Button_MouseLeave);
@@ -903,12 +908,14 @@
             this.Show_Time_RoundedButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Show_Time_RoundedButton.FlatAppearance.BorderSize = 0;
             this.Show_Time_RoundedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Show_Time_RoundedButton.Location = new System.Drawing.Point(133, 5);
+            this.Show_Time_RoundedButton.Location = new System.Drawing.Point(133, 1);
             this.Show_Time_RoundedButton.Name = "Show_Time_RoundedButton";
-            this.Show_Time_RoundedButton.Size = new System.Drawing.Size(30, 30);
+            this.Show_Time_RoundedButton.Size = new System.Drawing.Size(32, 32);
             this.Show_Time_RoundedButton.TabIndex = 105;
             this.Show_Time_RoundedButton.UseVisualStyleBackColor = false;
             this.Show_Time_RoundedButton.Click += new System.EventHandler(this.ShowTime_Button_Click);
+            this.Show_Time_RoundedButton.MouseEnter += new System.EventHandler(this.Show_Time_RoundedButton_MouseEnter);
+            this.Show_Time_RoundedButton.MouseLeave += new System.EventHandler(this.Show_Time_RoundedButton_MouseLeave);
             // 
             // CL_Timemeter_Form
             // 
@@ -919,7 +926,6 @@
             this.Controls.Add(this.ForTestingFunc_Вutton);
             this.Controls.Add(this.RealDate_Label);
             this.Controls.Add(this.MainMenu_Rounded_Button);
-            this.Controls.Add(this.Pause_Rounded_Button);
             this.Controls.Add(this.Info_Button_PictureBox);
             this.Controls.Add(this.StopButton_PictureBox);
             this.Controls.Add(this.TimeMeterFunctions_GroupBox);
@@ -940,10 +946,11 @@
             this.Controls.Add(this.StartButton);
             this.Controls.Add(this.StartButton_PictureBox);
             this.Controls.Add(this.PauseButton_PictureBox);
-            this.Controls.Add(this.Start_Rounded_Button);
-            this.Controls.Add(this.Minute_Progress_Label);
             this.Controls.Add(this.CloseButton_Custom);
             this.Controls.Add(this.Align_Button);
+            this.Controls.Add(this.Pause_Rounded_Button);
+            this.Controls.Add(this.Start_Rounded_Button);
+            this.Controls.Add(this.Minute_Progress_Label);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

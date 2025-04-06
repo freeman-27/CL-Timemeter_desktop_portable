@@ -63,6 +63,16 @@ namespace CL_Timemeter {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap DefaultMode_Button_BackgroundImage {
+            get {
+                object obj = ResourceManager.GetObject("DefaultMode_Button.BackgroundImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Info_Button_PictureBox_Image {
             get {
                 object obj = ResourceManager.GetObject("Info_Button_PictureBox.Image", resourceCulture);
@@ -163,6 +173,16 @@ namespace CL_Timemeter {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap ShowTime_Button_BackgroundImage {
+            get {
+                object obj = ResourceManager.GetObject("ShowTime_Button.BackgroundImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Start_Rounded_Button_BackgroundImage {
             get {
                 object obj = ResourceManager.GetObject("Start_Rounded_Button.BackgroundImage", resourceCulture);
@@ -216,6 +236,16 @@ namespace CL_Timemeter {
         public static System.Drawing.Bitmap StopButton_PictureBox_InitialImage {
             get {
                 object obj = ResourceManager.GetObject("StopButton_PictureBox.InitialImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Switch_Mode_Button_BackgroundImage {
+            get {
+                object obj = ResourceManager.GetObject("Switch_Mode_Button.BackgroundImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

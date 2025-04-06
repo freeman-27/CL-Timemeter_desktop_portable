@@ -52,8 +52,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>imgControls\icons\CL-Timemeter_Main_Image_R2.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>
@@ -248,7 +247,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="CL-Timemeter_Main_Image.ico" />
-    <Content Include="Dark_Cursor.cur">
+    <Content Include="imgControls\Black_Cursor.cur">
+      <CustomToolNamespace>CL_Timemeter</CustomToolNamespace>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="imgControls\Dark_Cursor.cur">
       <CustomToolNamespace>CL_Timemeter</CustomToolNamespace>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -262,6 +265,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="imgControls\CL-Timemeter_Main_Image_R1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="imgControls\GreenCursor.cur">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="imgControls\icons\CL-Timemeter_ClocksImage.ico">
@@ -292,6 +298,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="imgControls\Info_Button_Transparent_Image.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="imgControls\MixedTriangleBlackCursor.cur">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="imgControls\PauseActivated_Button_Image.png">

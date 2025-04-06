@@ -51,6 +51,12 @@ namespace CL_Timemeter
         /// ==========================================================================================
 
         //TODO Cursor
+        Cursor BlackCursorForm = new Cursor(Application.StartupPath + "\\imgControls\\Dark_Cursor.cur");
+        Cursor BlackCursor_1 = new Cursor(Application.StartupPath + "\\imgControls\\Dark_Cursor.cur");
+        Cursor MixedBlackCursor = new Cursor(Application.StartupPath + "\\imgControls\\MixedTriangleBlackCursor.cur");
+        Cursor GreenCursor = new Cursor(Application.StartupPath + "\\imgControls\\GreenCursor.cur");
+        //Cursor BlackCursorWin = new Cursor("C:\\Windows\\Cursors");
+
 
         private void CL_Timemeter_Form_Load(object sender, EventArgs e)
         {
@@ -81,8 +87,28 @@ namespace CL_Timemeter
             ToolTip_TT1.SetToolTip(this.Start_Rounded_Button, StartButtonToolTip);
             ToolTip_TT1.SetToolTip(this.Minimise_Button, Minimise_ButtonToolTip);
             ToolTip_TT1.SetToolTip(this.Info_Button_PictureBox, Info_Button_PictureBox_ToolTip);
+            //this.Cursor = new Cursor(Application.StartupPath + "\\imgControls\\Dark_Cursor.cur");
+            //this.Cursor = BlackCursorForm;
+            this.Cursor = BlackCursor_1;
+            this.Minute_Progress_Label.Cursor = BlackCursor_1;
+            this.Hours_Label.Cursor = BlackCursor_1;
+            this.Minutes_Label.Cursor = BlackCursor_1;
+            this.Seconds_Label.Cursor = BlackCursor_1;
+            Small_Timemeter_Label.Cursor = BlackCursor_1;
+            RealTime_Label.Cursor = BlackCursor_1;
+            RealDate_Label.Cursor = BlackCursor_1;
+            Split_Label_1.Cursor = BlackCursor_1;
+            Split_Label_2.Cursor = BlackCursor_1;
+            MainMenu_ContextMenuStrip.Cursor = BlackCursor_1;
+            TimeMeterFunctions_GroupBox.Cursor = BlackCursor_1;
+            //MainMenu_ContextMenuStrip.BackColor = Color.DimGray;
+            //FixatedToolStripMenuItem.Cursor
+            //this.View_ToolStripMenuItem.Cursor = BlackCursor_1;
+            //this.MainMenu_ContextMenuStrip.
+            Tray_MainContextMenuStrip.Cursor = BlackCursor_1;
 
-
+            //this.Cursor = MixedBlackCursor;
+            //this.Cursor = GreenCursor;
         }
 
         public void ResetLabels_ForControlsWithImages()
@@ -683,6 +709,10 @@ namespace CL_Timemeter
             //this.Cursor = CustomCursorsClass;
             //
             //public object DarkCursor1 = new object();
+            this.Cursor = BlackCursor_1;
+            //this.Cursor = MixedBlackCursor;
+            //this.Cursor = GreenCursor;
+
         }
 
         private void TimeValuesLabels_GroupBox_Enter(object sender, EventArgs e)
@@ -958,7 +988,7 @@ namespace CL_Timemeter
 
             Switch_Mode_Button.Enabled = true;
             Switch_Mode_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageControlsFolder_RelativePath, ClocksImage_FileName));
-            Switch_Mode_Button.BackColor = Color.YellowGreen;
+            Switch_Mode_Button.BackColor = Color.LemonChiffon;
 
             //stop all timers
             main_system_timer.Enabled = false;

@@ -206,7 +206,7 @@
             this.Default_BG_Button.Enabled = false;
             this.Default_BG_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
             this.Default_BG_Button.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.Default_BG_Button.Location = new System.Drawing.Point(109, 15);
+            this.Default_BG_Button.Location = new System.Drawing.Point(135, 15);
             this.Default_BG_Button.Name = "Default_BG_Button";
             this.Default_BG_Button.Size = new System.Drawing.Size(30, 30);
             this.Default_BG_Button.TabIndex = 33;
@@ -222,7 +222,7 @@
             this.ChangeBG_Button.Enabled = false;
             this.ChangeBG_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.ChangeBG_Button.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.ChangeBG_Button.Location = new System.Drawing.Point(78, 15);
+            this.ChangeBG_Button.Location = new System.Drawing.Point(104, 15);
             this.ChangeBG_Button.Name = "ChangeBG_Button";
             this.ChangeBG_Button.Size = new System.Drawing.Size(30, 30);
             this.ChangeBG_Button.TabIndex = 32;
@@ -237,7 +237,7 @@
             this.ShowCheckGroup_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ShowCheckGroup_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
             this.ShowCheckGroup_Button.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.ShowCheckGroup_Button.Location = new System.Drawing.Point(198, 15);
+            this.ShowCheckGroup_Button.Location = new System.Drawing.Point(200, 15);
             this.ShowCheckGroup_Button.Name = "ShowCheckGroup_Button";
             this.ShowCheckGroup_Button.Size = new System.Drawing.Size(30, 30);
             this.ShowCheckGroup_Button.TabIndex = 18;
@@ -278,13 +278,13 @@
             // 
             // Switch_Mode_Button
             // 
-            this.Switch_Mode_Button.BackColor = System.Drawing.Color.YellowGreen;
+            this.Switch_Mode_Button.BackColor = System.Drawing.Color.LemonChiffon;
             this.Switch_Mode_Button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Switch_Mode_Button.BackgroundImage")));
             this.Switch_Mode_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Switch_Mode_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Switch_Mode_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Switch_Mode_Button.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.Switch_Mode_Button.Location = new System.Drawing.Point(38, 15);
+            this.Switch_Mode_Button.Location = new System.Drawing.Point(6, 15);
             this.Switch_Mode_Button.Name = "Switch_Mode_Button";
             this.Switch_Mode_Button.Size = new System.Drawing.Size(30, 30);
             this.Switch_Mode_Button.TabIndex = 29;
@@ -301,7 +301,7 @@
             this.DefaultMode_Button.Enabled = false;
             this.DefaultMode_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.DefaultMode_Button.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.DefaultMode_Button.Location = new System.Drawing.Point(6, 15);
+            this.DefaultMode_Button.Location = new System.Drawing.Point(40, 15);
             this.DefaultMode_Button.Name = "DefaultMode_Button";
             this.DefaultMode_Button.Size = new System.Drawing.Size(30, 30);
             this.DefaultMode_Button.TabIndex = 31;
@@ -820,7 +820,7 @@
             // 
             this.FixatedToolStripMenuItem.CheckOnClick = true;
             this.FixatedToolStripMenuItem.Name = "FixatedToolStripMenuItem";
-            this.FixatedToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.FixatedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.FixatedToolStripMenuItem.Text = "Fixated Window";
             this.FixatedToolStripMenuItem.Click += new System.EventHandler(this.FixatedToolStripMenuItem_Click);
             // 
@@ -830,7 +830,7 @@
             this.FreeWindowToolStripMenuItem.CheckOnClick = true;
             this.FreeWindowToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.FreeWindowToolStripMenuItem.Name = "FreeWindowToolStripMenuItem";
-            this.FreeWindowToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.FreeWindowToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.FreeWindowToolStripMenuItem.Text = "Free Window";
             this.FreeWindowToolStripMenuItem.Click += new System.EventHandler(this.FreeWindowToolStripMenuItem_Click);
             // 
@@ -1040,7 +1040,6 @@
         public System.Windows.Forms.ContextMenuStrip Tray_MainContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem TimemeterMode_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ClocksMode_ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem View_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem FixatedToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem FreeWindowToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem BackgroundExec_ToolStripMenuItem;
@@ -1048,6 +1047,7 @@
         private System.Windows.Forms.ToolStripMenuItem FunctionsGoup_ToolStripMenuItem;
         private System.Windows.Forms.Button ForTestingFunc_Вutton;
         private WinForms_ControlsLibrary.Rounded_Button Show_Time_RoundedButton;
+        public System.Windows.Forms.ToolStripMenuItem View_ToolStripMenuItem;
     }
 }
 

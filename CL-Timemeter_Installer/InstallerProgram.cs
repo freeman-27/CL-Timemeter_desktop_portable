@@ -38,13 +38,18 @@ namespace Installer_CL_Timemeter
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form());
-            Application.Run(new InstallerForm_Start());
-            Task task2 = Task.Run(() => runConsole());
-
+            //Application.Run(new InstallerForm_Start());
+            Task task1 = Task.Run(() => ShowMainForm());
+            Task task2 = Task.Run(() => Run2nd_Form());
+            //Task task2 = Task.Run(() => runConsole());
+            Task.WaitAll(task1, task2);
         }
-        static void runConsole()
+        static void ShowMainForm()
         {
-            MessageBox.Show("Test prog2 console");
+            Application.Run(new InstallerForm_Start());
+        }
+        static void Run2nd_Form()
+        {
             Application.Run(new Form1());
         }
     }

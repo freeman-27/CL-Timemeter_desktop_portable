@@ -153,6 +153,16 @@ namespace CL_Timemeter {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Show_Time_RoundedButton_BackgroundImage {
+            get {
+                object obj = ResourceManager.GetObject("Show_Time_RoundedButton.BackgroundImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Start_Rounded_Button_BackgroundImage {
             get {
                 object obj = ResourceManager.GetObject("Start_Rounded_Button.BackgroundImage", resourceCulture);

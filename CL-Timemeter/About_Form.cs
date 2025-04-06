@@ -75,7 +75,7 @@ namespace CL_Timemeter
             //// open html file//
             Process RunBrowserFor_ViewHelp = new Process();
             RunBrowserFor_ViewHelp.StartInfo.FileName = "chrome.exe";
-            Process.Start(fileName: Path.Combine(Path.GetDirectoryName(Application.StartupPath), @"about\", @"about_cl-timemeter.html"));
+            Process.Start(fileName: Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), @"about\", @"about_cl-timemeter_v1.0.html"));
             ////MessageBox.Show(Path.Combine(Path.GetDirectoryName(Application.StartupPath), @"about\", @"about.txt"));
         }
 
@@ -86,7 +86,8 @@ namespace CL_Timemeter
             RunNotepadFor_ViewHelp.StartInfo.FileName = "notepad.exe";
             RunNotepadFor_ViewHelp.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
 
-            Process.Start(fileName: Path.Combine(Path.GetDirectoryName(Application.StartupPath), @"about\", @"about.txt"));
+            //Process.Start(fileName: Path.Combine(Path.GetDirectoryName(Application.StartupPath), @"about\", @"about.txt"));
+            Process.Start(fileName: Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), @"about\", @"about_v1.0.txt"));
         }
     }
 }

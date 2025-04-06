@@ -55,7 +55,8 @@
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(926, 440);
             this.webBrowser1.TabIndex = 1;
-            this.webBrowser1.Url = new System.Uri("https://wmit.online/CL-Timemeter/about/about_cl-timemeter.html", System.UriKind.Absolute);
+            this.webBrowser1.Url = new System.Uri("https://wmit.online/_Projects/CL-Timemeter/WindowsDesktopApp/1.0/about/about_cl-t" +
+        "imemeter_v1.0.html", System.UriKind.Absolute);
             this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
             // 
             // Open_Local_AboutTXT_Button

@@ -18,5 +18,7 @@ namespace CL_Timemeter
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new CL_Timemeter_Form());
         }
+        ///My Global Variables
+        ///
     }
 }

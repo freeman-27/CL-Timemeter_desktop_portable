@@ -59,7 +59,7 @@ namespace CL_Timemeter
 
         }
 
-        private void Hide_All_ControlElement_Labels()
+        public void Hide_All_ControlElement_Labels()
         {
 
             StartButton.Text = "";
@@ -86,6 +86,16 @@ namespace CL_Timemeter
         public double current_minutes = 0.00;
         public double current_hours = 0.00;
 
+        /// Execution Status Compare:  4=Continue; 3=Active;  2=Pause; 1=Stop;
+        /// Тип перечисления  StatusExecutionTimemeter:
+        enum StatusExecutionTimemeter : int
+        {
+            Stop = 1,
+            Pause = 2,
+            Start = 3,
+            Continue = 4
+        }
+        
         /// <summary>
         /// Colors Settings Values
         /// </summary>
@@ -340,17 +350,19 @@ namespace CL_Timemeter
         //*** chenge folders path for create different builds: debug, release, distrib folder, installation folder
         //public static string ImageControlsFolder_RelativePath = @"Debug\imgControls\"; //Debug folder/////////////////////////////////////////
         //public static string ImageControlsFolder_RelativePath = @"Release\imgControls\"; //Release folder/////////////////////////////////////////
-        //public static string ImageControlsFolder_RelativePath = @"Distrib\imgControls\"; //Distrib folder/////////////////////////////////////////
+        //public static string ImageControlsFolder_RelativePath = @"Distrib_folder\imgControls\"; //Distrib folder/////////////////////////////////////////
+        public static string ImageControlsFolder_RelativePath = @"imgControls\"; //Distrib folder/////////////////////////////////////////
 
         ///отностительный путь для установленного экземпляра программы(!!!!!используется в финальной сборке)
-        public static string ImageControlsFolder_RelativePath = "CL-Timemeter\\imgControls\\"; //Installation folder ////////////////////////////// destination folder for installer) //////////////////////////////////////////////////////
+        //public static string ImageControlsFolder_RelativePath = "CL-Timemeter\\imgControls\\"; //Installation folder ////////////////////////////// destination folder for installer) //////////////////////////////////////////////////////
 
 
         //public string CustomUserPath = Path.GetDirectoryName(UserFolderNameInput); //TODO
 
 
         //Составление полного пути к папке с изображениями элементов управления:
-        public static string ImageContolElement_AutoCombinePathFolder = Path.Combine(Path.GetDirectoryName(Application.StartupPath), ImageControlsFolder_RelativePath); //installation folder
+        //public static string ImageContolElement_AutoCombinePathFolder = Path.Combine(Path.GetDirectoryName(Application.StartupPath), ImageControlsFolder_RelativePath); //installation folder
+        public static string ImageContolElement_AutoCombinePathFolder = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), ImageControlsFolder_RelativePath); //installation folder
 
         /// <summary>
         /// IMAGE CONTROLS File Names 
@@ -1084,7 +1096,7 @@ namespace CL_Timemeter
 
         private void CloseButton_Custom_MouseLeave(object sender, EventArgs e)
         {
-            CloseButton_Custom.BackColor = default;
+            CloseButton_Custom.BackColor = System.Drawing.Color.Transparent;
             CloseButton_Custom.ForeColor = default;
 
         }
@@ -1323,6 +1335,21 @@ namespace CL_Timemeter
         {
             if (this.FunctionsGoup_ToolStripMenuItem.Checked) this.Enable_Group_TimemeterFunctions.Checked = true; 
             else if (!this.FunctionsGoup_ToolStripMenuItem.Checked) this.Enable_Group_TimemeterFunctions.Checked = false;
+        }
+
+        private void Function_ForTesting(object sender, EventArgs e)
+        {
+            Form TestingFinctions = new FormForTestingFunctions();
+            TestingFinctions.BackColor = Color.PaleGoldenrod;
+            TestingFinctions.Show();
+            //StatusExecutionTimemeter.Continue.ToString();
+            //MessageBox.Show(StatusExecutionTimemeter.Continue.ToString());
+
+            //Message M1;
+            //M1.Create(StatusExecutionTimemeter.Continue.ToString());
+
+            //InstallationProgramFilesClass InstallationProcess = new InstallationProgramFilesClass();
+            //InstallationProcess.Show_Installation_Array();
         }
     }
     

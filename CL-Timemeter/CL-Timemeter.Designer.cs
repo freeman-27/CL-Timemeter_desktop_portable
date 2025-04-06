@@ -97,6 +97,8 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.Help_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Close_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ForTestingFunc_Вutton = new System.Windows.Forms.Button();
+            this.Show_Time_RoundedButton = new WinForms_ControlsLibrary.Rounded_Button();
             this.TimeMeterFunctions_GroupBox.SuspendLayout();
             this.TimemeterCheckGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StartButton_PictureBox)).BeginInit();
@@ -751,6 +753,7 @@
             this.MainMenu_Rounded_Button.Size = new System.Drawing.Size(40, 40);
             this.MainMenu_Rounded_Button.TabIndex = 103;
             this.MainMenu_Rounded_Button.UseVisualStyleBackColor = true;
+            this.MainMenu_Rounded_Button.Visible = false;
             this.MainMenu_Rounded_Button.Click += new System.EventHandler(this.MainMenu_Rounded_Button_Click);
             this.MainMenu_Rounded_Button.MouseEnter += new System.EventHandler(this.MainMenu_Rounded_Button_MouseEnter);
             this.MainMenu_Rounded_Button.MouseLeave += new System.EventHandler(this.MainMenu_Rounded_Button_MouseLeave);
@@ -880,11 +883,40 @@
             this.Close_ToolStripMenuItem.Text = "Close App";
             this.Close_ToolStripMenuItem.Click += new System.EventHandler(this.CloseButton_Custom_Click);
             // 
+            // ForTestingFunc_Вutton
+            // 
+            this.ForTestingFunc_Вutton.BackColor = System.Drawing.Color.LemonChiffon;
+            this.ForTestingFunc_Вutton.Location = new System.Drawing.Point(146, -1);
+            this.ForTestingFunc_Вutton.Name = "ForTestingFunc_Вutton";
+            this.ForTestingFunc_Вutton.Size = new System.Drawing.Size(64, 23);
+            this.ForTestingFunc_Вutton.TabIndex = 104;
+            this.ForTestingFunc_Вutton.Text = "Testing Func";
+            this.ForTestingFunc_Вutton.UseVisualStyleBackColor = false;
+            this.ForTestingFunc_Вutton.Visible = false;
+            this.ForTestingFunc_Вutton.Click += new System.EventHandler(this.Function_ForTesting);
+            // 
+            // Show_Time_RoundedButton
+            // 
+            this.Show_Time_RoundedButton.BackColor = System.Drawing.Color.Transparent;
+            this.Show_Time_RoundedButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Show_Time_RoundedButton.BackgroundImage")));
+            this.Show_Time_RoundedButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Show_Time_RoundedButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Show_Time_RoundedButton.FlatAppearance.BorderSize = 0;
+            this.Show_Time_RoundedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Show_Time_RoundedButton.Location = new System.Drawing.Point(133, 5);
+            this.Show_Time_RoundedButton.Name = "Show_Time_RoundedButton";
+            this.Show_Time_RoundedButton.Size = new System.Drawing.Size(30, 30);
+            this.Show_Time_RoundedButton.TabIndex = 105;
+            this.Show_Time_RoundedButton.UseVisualStyleBackColor = false;
+            this.Show_Time_RoundedButton.Click += new System.EventHandler(this.ShowTime_Button_Click);
+            // 
             // CL_Timemeter_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 300);
+            this.Controls.Add(this.Show_Time_RoundedButton);
+            this.Controls.Add(this.ForTestingFunc_Вutton);
             this.Controls.Add(this.RealDate_Label);
             this.Controls.Add(this.MainMenu_Rounded_Button);
             this.Controls.Add(this.Pause_Rounded_Button);
@@ -907,10 +939,10 @@
             this.Controls.Add(this.Pause_Button);
             this.Controls.Add(this.StartButton);
             this.Controls.Add(this.StartButton_PictureBox);
-            this.Controls.Add(this.CloseButton_Custom);
             this.Controls.Add(this.PauseButton_PictureBox);
             this.Controls.Add(this.Start_Rounded_Button);
             this.Controls.Add(this.Minute_Progress_Label);
+            this.Controls.Add(this.CloseButton_Custom);
             this.Controls.Add(this.Align_Button);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -1007,6 +1039,8 @@
         private System.Windows.Forms.ToolStripMenuItem BackgroundExec_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem UnWrap_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem FunctionsGoup_ToolStripMenuItem;
+        private System.Windows.Forms.Button ForTestingFunc_Вutton;
+        private WinForms_ControlsLibrary.Rounded_Button Show_Time_RoundedButton;
     }
 }
 

@@ -99,6 +99,7 @@
             this.Close_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ForTestingFunc_Вutton = new System.Windows.Forms.Button();
             this.Show_Time_RoundedButton = new WinForms_ControlsLibrary.Rounded_Button();
+            this.SwitchToSmallVidget_Button = new System.Windows.Forms.Button();
             this.TimeMeterFunctions_GroupBox.SuspendLayout();
             this.TimemeterCheckGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StartButton_PictureBox)).BeginInit();
@@ -184,6 +185,7 @@
             // TimeMeterFunctions_GroupBox
             // 
             this.TimeMeterFunctions_GroupBox.BackColor = System.Drawing.Color.Transparent;
+            this.TimeMeterFunctions_GroupBox.Controls.Add(this.SwitchToSmallVidget_Button);
             this.TimeMeterFunctions_GroupBox.Controls.Add(this.Default_BG_Button);
             this.TimeMeterFunctions_GroupBox.Controls.Add(this.ChangeBG_Button);
             this.TimeMeterFunctions_GroupBox.Controls.Add(this.ShowCheckGroup_Button);
@@ -301,7 +303,7 @@
             this.DefaultMode_Button.Enabled = false;
             this.DefaultMode_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.DefaultMode_Button.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.DefaultMode_Button.Location = new System.Drawing.Point(40, 15);
+            this.DefaultMode_Button.Location = new System.Drawing.Point(38, 15);
             this.DefaultMode_Button.Name = "DefaultMode_Button";
             this.DefaultMode_Button.Size = new System.Drawing.Size(30, 30);
             this.DefaultMode_Button.TabIndex = 31;
@@ -820,7 +822,7 @@
             // 
             this.FixatedToolStripMenuItem.CheckOnClick = true;
             this.FixatedToolStripMenuItem.Name = "FixatedToolStripMenuItem";
-            this.FixatedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.FixatedToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.FixatedToolStripMenuItem.Text = "Fixated Window";
             this.FixatedToolStripMenuItem.Click += new System.EventHandler(this.FixatedToolStripMenuItem_Click);
             // 
@@ -830,7 +832,7 @@
             this.FreeWindowToolStripMenuItem.CheckOnClick = true;
             this.FreeWindowToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.FreeWindowToolStripMenuItem.Name = "FreeWindowToolStripMenuItem";
-            this.FreeWindowToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.FreeWindowToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.FreeWindowToolStripMenuItem.Text = "Free Window";
             this.FreeWindowToolStripMenuItem.Click += new System.EventHandler(this.FreeWindowToolStripMenuItem_Click);
             // 
@@ -917,11 +919,23 @@
             this.Show_Time_RoundedButton.MouseEnter += new System.EventHandler(this.Show_Time_RoundedButton_MouseEnter);
             this.Show_Time_RoundedButton.MouseLeave += new System.EventHandler(this.Show_Time_RoundedButton_MouseLeave);
             // 
+            // SwitchToSmallVidget_Button
+            // 
+            this.SwitchToSmallVidget_Button.Location = new System.Drawing.Point(72, 15);
+            this.SwitchToSmallVidget_Button.Name = "SwitchToSmallVidget_Button";
+            this.SwitchToSmallVidget_Button.Size = new System.Drawing.Size(30, 30);
+            this.SwitchToSmallVidget_Button.TabIndex = 106;
+            this.SwitchToSmallVidget_Button.Text = "m3";
+            this.SwitchToSmallVidget_Button.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.SwitchToSmallVidget_Button.UseVisualStyleBackColor = true;
+            this.SwitchToSmallVidget_Button.Click += new System.EventHandler(this.SwitchToSmallVidget_Button_Click);
+            // 
             // CL_Timemeter_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 300);
+            this.Controls.Add(this.RealTime_Label);
             this.Controls.Add(this.Show_Time_RoundedButton);
             this.Controls.Add(this.ForTestingFunc_Вutton);
             this.Controls.Add(this.RealDate_Label);
@@ -935,7 +949,6 @@
             this.Controls.Add(this.Small_Timemeter_Label);
             this.Controls.Add(this.StopButton);
             this.Controls.Add(this.TimemeterCheckGroupBox);
-            this.Controls.Add(this.RealTime_Label);
             this.Controls.Add(this.Split_Label_1);
             this.Controls.Add(this.Minutes_Label);
             this.Controls.Add(this.Hours_Label);
@@ -1048,6 +1061,7 @@
         private System.Windows.Forms.Button ForTestingFunc_Вutton;
         private WinForms_ControlsLibrary.Rounded_Button Show_Time_RoundedButton;
         public System.Windows.Forms.ToolStripMenuItem View_ToolStripMenuItem;
+        private System.Windows.Forms.Button SwitchToSmallVidget_Button;
     }
 }
 

@@ -1467,6 +1467,51 @@ namespace CL_Timemeter
             Show_Time_RoundedButton.BackColor = Color.Transparent;
 
         }
+        private void SwitchToSmallVidget_Button_Click(object sender, EventArgs e)
+        {
+            RealTime_Label.Visible = true;
+
+            Align_Button_Click(sender, e);
+
+            Fixated_CheckBox.Checked = true;
+            RealTime_OutputToLabel(sender, e);
+            StartButton_PictureBox.Enabled = false;
+            StartButton_PictureBox.Visible = false;
+            Start_Rounded_Button.Visible = false;
+
+            //Hide Tiememter:
+            Seconds_Label.Visible = false;
+            Minutes_Label.Visible = false;
+            Hours_Label.Visible = false;
+            Split_Label_1.Visible = false;
+            Split_Label_2.Visible = false;
+
+            //Hide Secondary Timemeter Labels:
+            Small_Timemeter_Label.Visible = false;
+            TimemeterCheckGroupBox.Visible = false;
+
+            //stop timemeter main and cover timers
+            main_system_timer.Enabled = false;
+            timer_for_cover.Enabled = false;
+            //Timer_ShowRealTime.Enabled = Enabled;
+            Timemeter_ClearVolumes();
+
+            //disable functional group_block:
+            this.TimeMeterFunctions_GroupBox.Enabled = false;
+            this.TimeMeterFunctions_GroupBox.Visible = false;
+            this.FunctionsGoup_ToolStripMenuItem.Enabled = false;
+            this.FunctionsGoup_ToolStripMenuItem.Checked = false;
+
+
+            //main window resize:
+            this.Opacity = 1;
+
+            int SetHeight = 150;
+            this.Height = SetHeight;
+            this.RealTime_Label.SetBounds(31,35, 237, 60);
+            this.RealDate_Label.SetBounds(206,100, 94, 18);
+            this.RealDate_Label.Visible = true;
+        }
     }
     
 }

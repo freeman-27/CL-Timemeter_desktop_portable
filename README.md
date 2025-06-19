@@ -10,7 +10,7 @@ https://wmit.online/_Projects/CL-Timemeter/WindowsDesktopApp/1.1/CL-Timemeter_1.
 
 
 ### preview:
-![app preview](wmit.online/_Projects/CL-Timemeter/WindowsDesktopApp/1.1/CL-Timemeter_AppView_Mixed.png)
+![app preview](https://wmit.online/_Projects/CL-Timemeter/WindowsDesktopApp/1.1/CL-Timemeter_AppView_Mixed.png)
 
 ### previous versions:
 https://wmit.online/_Projects/CL-Timemeter/WindowsDesktopApp/1.0/CL-Timemeter_1.0_appPage.html

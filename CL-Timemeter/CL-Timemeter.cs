@@ -1512,7 +1512,23 @@ namespace CL_Timemeter
         {
             //MainMenu_Rounded_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImageMainMenu_Button_FileName));
             Check_MainContextMenu_Close(sender, e);
-            MainMenu_Rounded_Button.BackColor = Color.Transparent;
+            //MainMenu_Rounded_Button.BackColor = Color.Transparent;
+            if (DarkTimeLabel == false)
+            {
+                this.MainMenu_Rounded_Button.BackColor = Color.FromArgb(255, 200, 200, 200);
+                CheckTextColor();
+            }            
+            if (DarkTimeLabel == true)
+            {
+                this.MainMenu_Rounded_Button.BackColor = Color.Transparent;
+            }
+
+
+            if (this.BackColor == Color.Black)
+            {
+
+                this.MainMenu_Rounded_Button.BackColor = Color.FromArgb(255, 200, 200, 200);
+            }
         }
         private void Check_MainContextMenu_Close(object sender, EventArgs e)
         {
@@ -1873,7 +1889,11 @@ namespace CL_Timemeter
                 this.RealTime_Label.ForeColor = Color.White;
                 this.RealDate_Label.ForeColor = Color.White;
                 DarkTimeLabel = true;
+
+                this.MainMenu_Rounded_Button.BackColor = Color.FromArgb(255, 200, 200, 200);
             }
+
+
             return DarkTimeLabel;
         }
 
@@ -1888,14 +1908,20 @@ namespace CL_Timemeter
             {
                 RealTime_Label.ForeColor = Color.White;
                 RealDate_Label.ForeColor = Color.White;
+                //this.MainMenu_Rounded_Button.BackColor = Color.White;
+                this.MainMenu_Rounded_Button.BackColor = Color.FromArgb(255, 200, 200, 200);
             }
             if (DarkTimeLabel == false)
             {
                 RealTime_Label.ForeColor = Color.Black;
                 RealDate_Label.ForeColor = Color.Black;
+                this.MainMenu_Rounded_Button.BackColor = Color.Transparent;
+
                 DarkTimeLabel = true;
             }
             DarkTimeLabel = false;
+
+
             return DarkTimeLabel;
         }
 

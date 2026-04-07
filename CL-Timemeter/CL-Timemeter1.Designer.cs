@@ -19,7 +19,7 @@ namespace CL_Timemeter {
     // с помощью такого средства, как ResGen или Visual Studio.
     // Чтобы добавить или удалить член, измените файл .ResX и снова запустите ResGen
     // с параметром /str или перестройте свой проект VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class CL_Timemeter {
@@ -57,6 +57,16 @@ namespace CL_Timemeter {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Point, аналогичного {X=776,Y=17}.
+        /// </summary>
+        public static System.Drawing.Point colorDialog1_TrayLocation {
+            get {
+                object obj = ResourceManager.GetObject("colorDialog1.TrayLocation", resourceCulture);
+                return ((System.Drawing.Point)(obj));
             }
         }
         

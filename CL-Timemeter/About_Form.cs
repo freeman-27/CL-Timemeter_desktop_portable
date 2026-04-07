@@ -75,7 +75,8 @@ namespace CL_Timemeter
             //// open html file//
             Process RunBrowserFor_ViewHelp = new Process();
             RunBrowserFor_ViewHelp.StartInfo.FileName = "chrome.exe";
-            Process.Start(fileName: Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), @"about\", @"about_cl-timemeter_v1.1.html"));
+            Process.Start(fileName: Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), @"about\", @"about_cl-timemeter_v2.0.html"));
+            //Process.Start(fileName: Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), @"about\", @"about_cl-timemeter_v1.1.html"));
             //Process.Start(fileName: Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), @"about\", @"about_cl-timemeter_v1.0.html"));
             ////MessageBox.Show(Path.Combine(Path.GetDirectoryName(Application.StartupPath), @"about\", @"about.txt"));
         }
@@ -89,7 +90,8 @@ namespace CL_Timemeter
 
             //Process.Start(fileName: Path.Combine(Path.GetDirectoryName(Application.StartupPath), @"about\", @"about.txt"));
             //Process.Start(fileName: Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), @"about\", @"about_v1.0.txt"));
-            Process.Start(fileName: Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), @"about\", @"about_v1.1.txt"));
+            //Process.Start(fileName: Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), @"about\", @"about_v1.1.txt"));
+            Process.Start(fileName: Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), @"about\", @"about_v2.0.txt"));
         }
     }
 }

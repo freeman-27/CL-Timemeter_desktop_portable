@@ -36,6 +36,7 @@
             this.Small_Timemeter_Label = new System.Windows.Forms.Label();
             this.CloseButton_Custom = new System.Windows.Forms.Button();
             this.TimeMeterFunctions_GroupBox = new System.Windows.Forms.GroupBox();
+            this.SwitchToSmallVidget_Button = new System.Windows.Forms.Button();
             this.Default_BG_Button = new System.Windows.Forms.Button();
             this.ChangeBG_Button = new System.Windows.Forms.Button();
             this.ShowCheckGroup_Button = new System.Windows.Forms.Button();
@@ -60,7 +61,6 @@
             this.Split_Label_1 = new System.Windows.Forms.Label();
             this.Split_Label_2 = new System.Windows.Forms.Label();
             this.Minutes_Label = new System.Windows.Forms.Label();
-            this.Hours_Label = new System.Windows.Forms.Label();
             this.Seconds_Label = new System.Windows.Forms.Label();
             this.Enable_Group_TimemeterFunctions = new System.Windows.Forms.CheckBox();
             this.Align_Button = new System.Windows.Forms.Button();
@@ -86,20 +86,48 @@
             this.Modes_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TimemeterMode_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ClocksMode_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FunctionsGoup_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.View_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FixatedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FreeWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.FunctionsGoup_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customizeWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SetBackgroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setCustomColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.switchLabelsToWhiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setColorOfClocksLableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reduceWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CustomizeTimemeterModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CustomBackgroundColorOfTimemeterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CustomTextColorOfTimemeterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.autoSwitchOfColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AlignToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.alignToTopMiddlesoftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alignToTopLeftCornersoftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4AlignToTopRight = new System.Windows.Forms.ToolStripMenuItem();
+            this.alignToScreenSideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pinClocksToTopLeftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pinClocksToTopMiddleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pinClocksToTopRightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pinClocksToBottomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pinToTopLeftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pinToTopMiddleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pinToTopRightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pinToBottomToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.BackgroundExec_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.AlignToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.showAboveAllWindowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.Help_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Close_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ForTestingFunc_Вutton = new System.Windows.Forms.Button();
             this.Show_Time_RoundedButton = new WinForms_ControlsLibrary.Rounded_Button();
-            this.SwitchToSmallVidget_Button = new System.Windows.Forms.Button();
+            this.ExpanderButton = new System.Windows.Forms.Button();
+            this.Hours_Label = new System.Windows.Forms.Label();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.defaultSizeOfWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.WindowSizesToolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.TimeMeterFunctions_GroupBox.SuspendLayout();
             this.TimemeterCheckGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StartButton_PictureBox)).BeginInit();
@@ -124,9 +152,10 @@
             this.StartButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.StartButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.StartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.StartButton.Location = new System.Drawing.Point(230, 215);
+            this.StartButton.Location = new System.Drawing.Point(307, 265);
+            this.StartButton.Margin = new System.Windows.Forms.Padding(4);
             this.StartButton.Name = "StartButton";
-            this.StartButton.Size = new System.Drawing.Size(75, 75);
+            this.StartButton.Size = new System.Drawing.Size(100, 92);
             this.StartButton.TabIndex = 0;
             this.StartButton.Text = "Start";
             this.StartButton.UseVisualStyleBackColor = true;
@@ -142,9 +171,10 @@
             this.StopButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.StopButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.StopButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.StopButton.Location = new System.Drawing.Point(112, 182);
+            this.StopButton.Location = new System.Drawing.Point(149, 224);
+            this.StopButton.Margin = new System.Windows.Forms.Padding(4);
             this.StopButton.Name = "StopButton";
-            this.StopButton.Size = new System.Drawing.Size(75, 30);
+            this.StopButton.Size = new System.Drawing.Size(100, 37);
             this.StopButton.TabIndex = 1;
             this.StopButton.UseVisualStyleBackColor = false;
             this.StopButton.Visible = false;
@@ -156,9 +186,10 @@
             // 
             this.Small_Timemeter_Label.AutoSize = true;
             this.Small_Timemeter_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.Small_Timemeter_Label.Location = new System.Drawing.Point(92, 95);
+            this.Small_Timemeter_Label.Location = new System.Drawing.Point(123, 117);
+            this.Small_Timemeter_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Small_Timemeter_Label.Name = "Small_Timemeter_Label";
-            this.Small_Timemeter_Label.Size = new System.Drawing.Size(120, 31);
+            this.Small_Timemeter_Label.Size = new System.Drawing.Size(149, 39);
             this.Small_Timemeter_Label.TabIndex = 2;
             this.Small_Timemeter_Label.Text = "00:00:00";
             this.Small_Timemeter_Label.Visible = false;
@@ -170,10 +201,10 @@
             this.CloseButton_Custom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CloseButton_Custom.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CloseButton_Custom.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.CloseButton_Custom.Location = new System.Drawing.Point(260, -1);
+            this.CloseButton_Custom.Location = new System.Drawing.Point(347, -1);
             this.CloseButton_Custom.Margin = new System.Windows.Forms.Padding(0);
             this.CloseButton_Custom.Name = "CloseButton_Custom";
-            this.CloseButton_Custom.Size = new System.Drawing.Size(40, 40);
+            this.CloseButton_Custom.Size = new System.Drawing.Size(53, 49);
             this.CloseButton_Custom.TabIndex = 3;
             this.CloseButton_Custom.Text = "X";
             this.CloseButton_Custom.UseVisualStyleBackColor = false;
@@ -194,13 +225,27 @@
             this.TimeMeterFunctions_GroupBox.Controls.Add(this.Switch_Mode_Button);
             this.TimeMeterFunctions_GroupBox.Controls.Add(this.DefaultMode_Button);
             this.TimeMeterFunctions_GroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.TimeMeterFunctions_GroupBox.Location = new System.Drawing.Point(12, 45);
+            this.TimeMeterFunctions_GroupBox.Location = new System.Drawing.Point(16, 55);
+            this.TimeMeterFunctions_GroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.TimeMeterFunctions_GroupBox.Name = "TimeMeterFunctions_GroupBox";
-            this.TimeMeterFunctions_GroupBox.Size = new System.Drawing.Size(280, 50);
+            this.TimeMeterFunctions_GroupBox.Padding = new System.Windows.Forms.Padding(4);
+            this.TimeMeterFunctions_GroupBox.Size = new System.Drawing.Size(373, 62);
             this.TimeMeterFunctions_GroupBox.TabIndex = 6;
             this.TimeMeterFunctions_GroupBox.TabStop = false;
             this.TimeMeterFunctions_GroupBox.Text = "CL Timemeter Functions";
             this.TimeMeterFunctions_GroupBox.Visible = false;
+            // 
+            // SwitchToSmallVidget_Button
+            // 
+            this.SwitchToSmallVidget_Button.Location = new System.Drawing.Point(96, 18);
+            this.SwitchToSmallVidget_Button.Margin = new System.Windows.Forms.Padding(4);
+            this.SwitchToSmallVidget_Button.Name = "SwitchToSmallVidget_Button";
+            this.SwitchToSmallVidget_Button.Size = new System.Drawing.Size(40, 37);
+            this.SwitchToSmallVidget_Button.TabIndex = 106;
+            this.SwitchToSmallVidget_Button.Text = "m3";
+            this.SwitchToSmallVidget_Button.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.SwitchToSmallVidget_Button.UseVisualStyleBackColor = true;
+            this.SwitchToSmallVidget_Button.Click += new System.EventHandler(this.SwitchToSmallVidget_Button_Click);
             // 
             // Default_BG_Button
             // 
@@ -208,9 +253,10 @@
             this.Default_BG_Button.Enabled = false;
             this.Default_BG_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
             this.Default_BG_Button.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.Default_BG_Button.Location = new System.Drawing.Point(135, 15);
+            this.Default_BG_Button.Location = new System.Drawing.Point(180, 18);
+            this.Default_BG_Button.Margin = new System.Windows.Forms.Padding(4);
             this.Default_BG_Button.Name = "Default_BG_Button";
-            this.Default_BG_Button.Size = new System.Drawing.Size(30, 30);
+            this.Default_BG_Button.Size = new System.Drawing.Size(40, 37);
             this.Default_BG_Button.TabIndex = 33;
             this.Default_BG_Button.Text = "dbg";
             this.Default_BG_Button.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -224,9 +270,10 @@
             this.ChangeBG_Button.Enabled = false;
             this.ChangeBG_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.ChangeBG_Button.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.ChangeBG_Button.Location = new System.Drawing.Point(104, 15);
+            this.ChangeBG_Button.Location = new System.Drawing.Point(139, 18);
+            this.ChangeBG_Button.Margin = new System.Windows.Forms.Padding(4);
             this.ChangeBG_Button.Name = "ChangeBG_Button";
-            this.ChangeBG_Button.Size = new System.Drawing.Size(30, 30);
+            this.ChangeBG_Button.Size = new System.Drawing.Size(40, 37);
             this.ChangeBG_Button.TabIndex = 32;
             this.ChangeBG_Button.Text = "bg";
             this.ChangeBG_Button.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -239,9 +286,10 @@
             this.ShowCheckGroup_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ShowCheckGroup_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
             this.ShowCheckGroup_Button.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.ShowCheckGroup_Button.Location = new System.Drawing.Point(200, 15);
+            this.ShowCheckGroup_Button.Location = new System.Drawing.Point(267, 18);
+            this.ShowCheckGroup_Button.Margin = new System.Windows.Forms.Padding(4);
             this.ShowCheckGroup_Button.Name = "ShowCheckGroup_Button";
-            this.ShowCheckGroup_Button.Size = new System.Drawing.Size(30, 30);
+            this.ShowCheckGroup_Button.Size = new System.Drawing.Size(40, 37);
             this.ShowCheckGroup_Button.TabIndex = 18;
             this.ShowCheckGroup_Button.Text = "chk";
             this.ShowCheckGroup_Button.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -253,9 +301,10 @@
             this.WrapToTrayButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.WrapToTrayButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.WrapToTrayButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.WrapToTrayButton.Location = new System.Drawing.Point(234, 15);
+            this.WrapToTrayButton.Location = new System.Drawing.Point(312, 18);
+            this.WrapToTrayButton.Margin = new System.Windows.Forms.Padding(4);
             this.WrapToTrayButton.Name = "WrapToTrayButton";
-            this.WrapToTrayButton.Size = new System.Drawing.Size(40, 30);
+            this.WrapToTrayButton.Size = new System.Drawing.Size(53, 37);
             this.WrapToTrayButton.TabIndex = 11;
             this.WrapToTrayButton.Text = "wrap to tray";
             this.WrapToTrayButton.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -270,9 +319,10 @@
             this.ShowTime_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ShowTime_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.ShowTime_Button.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.ShowTime_Button.Location = new System.Drawing.Point(168, 15);
+            this.ShowTime_Button.Location = new System.Drawing.Point(224, 18);
+            this.ShowTime_Button.Margin = new System.Windows.Forms.Padding(4);
             this.ShowTime_Button.Name = "ShowTime_Button";
-            this.ShowTime_Button.Size = new System.Drawing.Size(30, 30);
+            this.ShowTime_Button.Size = new System.Drawing.Size(40, 37);
             this.ShowTime_Button.TabIndex = 19;
             this.ShowTime_Button.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.ShowTime_Button.UseVisualStyleBackColor = true;
@@ -286,9 +336,10 @@
             this.Switch_Mode_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Switch_Mode_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Switch_Mode_Button.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.Switch_Mode_Button.Location = new System.Drawing.Point(6, 15);
+            this.Switch_Mode_Button.Location = new System.Drawing.Point(8, 18);
+            this.Switch_Mode_Button.Margin = new System.Windows.Forms.Padding(4);
             this.Switch_Mode_Button.Name = "Switch_Mode_Button";
-            this.Switch_Mode_Button.Size = new System.Drawing.Size(30, 30);
+            this.Switch_Mode_Button.Size = new System.Drawing.Size(40, 37);
             this.Switch_Mode_Button.TabIndex = 29;
             this.Switch_Mode_Button.Text = "m1";
             this.Switch_Mode_Button.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -303,9 +354,10 @@
             this.DefaultMode_Button.Enabled = false;
             this.DefaultMode_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.DefaultMode_Button.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.DefaultMode_Button.Location = new System.Drawing.Point(38, 15);
+            this.DefaultMode_Button.Location = new System.Drawing.Point(51, 18);
+            this.DefaultMode_Button.Margin = new System.Windows.Forms.Padding(4);
             this.DefaultMode_Button.Name = "DefaultMode_Button";
-            this.DefaultMode_Button.Size = new System.Drawing.Size(30, 30);
+            this.DefaultMode_Button.Size = new System.Drawing.Size(40, 37);
             this.DefaultMode_Button.TabIndex = 31;
             this.DefaultMode_Button.Text = "m2";
             this.DefaultMode_Button.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -315,27 +367,30 @@
             // Full_Seconds_Label
             // 
             this.Full_Seconds_Label.AutoSize = true;
-            this.Full_Seconds_Label.Location = new System.Drawing.Point(60, 82);
+            this.Full_Seconds_Label.Location = new System.Drawing.Point(80, 101);
+            this.Full_Seconds_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Full_Seconds_Label.Name = "Full_Seconds_Label";
-            this.Full_Seconds_Label.Size = new System.Drawing.Size(28, 13);
+            this.Full_Seconds_Label.Size = new System.Drawing.Size(36, 17);
             this.Full_Seconds_Label.TabIndex = 7;
             this.Full_Seconds_Label.Text = "0.00";
             // 
             // Full_Minutes_Label
             // 
             this.Full_Minutes_Label.AutoSize = true;
-            this.Full_Minutes_Label.Location = new System.Drawing.Point(45, 67);
+            this.Full_Minutes_Label.Location = new System.Drawing.Point(60, 82);
+            this.Full_Minutes_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Full_Minutes_Label.Name = "Full_Minutes_Label";
-            this.Full_Minutes_Label.Size = new System.Drawing.Size(28, 13);
+            this.Full_Minutes_Label.Size = new System.Drawing.Size(36, 17);
             this.Full_Minutes_Label.TabIndex = 8;
             this.Full_Minutes_Label.Text = "0.00";
             // 
             // Full_Hours_Label
             // 
             this.Full_Hours_Label.AutoSize = true;
-            this.Full_Hours_Label.Location = new System.Drawing.Point(30, 52);
+            this.Full_Hours_Label.Location = new System.Drawing.Point(40, 64);
+            this.Full_Hours_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Full_Hours_Label.Name = "Full_Hours_Label";
-            this.Full_Hours_Label.Size = new System.Drawing.Size(28, 13);
+            this.Full_Hours_Label.Size = new System.Drawing.Size(36, 17);
             this.Full_Hours_Label.TabIndex = 9;
             this.Full_Hours_Label.Text = "0.00";
             // 
@@ -344,9 +399,10 @@
             this.Minimise_Button.BackColor = System.Drawing.Color.Transparent;
             this.Minimise_Button.FlatAppearance.BorderSize = 0;
             this.Minimise_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Minimise_Button.Location = new System.Drawing.Point(221, -1);
+            this.Minimise_Button.Location = new System.Drawing.Point(295, -1);
+            this.Minimise_Button.Margin = new System.Windows.Forms.Padding(4);
             this.Minimise_Button.Name = "Minimise_Button";
-            this.Minimise_Button.Size = new System.Drawing.Size(40, 40);
+            this.Minimise_Button.Size = new System.Drawing.Size(53, 49);
             this.Minimise_Button.TabIndex = 10;
             this.Minimise_Button.Text = "_";
             this.Minimise_Button.UseVisualStyleBackColor = false;
@@ -356,45 +412,50 @@
             // Full_Day_Over_Label
             // 
             this.Full_Day_Over_Label.AutoSize = true;
-            this.Full_Day_Over_Label.Location = new System.Drawing.Point(30, 33);
+            this.Full_Day_Over_Label.Location = new System.Drawing.Point(40, 41);
+            this.Full_Day_Over_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Full_Day_Over_Label.Name = "Full_Day_Over_Label";
-            this.Full_Day_Over_Label.Size = new System.Drawing.Size(13, 13);
+            this.Full_Day_Over_Label.Size = new System.Drawing.Size(16, 17);
             this.Full_Day_Over_Label.TabIndex = 11;
             this.Full_Day_Over_Label.Text = "0";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 52);
+            this.label1.Location = new System.Drawing.Point(7, 64);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 13);
+            this.label1.Size = new System.Drawing.Size(22, 17);
             this.label1.TabIndex = 12;
             this.label1.Text = "H:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 67);
+            this.label2.Location = new System.Drawing.Point(7, 82);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(19, 13);
+            this.label2.Size = new System.Drawing.Size(23, 17);
             this.label2.TabIndex = 13;
             this.label2.Text = "M:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 82);
+            this.label3.Location = new System.Drawing.Point(7, 101);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(17, 13);
+            this.label3.Size = new System.Drawing.Size(21, 17);
             this.label3.TabIndex = 14;
             this.label3.Text = "S:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 33);
+            this.label4.Location = new System.Drawing.Point(7, 41);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(18, 13);
+            this.label4.Size = new System.Drawing.Size(22, 17);
             this.label4.TabIndex = 15;
             this.label4.Text = "D:";
             // 
@@ -408,9 +469,11 @@
             this.TimemeterCheckGroupBox.Controls.Add(this.label1);
             this.TimemeterCheckGroupBox.Controls.Add(this.Full_Minutes_Label);
             this.TimemeterCheckGroupBox.Controls.Add(this.Full_Hours_Label);
-            this.TimemeterCheckGroupBox.Location = new System.Drawing.Point(12, 190);
+            this.TimemeterCheckGroupBox.Location = new System.Drawing.Point(16, 234);
+            this.TimemeterCheckGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.TimemeterCheckGroupBox.Name = "TimemeterCheckGroupBox";
-            this.TimemeterCheckGroupBox.Size = new System.Drawing.Size(90, 100);
+            this.TimemeterCheckGroupBox.Padding = new System.Windows.Forms.Padding(4);
+            this.TimemeterCheckGroupBox.Size = new System.Drawing.Size(120, 123);
             this.TimemeterCheckGroupBox.TabIndex = 16;
             this.TimemeterCheckGroupBox.TabStop = false;
             this.TimemeterCheckGroupBox.Text = "Timemeter check:";
@@ -424,9 +487,10 @@
             this.Pause_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Pause_Button.FlatAppearance.BorderSize = 0;
             this.Pause_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Pause_Button.Location = new System.Drawing.Point(265, 215);
+            this.Pause_Button.Location = new System.Drawing.Point(353, 265);
+            this.Pause_Button.Margin = new System.Windows.Forms.Padding(4);
             this.Pause_Button.Name = "Pause_Button";
-            this.Pause_Button.Size = new System.Drawing.Size(75, 75);
+            this.Pause_Button.Size = new System.Drawing.Size(100, 92);
             this.Pause_Button.TabIndex = 17;
             this.Pause_Button.Text = "Pause";
             this.Pause_Button.UseVisualStyleBackColor = false;
@@ -445,9 +509,10 @@
             this.Fixated_CheckBox.AutoSize = true;
             this.Fixated_CheckBox.BackColor = System.Drawing.Color.Transparent;
             this.Fixated_CheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Fixated_CheckBox.Location = new System.Drawing.Point(50, 25);
+            this.Fixated_CheckBox.Location = new System.Drawing.Point(67, 31);
+            this.Fixated_CheckBox.Margin = new System.Windows.Forms.Padding(4);
             this.Fixated_CheckBox.Name = "Fixated_CheckBox";
-            this.Fixated_CheckBox.Size = new System.Drawing.Size(60, 17);
+            this.Fixated_CheckBox.Size = new System.Drawing.Size(75, 21);
             this.Fixated_CheckBox.TabIndex = 2;
             this.Fixated_CheckBox.Text = "Fixated";
             this.Fixated_CheckBox.UseVisualStyleBackColor = false;
@@ -461,9 +526,10 @@
             this.StartButton_PictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.StartButton_PictureBox.ErrorImage = null;
             this.StartButton_PictureBox.InitialImage = null;
-            this.StartButton_PictureBox.Location = new System.Drawing.Point(210, 215);
+            this.StartButton_PictureBox.Location = new System.Drawing.Point(280, 265);
+            this.StartButton_PictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.StartButton_PictureBox.Name = "StartButton_PictureBox";
-            this.StartButton_PictureBox.Size = new System.Drawing.Size(75, 75);
+            this.StartButton_PictureBox.Size = new System.Drawing.Size(100, 92);
             this.StartButton_PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.StartButton_PictureBox.TabIndex = 22;
             this.StartButton_PictureBox.TabStop = false;
@@ -476,9 +542,10 @@
             // 
             this.Split_Label_1.AutoSize = true;
             this.Split_Label_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
-            this.Split_Label_1.Location = new System.Drawing.Point(78, 119);
+            this.Split_Label_1.Location = new System.Drawing.Point(104, 146);
+            this.Split_Label_1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Split_Label_1.Name = "Split_Label_1";
-            this.Split_Label_1.Size = new System.Drawing.Size(42, 63);
+            this.Split_Label_1.Size = new System.Drawing.Size(52, 76);
             this.Split_Label_1.TabIndex = 26;
             this.Split_Label_1.Text = ":";
             this.Split_Label_1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -487,9 +554,10 @@
             // 
             this.Split_Label_2.AutoSize = true;
             this.Split_Label_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
-            this.Split_Label_2.Location = new System.Drawing.Point(186, 119);
+            this.Split_Label_2.Location = new System.Drawing.Point(248, 146);
+            this.Split_Label_2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Split_Label_2.Name = "Split_Label_2";
-            this.Split_Label_2.Size = new System.Drawing.Size(42, 63);
+            this.Split_Label_2.Size = new System.Drawing.Size(52, 76);
             this.Split_Label_2.TabIndex = 27;
             this.Split_Label_2.Text = ":";
             this.Split_Label_2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -497,29 +565,21 @@
             // Minutes_Label
             // 
             this.Minutes_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
-            this.Minutes_Label.Location = new System.Drawing.Point(106, 122);
+            this.Minutes_Label.Location = new System.Drawing.Point(141, 150);
+            this.Minutes_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Minutes_Label.Name = "Minutes_Label";
-            this.Minutes_Label.Size = new System.Drawing.Size(90, 60);
+            this.Minutes_Label.Size = new System.Drawing.Size(120, 74);
             this.Minutes_Label.TabIndex = 23;
             this.Minutes_Label.Text = "00";
             this.Minutes_Label.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
-            // Hours_Label
-            // 
-            this.Hours_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
-            this.Hours_Label.Location = new System.Drawing.Point(-8, 122);
-            this.Hours_Label.Name = "Hours_Label";
-            this.Hours_Label.Size = new System.Drawing.Size(100, 60);
-            this.Hours_Label.TabIndex = 25;
-            this.Hours_Label.Text = "00";
-            this.Hours_Label.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
             // Seconds_Label
             // 
             this.Seconds_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
-            this.Seconds_Label.Location = new System.Drawing.Point(218, 122);
+            this.Seconds_Label.Location = new System.Drawing.Point(291, 150);
+            this.Seconds_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Seconds_Label.Name = "Seconds_Label";
-            this.Seconds_Label.Size = new System.Drawing.Size(90, 60);
+            this.Seconds_Label.Size = new System.Drawing.Size(120, 74);
             this.Seconds_Label.TabIndex = 24;
             this.Seconds_Label.Text = "00";
             this.Seconds_Label.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -529,9 +589,10 @@
             this.Enable_Group_TimemeterFunctions.AutoSize = true;
             this.Enable_Group_TimemeterFunctions.BackColor = System.Drawing.Color.Transparent;
             this.Enable_Group_TimemeterFunctions.Cursor = System.Windows.Forms.Cursors.Default;
-            this.Enable_Group_TimemeterFunctions.Location = new System.Drawing.Point(50, 5);
+            this.Enable_Group_TimemeterFunctions.Location = new System.Drawing.Point(67, 6);
+            this.Enable_Group_TimemeterFunctions.Margin = new System.Windows.Forms.Padding(4);
             this.Enable_Group_TimemeterFunctions.Name = "Enable_Group_TimemeterFunctions";
-            this.Enable_Group_TimemeterFunctions.Size = new System.Drawing.Size(99, 17);
+            this.Enable_Group_TimemeterFunctions.Size = new System.Drawing.Size(125, 21);
             this.Enable_Group_TimemeterFunctions.TabIndex = 0;
             this.Enable_Group_TimemeterFunctions.Text = "ShowFunctions";
             this.Enable_Group_TimemeterFunctions.UseVisualStyleBackColor = false;
@@ -544,9 +605,11 @@
             this.Align_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Align_Button.FlatAppearance.BorderSize = 0;
             this.Align_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Align_Button.Location = new System.Drawing.Point(260, -1);
+            this.Align_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Align_Button.Location = new System.Drawing.Point(347, -1);
+            this.Align_Button.Margin = new System.Windows.Forms.Padding(4);
             this.Align_Button.Name = "Align_Button";
-            this.Align_Button.Size = new System.Drawing.Size(40, 40);
+            this.Align_Button.Size = new System.Drawing.Size(53, 49);
             this.Align_Button.TabIndex = 10;
             this.Align_Button.Text = ">";
             this.Align_Button.UseVisualStyleBackColor = false;
@@ -559,9 +622,10 @@
             this.RealTime_Label.BackColor = System.Drawing.Color.Transparent;
             this.RealTime_Label.Cursor = System.Windows.Forms.Cursors.Default;
             this.RealTime_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
-            this.RealTime_Label.Location = new System.Drawing.Point(31, 122);
+            this.RealTime_Label.Location = new System.Drawing.Point(41, 150);
+            this.RealTime_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.RealTime_Label.Name = "RealTime_Label";
-            this.RealTime_Label.Size = new System.Drawing.Size(237, 60);
+            this.RealTime_Label.Size = new System.Drawing.Size(316, 74);
             this.RealTime_Label.TabIndex = 30;
             this.RealTime_Label.Text = "00:00:00";
             this.RealTime_Label.Visible = false;
@@ -573,9 +637,10 @@
             this.PauseButton_PictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PauseButton_PictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PauseButton_PictureBox.InitialImage = null;
-            this.PauseButton_PictureBox.Location = new System.Drawing.Point(193, 215);
+            this.PauseButton_PictureBox.Location = new System.Drawing.Point(257, 265);
+            this.PauseButton_PictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.PauseButton_PictureBox.Name = "PauseButton_PictureBox";
-            this.PauseButton_PictureBox.Size = new System.Drawing.Size(75, 75);
+            this.PauseButton_PictureBox.Size = new System.Drawing.Size(100, 92);
             this.PauseButton_PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PauseButton_PictureBox.TabIndex = 31;
             this.PauseButton_PictureBox.TabStop = false;
@@ -590,9 +655,10 @@
             this.RealTime_TestLabel.AutoSize = true;
             this.RealTime_TestLabel.BackColor = System.Drawing.Color.Transparent;
             this.RealTime_TestLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RealTime_TestLabel.Location = new System.Drawing.Point(109, 25);
+            this.RealTime_TestLabel.Location = new System.Drawing.Point(145, 31);
+            this.RealTime_TestLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.RealTime_TestLabel.Name = "RealTime_TestLabel";
-            this.RealTime_TestLabel.Size = new System.Drawing.Size(139, 17);
+            this.RealTime_TestLabel.Size = new System.Drawing.Size(163, 20);
             this.RealTime_TestLabel.TabIndex = 0;
             this.RealTime_TestLabel.Text = "RealTime_TestLabel";
             this.RealTime_TestLabel.Visible = false;
@@ -601,9 +667,10 @@
             // 
             this.Minute_Progress_Label.BackColor = System.Drawing.Color.Transparent;
             this.Minute_Progress_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Minute_Progress_Label.Location = new System.Drawing.Point(0, 260);
+            this.Minute_Progress_Label.Location = new System.Drawing.Point(0, 320);
+            this.Minute_Progress_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Minute_Progress_Label.Name = "Minute_Progress_Label";
-            this.Minute_Progress_Label.Size = new System.Drawing.Size(300, 40);
+            this.Minute_Progress_Label.Size = new System.Drawing.Size(400, 49);
             this.Minute_Progress_Label.TabIndex = 32;
             this.Minute_Progress_Label.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
@@ -616,9 +683,10 @@
             this.StopButton_PictureBox.ErrorImage = null;
             this.StopButton_PictureBox.ImageLocation = "Stretch";
             this.StopButton_PictureBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("StopButton_PictureBox.InitialImage")));
-            this.StopButton_PictureBox.Location = new System.Drawing.Point(193, 183);
+            this.StopButton_PictureBox.Location = new System.Drawing.Point(257, 225);
+            this.StopButton_PictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.StopButton_PictureBox.Name = "StopButton_PictureBox";
-            this.StopButton_PictureBox.Size = new System.Drawing.Size(68, 29);
+            this.StopButton_PictureBox.Size = new System.Drawing.Size(91, 36);
             this.StopButton_PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.StopButton_PictureBox.TabIndex = 33;
             this.StopButton_PictureBox.TabStop = false;
@@ -632,9 +700,10 @@
             this.RealDate_Label.AutoSize = true;
             this.RealDate_Label.BackColor = System.Drawing.Color.Transparent;
             this.RealDate_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.RealDate_Label.Location = new System.Drawing.Point(206, 272);
+            this.RealDate_Label.Location = new System.Drawing.Point(275, 335);
+            this.RealDate_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.RealDate_Label.Name = "RealDate_Label";
-            this.RealDate_Label.Size = new System.Drawing.Size(94, 18);
+            this.RealDate_Label.Size = new System.Drawing.Size(122, 24);
             this.RealDate_Label.TabIndex = 34;
             this.RealDate_Label.Text = "dd:MM:YYYY";
             this.RealDate_Label.Visible = false;
@@ -644,9 +713,10 @@
             this.Info_Button_PictureBox.BackColor = System.Drawing.Color.Transparent;
             this.Info_Button_PictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Info_Button_PictureBox.Image = ((System.Drawing.Image)(resources.GetObject("Info_Button_PictureBox.Image")));
-            this.Info_Button_PictureBox.Location = new System.Drawing.Point(226, 2);
+            this.Info_Button_PictureBox.Location = new System.Drawing.Point(301, 2);
+            this.Info_Button_PictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.Info_Button_PictureBox.Name = "Info_Button_PictureBox";
-            this.Info_Button_PictureBox.Size = new System.Drawing.Size(30, 30);
+            this.Info_Button_PictureBox.Size = new System.Drawing.Size(40, 37);
             this.Info_Button_PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Info_Button_PictureBox.TabIndex = 36;
             this.Info_Button_PictureBox.TabStop = false;
@@ -662,9 +732,10 @@
             this.Start_Rounded_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Start_Rounded_Button.FlatAppearance.BorderSize = 0;
             this.Start_Rounded_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Start_Rounded_Button.Location = new System.Drawing.Point(112, 215);
+            this.Start_Rounded_Button.Location = new System.Drawing.Point(149, 265);
+            this.Start_Rounded_Button.Margin = new System.Windows.Forms.Padding(4);
             this.Start_Rounded_Button.Name = "Start_Rounded_Button";
-            this.Start_Rounded_Button.Size = new System.Drawing.Size(75, 75);
+            this.Start_Rounded_Button.Size = new System.Drawing.Size(100, 92);
             this.Start_Rounded_Button.TabIndex = 100;
             this.Start_Rounded_Button.UseVisualStyleBackColor = true;
             this.Start_Rounded_Button.Click += new System.EventHandler(this.Activate_TimemeterElement_Click);
@@ -679,9 +750,10 @@
             this.Pause_Rounded_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Pause_Rounded_Button.FlatAppearance.BorderSize = 0;
             this.Pause_Rounded_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Pause_Rounded_Button.Location = new System.Drawing.Point(112, 215);
+            this.Pause_Rounded_Button.Location = new System.Drawing.Point(149, 265);
+            this.Pause_Rounded_Button.Margin = new System.Windows.Forms.Padding(4);
             this.Pause_Rounded_Button.Name = "Pause_Rounded_Button";
-            this.Pause_Rounded_Button.Size = new System.Drawing.Size(75, 75);
+            this.Pause_Rounded_Button.Size = new System.Drawing.Size(100, 92);
             this.Pause_Rounded_Button.TabIndex = 100;
             this.Pause_Rounded_Button.UseVisualStyleBackColor = true;
             this.Pause_Rounded_Button.Visible = false;
@@ -699,6 +771,7 @@
             // 
             // Tray_MainContextMenuStrip
             // 
+            this.Tray_MainContextMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.Tray_MainContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Display_ToolStripMenuItem,
             this.toolStripSeparator1,
@@ -707,45 +780,45 @@
             this.UnWrap_ToolStripMenuItem,
             this.Exit_ToolStripMenuItem});
             this.Tray_MainContextMenuStrip.Name = "Tray_MainContextMenuStrip";
-            this.Tray_MainContextMenuStrip.Size = new System.Drawing.Size(192, 104);
+            this.Tray_MainContextMenuStrip.Size = new System.Drawing.Size(226, 112);
             this.Tray_MainContextMenuStrip.Text = "CL-Timemeter";
             this.Tray_MainContextMenuStrip.DoubleClick += new System.EventHandler(this.Tray_MainContextMenuStrip_DoubleClick);
             // 
             // Display_ToolStripMenuItem
             // 
             this.Display_ToolStripMenuItem.Name = "Display_ToolStripMenuItem";
-            this.Display_ToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.Display_ToolStripMenuItem.Size = new System.Drawing.Size(225, 24);
             this.Display_ToolStripMenuItem.Text = "Display CL-Timemeter";
             this.Display_ToolStripMenuItem.Click += new System.EventHandler(this.Display_ToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(188, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(222, 6);
             // 
             // ModeStatus_ToolStripMenuItem
             // 
             this.ModeStatus_ToolStripMenuItem.Enabled = false;
             this.ModeStatus_ToolStripMenuItem.Name = "ModeStatus_ToolStripMenuItem";
-            this.ModeStatus_ToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.ModeStatus_ToolStripMenuItem.Size = new System.Drawing.Size(225, 24);
             this.ModeStatus_ToolStripMenuItem.Text = "Active mode: \" \"";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(188, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(222, 6);
             // 
             // UnWrap_ToolStripMenuItem
             // 
             this.UnWrap_ToolStripMenuItem.Name = "UnWrap_ToolStripMenuItem";
-            this.UnWrap_ToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.UnWrap_ToolStripMenuItem.Size = new System.Drawing.Size(225, 24);
             this.UnWrap_ToolStripMenuItem.Text = "Remove From Tray";
             this.UnWrap_ToolStripMenuItem.Click += new System.EventHandler(this.UnWrap_ToolStripMenuItem_Click);
             // 
             // Exit_ToolStripMenuItem
             // 
             this.Exit_ToolStripMenuItem.Name = "Exit_ToolStripMenuItem";
-            this.Exit_ToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.Exit_ToolStripMenuItem.Size = new System.Drawing.Size(225, 24);
             this.Exit_ToolStripMenuItem.Text = "Close App";
             this.Exit_ToolStripMenuItem.Click += new System.EventHandler(this.Exit_ToolStripMenuItem_Click);
             // 
@@ -757,8 +830,9 @@
             this.MainMenu_Rounded_Button.FlatAppearance.BorderSize = 0;
             this.MainMenu_Rounded_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MainMenu_Rounded_Button.Location = new System.Drawing.Point(0, 0);
+            this.MainMenu_Rounded_Button.Margin = new System.Windows.Forms.Padding(4);
             this.MainMenu_Rounded_Button.Name = "MainMenu_Rounded_Button";
-            this.MainMenu_Rounded_Button.Size = new System.Drawing.Size(40, 40);
+            this.MainMenu_Rounded_Button.Size = new System.Drawing.Size(53, 49);
             this.MainMenu_Rounded_Button.TabIndex = 103;
             this.MainMenu_Rounded_Button.UseVisualStyleBackColor = true;
             this.MainMenu_Rounded_Button.Click += new System.EventHandler(this.MainMenu_Rounded_Button_Click);
@@ -767,18 +841,20 @@
             // 
             // MainMenu_ContextMenuStrip
             // 
+            this.MainMenu_ContextMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.MainMenu_ContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Modes_ToolStripMenuItem,
-            this.View_ToolStripMenuItem,
             this.FunctionsGoup_ToolStripMenuItem,
+            this.View_ToolStripMenuItem,
+            this.AlignToolStripMenuItem3,
             this.BackgroundExec_ToolStripMenuItem,
             this.toolStripSeparator4,
-            this.AlignToolStripMenuItem3,
+            this.showAboveAllWindowsToolStripMenuItem,
             this.toolStripSeparator5,
             this.Help_ToolStripMenuItem,
             this.Close_ToolStripMenuItem});
             this.MainMenu_ContextMenuStrip.Name = "Tray_MainContextMenuStrip";
-            this.MainMenu_ContextMenuStrip.Size = new System.Drawing.Size(204, 170);
+            this.MainMenu_ContextMenuStrip.Size = new System.Drawing.Size(243, 236);
             this.MainMenu_ContextMenuStrip.Text = "CL-Timemeter";
             this.MainMenu_ContextMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.MainMenu_ContextMenuStrip_Opening);
             this.MainMenu_ContextMenuStrip.VisibleChanged += new System.EventHandler(this.Check_MainContextMenu_Close);
@@ -789,7 +865,7 @@
             this.TimemeterMode_ToolStripMenuItem,
             this.ClocksMode_ToolStripMenuItem});
             this.Modes_ToolStripMenuItem.Name = "Modes_ToolStripMenuItem";
-            this.Modes_ToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.Modes_ToolStripMenuItem.Size = new System.Drawing.Size(242, 24);
             this.Modes_ToolStripMenuItem.Text = "Select Application Mode";
             // 
             // TimemeterMode_ToolStripMenuItem
@@ -798,31 +874,46 @@
             this.TimemeterMode_ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.TimemeterMode_ToolStripMenuItem.Enabled = false;
             this.TimemeterMode_ToolStripMenuItem.Name = "TimemeterMode_ToolStripMenuItem";
-            this.TimemeterMode_ToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.TimemeterMode_ToolStripMenuItem.Size = new System.Drawing.Size(270, 26);
             this.TimemeterMode_ToolStripMenuItem.Text = "Timemeter Mode (Default)";
             this.TimemeterMode_ToolStripMenuItem.Click += new System.EventHandler(this.DefMode_ON);
             // 
             // ClocksMode_ToolStripMenuItem
             // 
             this.ClocksMode_ToolStripMenuItem.Name = "ClocksMode_ToolStripMenuItem";
-            this.ClocksMode_ToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.ClocksMode_ToolStripMenuItem.Size = new System.Drawing.Size(270, 26);
             this.ClocksMode_ToolStripMenuItem.Text = "Clocks Mode";
             this.ClocksMode_ToolStripMenuItem.Click += new System.EventHandler(this.Switch_Mode_Button_Click);
+            // 
+            // FunctionsGoup_ToolStripMenuItem
+            // 
+            this.FunctionsGoup_ToolStripMenuItem.CheckOnClick = true;
+            this.FunctionsGoup_ToolStripMenuItem.Name = "FunctionsGoup_ToolStripMenuItem";
+            this.FunctionsGoup_ToolStripMenuItem.Size = new System.Drawing.Size(242, 24);
+            this.FunctionsGoup_ToolStripMenuItem.Text = "Show all functions";
+            this.FunctionsGoup_ToolStripMenuItem.CheckedChanged += new System.EventHandler(this.FunctionsGoup_ToolStripMenuItem_CheckedChanged);
             // 
             // View_ToolStripMenuItem
             // 
             this.View_ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FixatedToolStripMenuItem,
-            this.FreeWindowToolStripMenuItem});
+            this.FreeWindowToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.CustomizeTimemeterModeToolStripMenuItem,
+            this.customizeWindowToolStripMenuItem,
+            this.toolStripSeparator6,
+            this.WindowSizesToolStripTextBox1,
+            this.reduceWindowToolStripMenuItem,
+            this.defaultSizeOfWindowToolStripMenuItem});
             this.View_ToolStripMenuItem.Name = "View_ToolStripMenuItem";
-            this.View_ToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.View_ToolStripMenuItem.Size = new System.Drawing.Size(242, 24);
             this.View_ToolStripMenuItem.Text = "Change View";
             // 
             // FixatedToolStripMenuItem
             // 
             this.FixatedToolStripMenuItem.CheckOnClick = true;
             this.FixatedToolStripMenuItem.Name = "FixatedToolStripMenuItem";
-            this.FixatedToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.FixatedToolStripMenuItem.Size = new System.Drawing.Size(374, 26);
             this.FixatedToolStripMenuItem.Text = "Fixated Window";
             this.FixatedToolStripMenuItem.Click += new System.EventHandler(this.FixatedToolStripMenuItem_Click);
             // 
@@ -832,70 +923,247 @@
             this.FreeWindowToolStripMenuItem.CheckOnClick = true;
             this.FreeWindowToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.FreeWindowToolStripMenuItem.Name = "FreeWindowToolStripMenuItem";
-            this.FreeWindowToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.FreeWindowToolStripMenuItem.Size = new System.Drawing.Size(374, 26);
             this.FreeWindowToolStripMenuItem.Text = "Free Window";
             this.FreeWindowToolStripMenuItem.Click += new System.EventHandler(this.FreeWindowToolStripMenuItem_Click);
             // 
-            // FunctionsGoup_ToolStripMenuItem
+            // customizeWindowToolStripMenuItem
             // 
-            this.FunctionsGoup_ToolStripMenuItem.CheckOnClick = true;
-            this.FunctionsGoup_ToolStripMenuItem.Name = "FunctionsGoup_ToolStripMenuItem";
-            this.FunctionsGoup_ToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.FunctionsGoup_ToolStripMenuItem.Text = "Show all functions";
-            this.FunctionsGoup_ToolStripMenuItem.CheckedChanged += new System.EventHandler(this.FunctionsGoup_ToolStripMenuItem_CheckedChanged);
+            this.customizeWindowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SetBackgroundColorToolStripMenuItem,
+            this.setCustomColorToolStripMenuItem,
+            this.switchLabelsToWhiteToolStripMenuItem,
+            this.setColorOfClocksLableToolStripMenuItem});
+            this.customizeWindowToolStripMenuItem.Enabled = false;
+            this.customizeWindowToolStripMenuItem.Name = "customizeWindowToolStripMenuItem";
+            this.customizeWindowToolStripMenuItem.Size = new System.Drawing.Size(374, 26);
+            this.customizeWindowToolStripMenuItem.Text = "Customize Window (for clocks mode)";
+            // 
+            // SetBackgroundColorToolStripMenuItem
+            // 
+            this.SetBackgroundColorToolStripMenuItem.Name = "SetBackgroundColorToolStripMenuItem";
+            this.SetBackgroundColorToolStripMenuItem.Size = new System.Drawing.Size(250, 26);
+            this.SetBackgroundColorToolStripMenuItem.Text = "Set default color";
+            this.SetBackgroundColorToolStripMenuItem.Click += new System.EventHandler(this.SetBackgroundColorToolStripMenuItem_Click);
+            // 
+            // setCustomColorToolStripMenuItem
+            // 
+            this.setCustomColorToolStripMenuItem.Name = "setCustomColorToolStripMenuItem";
+            this.setCustomColorToolStripMenuItem.Size = new System.Drawing.Size(250, 26);
+            this.setCustomColorToolStripMenuItem.Text = "Set custom color";
+            this.setCustomColorToolStripMenuItem.Click += new System.EventHandler(this.SetCustomColorToolStripMenuItem_Click);
+            // 
+            // switchLabelsToWhiteToolStripMenuItem
+            // 
+            this.switchLabelsToWhiteToolStripMenuItem.Name = "switchLabelsToWhiteToolStripMenuItem";
+            this.switchLabelsToWhiteToolStripMenuItem.Size = new System.Drawing.Size(250, 26);
+            this.switchLabelsToWhiteToolStripMenuItem.Text = "Switch Labels To White";
+            this.switchLabelsToWhiteToolStripMenuItem.Click += new System.EventHandler(this.switchLabelsToWhiteToolStripMenuItem_Click);
+            // 
+            // setColorOfClocksLableToolStripMenuItem
+            // 
+            this.setColorOfClocksLableToolStripMenuItem.Name = "setColorOfClocksLableToolStripMenuItem";
+            this.setColorOfClocksLableToolStripMenuItem.Size = new System.Drawing.Size(250, 26);
+            this.setColorOfClocksLableToolStripMenuItem.Text = "Set color of clocks lable";
+            this.setColorOfClocksLableToolStripMenuItem.Click += new System.EventHandler(this.setColorOfClocksLableToolStripMenuItem_Click);
+            // 
+            // reduceWindowToolStripMenuItem
+            // 
+            this.reduceWindowToolStripMenuItem.Name = "reduceWindowToolStripMenuItem";
+            this.reduceWindowToolStripMenuItem.Size = new System.Drawing.Size(374, 26);
+            this.reduceWindowToolStripMenuItem.Text = "Reduce window";
+            this.reduceWindowToolStripMenuItem.Click += new System.EventHandler(this.reduceWindowToolStripMenuItem_Click);
+            // 
+            // CustomizeTimemeterModeToolStripMenuItem
+            // 
+            this.CustomizeTimemeterModeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.CustomBackgroundColorOfTimemeterToolStripMenuItem,
+            this.CustomTextColorOfTimemeterToolStripMenuItem,
+            this.autoSwitchOfColorToolStripMenuItem});
+            this.CustomizeTimemeterModeToolStripMenuItem.Name = "CustomizeTimemeterModeToolStripMenuItem";
+            this.CustomizeTimemeterModeToolStripMenuItem.Size = new System.Drawing.Size(374, 26);
+            this.CustomizeTimemeterModeToolStripMenuItem.Text = "Customize Timemeter Mode";
+            // 
+            // CustomBackgroundColorOfTimemeterToolStripMenuItem
+            // 
+            this.CustomBackgroundColorOfTimemeterToolStripMenuItem.Name = "CustomBackgroundColorOfTimemeterToolStripMenuItem";
+            this.CustomBackgroundColorOfTimemeterToolStripMenuItem.Size = new System.Drawing.Size(265, 26);
+            this.CustomBackgroundColorOfTimemeterToolStripMenuItem.Text = "Custom Background Color";
+            this.CustomBackgroundColorOfTimemeterToolStripMenuItem.Click += new System.EventHandler(this.customBackgroundColorToolStripMenuItem_Click);
+            // 
+            // CustomTextColorOfTimemeterToolStripMenuItem
+            // 
+            this.CustomTextColorOfTimemeterToolStripMenuItem.Name = "CustomTextColorOfTimemeterToolStripMenuItem";
+            this.CustomTextColorOfTimemeterToolStripMenuItem.Size = new System.Drawing.Size(265, 26);
+            this.CustomTextColorOfTimemeterToolStripMenuItem.Text = "Custom Text Color";
+            this.CustomTextColorOfTimemeterToolStripMenuItem.Click += new System.EventHandler(this.customTextColorToolStripMenuItem_Click);
+            // 
+            // autoSwitchOfColorToolStripMenuItem
+            // 
+            this.autoSwitchOfColorToolStripMenuItem.Checked = true;
+            this.autoSwitchOfColorToolStripMenuItem.CheckOnClick = true;
+            this.autoSwitchOfColorToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.autoSwitchOfColorToolStripMenuItem.Name = "autoSwitchOfColorToolStripMenuItem";
+            this.autoSwitchOfColorToolStripMenuItem.Size = new System.Drawing.Size(265, 26);
+            this.autoSwitchOfColorToolStripMenuItem.Text = "Auto Switch of color";
+            this.autoSwitchOfColorToolStripMenuItem.Click += new System.EventHandler(this.AutoSwitchOfColorToolStripMenuItem_Click);
+            // 
+            // AlignToolStripMenuItem3
+            // 
+            this.AlignToolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.alignToTopMiddlesoftToolStripMenuItem,
+            this.alignToTopLeftCornersoftToolStripMenuItem,
+            this.toolStripMenuItem4AlignToTopRight,
+            this.alignToScreenSideToolStripMenuItem});
+            this.AlignToolStripMenuItem3.Name = "AlignToolStripMenuItem3";
+            this.AlignToolStripMenuItem3.Size = new System.Drawing.Size(242, 24);
+            this.AlignToolStripMenuItem3.Text = "Align position...";
+            // 
+            // alignToTopMiddlesoftToolStripMenuItem
+            // 
+            this.alignToTopMiddlesoftToolStripMenuItem.Name = "alignToTopMiddlesoftToolStripMenuItem";
+            this.alignToTopMiddlesoftToolStripMenuItem.Size = new System.Drawing.Size(292, 26);
+            this.alignToTopMiddlesoftToolStripMenuItem.Text = "Align to top middle (soft)";
+            this.alignToTopMiddlesoftToolStripMenuItem.Click += new System.EventHandler(this.SoftAlign_TopMiddle);
+            // 
+            // alignToTopLeftCornersoftToolStripMenuItem
+            // 
+            this.alignToTopLeftCornersoftToolStripMenuItem.Name = "alignToTopLeftCornersoftToolStripMenuItem";
+            this.alignToTopLeftCornersoftToolStripMenuItem.Size = new System.Drawing.Size(292, 26);
+            this.alignToTopLeftCornersoftToolStripMenuItem.Text = "Align to top left corner (soft)";
+            this.alignToTopLeftCornersoftToolStripMenuItem.Click += new System.EventHandler(this.SoftAlign_TopLeft);
+            // 
+            // toolStripMenuItem4AlignToTopRight
+            // 
+            this.toolStripMenuItem4AlignToTopRight.Name = "toolStripMenuItem4AlignToTopRight";
+            this.toolStripMenuItem4AlignToTopRight.Size = new System.Drawing.Size(292, 26);
+            this.toolStripMenuItem4AlignToTopRight.Text = "Align to top right corner (soft)";
+            this.toolStripMenuItem4AlignToTopRight.Click += new System.EventHandler(this.Align_Button_Click);
+            // 
+            // alignToScreenSideToolStripMenuItem
+            // 
+            this.alignToScreenSideToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pinClocksToTopLeftToolStripMenuItem,
+            this.pinClocksToTopMiddleToolStripMenuItem,
+            this.pinClocksToTopRightToolStripMenuItem,
+            this.pinClocksToBottomToolStripMenuItem,
+            this.pinToTopLeftToolStripMenuItem,
+            this.pinToTopMiddleToolStripMenuItem,
+            this.pinToTopRightToolStripMenuItem,
+            this.pinToBottomToolStripMenuItem1});
+            this.alignToScreenSideToolStripMenuItem.Name = "alignToScreenSideToolStripMenuItem";
+            this.alignToScreenSideToolStripMenuItem.Size = new System.Drawing.Size(292, 26);
+            this.alignToScreenSideToolStripMenuItem.Text = "Reduce and pin to screen side";
+            // 
+            // pinClocksToTopLeftToolStripMenuItem
+            // 
+            this.pinClocksToTopLeftToolStripMenuItem.Name = "pinClocksToTopLeftToolStripMenuItem";
+            this.pinClocksToTopLeftToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Left)));
+            this.pinClocksToTopLeftToolStripMenuItem.Size = new System.Drawing.Size(381, 26);
+            this.pinClocksToTopLeftToolStripMenuItem.Text = "Reduce and pin clocks to top left ";
+            this.pinClocksToTopLeftToolStripMenuItem.Visible = false;
+            this.pinClocksToTopLeftToolStripMenuItem.Click += new System.EventHandler(this.PinClocksToLeftTopToolStripMenuItem_Click);
+            // 
+            // pinClocksToTopMiddleToolStripMenuItem
+            // 
+            this.pinClocksToTopMiddleToolStripMenuItem.Name = "pinClocksToTopMiddleToolStripMenuItem";
+            this.pinClocksToTopMiddleToolStripMenuItem.Size = new System.Drawing.Size(381, 26);
+            this.pinClocksToTopMiddleToolStripMenuItem.Text = "Reduce and pin clocks to top middle";
+            this.pinClocksToTopMiddleToolStripMenuItem.Visible = false;
+            this.pinClocksToTopMiddleToolStripMenuItem.Click += new System.EventHandler(this.PinClocksToTopMiddleToolStripMenuItem_Click);
+            // 
+            // pinClocksToTopRightToolStripMenuItem
+            // 
+            this.pinClocksToTopRightToolStripMenuItem.Name = "pinClocksToTopRightToolStripMenuItem";
+            this.pinClocksToTopRightToolStripMenuItem.Size = new System.Drawing.Size(381, 26);
+            this.pinClocksToTopRightToolStripMenuItem.Text = "Reduce and pin clocks to top right";
+            this.pinClocksToTopRightToolStripMenuItem.Visible = false;
+            this.pinClocksToTopRightToolStripMenuItem.Click += new System.EventHandler(this.PinClocksToTopRightToolStripMenuItem_Click);
+            // 
+            // pinClocksToBottomToolStripMenuItem
+            // 
+            this.pinClocksToBottomToolStripMenuItem.Enabled = false;
+            this.pinClocksToBottomToolStripMenuItem.Name = "pinClocksToBottomToolStripMenuItem";
+            this.pinClocksToBottomToolStripMenuItem.Size = new System.Drawing.Size(381, 26);
+            this.pinClocksToBottomToolStripMenuItem.Text = "Reduce and pin clocks to bottom";
+            this.pinClocksToBottomToolStripMenuItem.Visible = false;
+            // 
+            // pinToTopLeftToolStripMenuItem
+            // 
+            this.pinToTopLeftToolStripMenuItem.Name = "pinToTopLeftToolStripMenuItem";
+            this.pinToTopLeftToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Left)));
+            this.pinToTopLeftToolStripMenuItem.Size = new System.Drawing.Size(381, 26);
+            this.pinToTopLeftToolStripMenuItem.Text = "Reduce and pin to top left";
+            this.pinToTopLeftToolStripMenuItem.Click += new System.EventHandler(this.PinTimemeterToLeftToolStripMenuItem_Click);
+            // 
+            // pinToTopMiddleToolStripMenuItem
+            // 
+            this.pinToTopMiddleToolStripMenuItem.Name = "pinToTopMiddleToolStripMenuItem";
+            this.pinToTopMiddleToolStripMenuItem.Size = new System.Drawing.Size(381, 26);
+            this.pinToTopMiddleToolStripMenuItem.Text = "Reduce and pin to top middle";
+            this.pinToTopMiddleToolStripMenuItem.Click += new System.EventHandler(this.PinTimemeterToTopMiddleToolStripMenuItem_Click);
+            // 
+            // pinToTopRightToolStripMenuItem
+            // 
+            this.pinToTopRightToolStripMenuItem.Name = "pinToTopRightToolStripMenuItem";
+            this.pinToTopRightToolStripMenuItem.Size = new System.Drawing.Size(381, 26);
+            this.pinToTopRightToolStripMenuItem.Text = "Reduce and pin to top right";
+            this.pinToTopRightToolStripMenuItem.Click += new System.EventHandler(this.PinTimemeterToTopRightToolStripMenuItem_Click);
+            // 
+            // pinToBottomToolStripMenuItem1
+            // 
+            this.pinToBottomToolStripMenuItem1.Enabled = false;
+            this.pinToBottomToolStripMenuItem1.Name = "pinToBottomToolStripMenuItem1";
+            this.pinToBottomToolStripMenuItem1.Size = new System.Drawing.Size(381, 26);
+            this.pinToBottomToolStripMenuItem1.Text = "Reduce and pin to bottom";
+            this.pinToBottomToolStripMenuItem1.Visible = false;
             // 
             // BackgroundExec_ToolStripMenuItem
             // 
             this.BackgroundExec_ToolStripMenuItem.Name = "BackgroundExec_ToolStripMenuItem";
-            this.BackgroundExec_ToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.BackgroundExec_ToolStripMenuItem.Size = new System.Drawing.Size(242, 24);
             this.BackgroundExec_ToolStripMenuItem.Text = "Background Execution";
             this.BackgroundExec_ToolStripMenuItem.Click += new System.EventHandler(this.WrapToTrayButton_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(200, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(239, 6);
             // 
-            // AlignToolStripMenuItem3
+            // showAboveAllWindowsToolStripMenuItem
             // 
-            this.AlignToolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem4});
-            this.AlignToolStripMenuItem3.Name = "AlignToolStripMenuItem3";
-            this.AlignToolStripMenuItem3.Size = new System.Drawing.Size(203, 22);
-            this.AlignToolStripMenuItem3.Text = "Align position...";
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(202, 22);
-            this.toolStripMenuItem4.Text = "Align to top right corner";
-            this.toolStripMenuItem4.Click += new System.EventHandler(this.Align_Button_Click);
+            this.showAboveAllWindowsToolStripMenuItem.CheckOnClick = true;
+            this.showAboveAllWindowsToolStripMenuItem.Name = "showAboveAllWindowsToolStripMenuItem";
+            this.showAboveAllWindowsToolStripMenuItem.Size = new System.Drawing.Size(242, 24);
+            this.showAboveAllWindowsToolStripMenuItem.Text = "Show above all windows";
+            this.showAboveAllWindowsToolStripMenuItem.Click += new System.EventHandler(this.ShowAboveAllWindowsToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(200, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(239, 6);
             // 
             // Help_ToolStripMenuItem
             // 
             this.Help_ToolStripMenuItem.Name = "Help_ToolStripMenuItem";
-            this.Help_ToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.Help_ToolStripMenuItem.Size = new System.Drawing.Size(242, 24);
             this.Help_ToolStripMenuItem.Text = "About CL-Timemeter...";
             this.Help_ToolStripMenuItem.Click += new System.EventHandler(this.Info_Button_PictureBox_Click);
             // 
             // Close_ToolStripMenuItem
             // 
             this.Close_ToolStripMenuItem.Name = "Close_ToolStripMenuItem";
-            this.Close_ToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.Close_ToolStripMenuItem.Size = new System.Drawing.Size(242, 24);
             this.Close_ToolStripMenuItem.Text = "Close App";
             this.Close_ToolStripMenuItem.Click += new System.EventHandler(this.CloseButton_Custom_Click);
             // 
             // ForTestingFunc_Вutton
             // 
             this.ForTestingFunc_Вutton.BackColor = System.Drawing.Color.LemonChiffon;
-            this.ForTestingFunc_Вutton.Location = new System.Drawing.Point(146, -1);
+            this.ForTestingFunc_Вutton.Location = new System.Drawing.Point(195, -1);
+            this.ForTestingFunc_Вutton.Margin = new System.Windows.Forms.Padding(4);
             this.ForTestingFunc_Вutton.Name = "ForTestingFunc_Вutton";
-            this.ForTestingFunc_Вutton.Size = new System.Drawing.Size(64, 23);
+            this.ForTestingFunc_Вutton.Size = new System.Drawing.Size(85, 28);
             this.ForTestingFunc_Вutton.TabIndex = 104;
             this.ForTestingFunc_Вutton.Text = "Testing Func";
             this.ForTestingFunc_Вutton.UseVisualStyleBackColor = false;
@@ -910,63 +1178,112 @@
             this.Show_Time_RoundedButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Show_Time_RoundedButton.FlatAppearance.BorderSize = 0;
             this.Show_Time_RoundedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Show_Time_RoundedButton.Location = new System.Drawing.Point(133, 1);
+            this.Show_Time_RoundedButton.Location = new System.Drawing.Point(177, 1);
+            this.Show_Time_RoundedButton.Margin = new System.Windows.Forms.Padding(4);
             this.Show_Time_RoundedButton.Name = "Show_Time_RoundedButton";
-            this.Show_Time_RoundedButton.Size = new System.Drawing.Size(32, 32);
+            this.Show_Time_RoundedButton.Size = new System.Drawing.Size(43, 39);
             this.Show_Time_RoundedButton.TabIndex = 105;
             this.Show_Time_RoundedButton.UseVisualStyleBackColor = false;
             this.Show_Time_RoundedButton.Click += new System.EventHandler(this.ShowTime_Button_Click);
             this.Show_Time_RoundedButton.MouseEnter += new System.EventHandler(this.Show_Time_RoundedButton_MouseEnter);
             this.Show_Time_RoundedButton.MouseLeave += new System.EventHandler(this.Show_Time_RoundedButton_MouseLeave);
             // 
-            // SwitchToSmallVidget_Button
+            // ExpanderButton
             // 
-            this.SwitchToSmallVidget_Button.Location = new System.Drawing.Point(72, 15);
-            this.SwitchToSmallVidget_Button.Name = "SwitchToSmallVidget_Button";
-            this.SwitchToSmallVidget_Button.Size = new System.Drawing.Size(30, 30);
-            this.SwitchToSmallVidget_Button.TabIndex = 106;
-            this.SwitchToSmallVidget_Button.Text = "m3";
-            this.SwitchToSmallVidget_Button.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.SwitchToSmallVidget_Button.UseVisualStyleBackColor = true;
-            this.SwitchToSmallVidget_Button.Click += new System.EventHandler(this.SwitchToSmallVidget_Button_Click);
+            this.ExpanderButton.BackColor = System.Drawing.Color.Transparent;
+            this.ExpanderButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ExpanderButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ExpanderButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ExpanderButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ExpanderButton.Location = new System.Drawing.Point(0, 126);
+            this.ExpanderButton.Margin = new System.Windows.Forms.Padding(4);
+            this.ExpanderButton.Name = "ExpanderButton";
+            this.ExpanderButton.Size = new System.Drawing.Size(19, 49);
+            this.ExpanderButton.TabIndex = 106;
+            this.ExpanderButton.Text = ">";
+            this.ExpanderButton.UseVisualStyleBackColor = false;
+            this.ExpanderButton.Visible = false;
+            this.ExpanderButton.Click += new System.EventHandler(this.ExpanderButton_Click);
+            // 
+            // Hours_Label
+            // 
+            this.Hours_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
+            this.Hours_Label.Location = new System.Drawing.Point(-11, 150);
+            this.Hours_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Hours_Label.Name = "Hours_Label";
+            this.Hours_Label.Size = new System.Drawing.Size(133, 74);
+            this.Hours_Label.TabIndex = 25;
+            this.Hours_Label.Text = "00";
+            this.Hours_Label.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // defaultSizeOfWindowToolStripMenuItem
+            // 
+            this.defaultSizeOfWindowToolStripMenuItem.Name = "defaultSizeOfWindowToolStripMenuItem";
+            this.defaultSizeOfWindowToolStripMenuItem.Size = new System.Drawing.Size(374, 26);
+            this.defaultSizeOfWindowToolStripMenuItem.Text = "Default size of window";
+            this.defaultSizeOfWindowToolStripMenuItem.Click += new System.EventHandler(this.DefaultSizeOfWindowToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(371, 6);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(371, 6);
+            // 
+            // WindowSizesToolStripTextBox1
+            // 
+            this.WindowSizesToolStripTextBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.WindowSizesToolStripTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.WindowSizesToolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.WindowSizesToolStripTextBox1.Name = "WindowSizesToolStripTextBox1";
+            this.WindowSizesToolStripTextBox1.ReadOnly = true;
+            this.WindowSizesToolStripTextBox1.Size = new System.Drawing.Size(300, 20);
+            this.WindowSizesToolStripTextBox1.Text = "Switch size of window:";
+            this.WindowSizesToolStripTextBox1.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // CL_Timemeter_Form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 300);
+            this.ClientSize = new System.Drawing.Size(400, 369);
+            this.Controls.Add(this.Pause_Rounded_Button);
             this.Controls.Add(this.RealTime_Label);
+            this.Controls.Add(this.ExpanderButton);
             this.Controls.Add(this.Show_Time_RoundedButton);
             this.Controls.Add(this.ForTestingFunc_Вutton);
             this.Controls.Add(this.RealDate_Label);
             this.Controls.Add(this.MainMenu_Rounded_Button);
-            this.Controls.Add(this.Info_Button_PictureBox);
             this.Controls.Add(this.StopButton_PictureBox);
             this.Controls.Add(this.TimeMeterFunctions_GroupBox);
             this.Controls.Add(this.Enable_Group_TimemeterFunctions);
             this.Controls.Add(this.Fixated_CheckBox);
-            this.Controls.Add(this.Minimise_Button);
             this.Controls.Add(this.Small_Timemeter_Label);
             this.Controls.Add(this.StopButton);
             this.Controls.Add(this.TimemeterCheckGroupBox);
             this.Controls.Add(this.Split_Label_1);
             this.Controls.Add(this.Minutes_Label);
             this.Controls.Add(this.Hours_Label);
-            this.Controls.Add(this.Seconds_Label);
             this.Controls.Add(this.Split_Label_2);
             this.Controls.Add(this.RealTime_TestLabel);
             this.Controls.Add(this.Pause_Button);
             this.Controls.Add(this.StartButton);
             this.Controls.Add(this.StartButton_PictureBox);
             this.Controls.Add(this.PauseButton_PictureBox);
-            this.Controls.Add(this.CloseButton_Custom);
-            this.Controls.Add(this.Align_Button);
-            this.Controls.Add(this.Pause_Rounded_Button);
             this.Controls.Add(this.Start_Rounded_Button);
+            this.Controls.Add(this.Seconds_Label);
             this.Controls.Add(this.Minute_Progress_Label);
+            this.Controls.Add(this.Align_Button);
+            this.Controls.Add(this.Info_Button_PictureBox);
+            this.Controls.Add(this.Minimise_Button);
+            this.Controls.Add(this.CloseButton_Custom);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "CL_Timemeter_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1016,7 +1333,6 @@
         public System.Windows.Forms.Label Split_Label_1;
         public System.Windows.Forms.Label Split_Label_2;
         public System.Windows.Forms.Label Minutes_Label;
-        public System.Windows.Forms.Label Hours_Label;
         public System.Windows.Forms.Label Seconds_Label;
         private System.Windows.Forms.CheckBox Enable_Group_TimemeterFunctions;
         private System.Windows.Forms.Button Switch_Mode_Button;
@@ -1047,7 +1363,7 @@
         private System.Windows.Forms.ToolStripMenuItem Help_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem AlignToolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4AlignToTopRight;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem Close_ToolStripMenuItem;
         public System.Windows.Forms.ContextMenuStrip Tray_MainContextMenuStrip;
@@ -1062,6 +1378,35 @@
         private WinForms_ControlsLibrary.Rounded_Button Show_Time_RoundedButton;
         public System.Windows.Forms.ToolStripMenuItem View_ToolStripMenuItem;
         private System.Windows.Forms.Button SwitchToSmallVidget_Button;
+		private System.Windows.Forms.ToolStripMenuItem alignToScreenSideToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem pinClocksToTopLeftToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem pinClocksToTopMiddleToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem pinClocksToTopRightToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem pinClocksToBottomToolStripMenuItem;
+		private System.Windows.Forms.Button ExpanderButton;
+		private System.Windows.Forms.ToolStripMenuItem pinToTopLeftToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem pinToTopMiddleToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem pinToTopRightToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem pinToBottomToolStripMenuItem1;
+		public System.Windows.Forms.Label Hours_Label;
+        private System.Windows.Forms.ToolStripMenuItem showAboveAllWindowsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem alignToTopLeftCornersoftToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem alignToTopMiddlesoftToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem customizeWindowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SetBackgroundColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setCustomColorToolStripMenuItem;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.ToolStripMenuItem reduceWindowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem switchLabelsToWhiteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setColorOfClocksLableToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CustomizeTimemeterModeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CustomBackgroundColorOfTimemeterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CustomTextColorOfTimemeterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem autoSwitchOfColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem defaultSizeOfWindowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripTextBox WindowSizesToolStripTextBox1;
     }
 }
 

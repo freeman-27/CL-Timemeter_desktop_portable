@@ -109,6 +109,11 @@ namespace CL_Timemeter
 
             //this.Cursor = MixedBlackCursor;
             //this.Cursor = GreenCursor;
+
+            this.CustomBackgroundColorOfTimemeterToolStripMenuItem.Enabled = false;
+            this.CustomTextColorOfTimemeterToolStripMenuItem.Enabled = false;
+
+
         }
 
         public void ResetLabels_ForControlsWithImages()
@@ -341,15 +346,35 @@ namespace CL_Timemeter
             //Set_RGB_Chanel_G = RandNumb.Next(50, 100);   // set G chanel from 0 to 255
             //Set_RGB_Chanel_B = RandNumb.Next(50, 100);
 
+            
             Timemeter_Cover();
             
         }
 
         /// <summary>
         /// Timemeter Customisation Function
+        bool StateOfAutoColor = true;
         /// </summary>
         public void Timemeter_Cover()
         {
+            ///checking state of AutoSwitching of color:
+            if (StateOfAutoColor == true)
+            {
+
+                Set_RGB_Chanel_R = RandNumb.Next(50, 100);   // set R chanel from 150 to 200
+                Set_RGB_Chanel_G = RandNumb.Next(50, 100);   // set G chanel from 0 to 255
+                Set_RGB_Chanel_B = RandNumb.Next(50, 100);   // set B chanel from 150 to 200
+
+                //Array Arr_ColorValuesRGB = new int Arr_ColorValuesRGB[];
+
+                //string Arr_ColorValuesRGB[] = { BG_Value, BG_Value };
+
+                //MessageBox.Show(BG_Value.ToString());
+                this.BackColor = System.Drawing.Color.FromArgb(255, Set_RGB_Chanel_R, Set_RGB_Chanel_G, Set_RGB_Chanel_B);
+
+
+            /// restile labels of time
+            /// 
             //object BG_Value = this.BackColor;
             //BG_Value = BG_Value.ToString();
             //BG_Value = new Random();
@@ -361,27 +386,23 @@ namespace CL_Timemeter
             Split_Label_1.ForeColor = System.Drawing.Color.White;
             Split_Label_2.ForeColor = System.Drawing.Color.White;
 
+            }
 
-            Set_RGB_Chanel_R = RandNumb.Next(50, 100);   // set R chanel from 150 to 200
-            Set_RGB_Chanel_G = RandNumb.Next(50, 100);   // set G chanel from 0 to 255
-            Set_RGB_Chanel_B = RandNumb.Next(50, 100);   // set B chanel from 150 to 200
 
-            //Array Arr_ColorValuesRGB = new int Arr_ColorValuesRGB[];
-
-            //string Arr_ColorValuesRGB[] = { BG_Value, BG_Value };
-
-            //MessageBox.Show(BG_Value.ToString());
-            this.BackColor = System.Drawing.Color.FromArgb(255, Set_RGB_Chanel_R, Set_RGB_Chanel_G, Set_RGB_Chanel_B);
-           
         }
 
         public void Timemeter_Cover_Paused()
         {
-            this.Seconds_Label.ForeColor = System.Drawing.Color.DimGray;
-            this.Minutes_Label.ForeColor = System.Drawing.Color.DimGray;
-            this.Hours_Label.ForeColor = System.Drawing.Color.DimGray;
-            Split_Label_1.ForeColor = System.Drawing.Color.DimGray;
-            Split_Label_2.ForeColor = System.Drawing.Color.DimGray;
+            //if (StateOfAutoColor == true)
+            //{
+                this.Seconds_Label.ForeColor = System.Drawing.Color.DimGray;
+                this.Minutes_Label.ForeColor = System.Drawing.Color.DimGray;
+                this.Hours_Label.ForeColor = System.Drawing.Color.DimGray;
+                Split_Label_1.ForeColor = System.Drawing.Color.DimGray;
+                Split_Label_2.ForeColor = System.Drawing.Color.DimGray;
+            //}
+
+            ResetToAutoSwitchingOfFormColor();
         }
 
 
@@ -642,6 +663,9 @@ namespace CL_Timemeter
             Minute_Progress_Label.Text = "";
 
             ExecutionStatus = 1;
+
+            ResetToAutoSwitchingOfFormColor();
+
         }
 
 
@@ -857,7 +881,6 @@ namespace CL_Timemeter
 
 
 
-
             //MainMenu_Rounded_Button.BackgroundImage
             //Fixated_CheckBox.Visible = false;
             ShowCheckGroup_Button.Visible = false;
@@ -881,9 +904,9 @@ namespace CL_Timemeter
             this.BackgroundImageLayout = ImageLayout.Stretch;
 
 
-            Align_Button_Click(sender,e);
+            //Align_Button_Click(sender,e);
 
-            Fixated_CheckBox.Checked = true;
+            //Fixated_CheckBox.Checked = true;
             RealTime_OutputToLabel(sender, e);
             StartButton_PictureBox.Enabled = false;
             StartButton_PictureBox.Visible = false;
@@ -925,8 +948,35 @@ namespace CL_Timemeter
             this.ClocksMode_ToolStripMenuItem.Checked = true;
             this.TimemeterMode_ToolStripMenuItem.Enabled = true;
             this.TimemeterMode_ToolStripMenuItem.Checked = false;
+
+
+            //align function menu group visibility
+            this.pinClocksToTopLeftToolStripMenuItem.Visible = true;
+            this.pinClocksToTopMiddleToolStripMenuItem.Visible = true;
+            this.pinClocksToTopRightToolStripMenuItem.Visible = true;
+            this.pinToTopLeftToolStripMenuItem.Visible = false;
+            this.pinToTopMiddleToolStripMenuItem.Visible = false;
+            this.pinToTopRightToolStripMenuItem.Visible = false;
+
+            ///Check size of window:
+            if (this.Width > 316)
+            {
+                /// return window to default size:
+                ExpanderButton_Click(sender, e);
+            }
+
+            if (this.Show_Time_RoundedButton.Visible == true)
+            {
+                this.Show_Time_RoundedButton.Visible = false;
+            }
+
+            this.customizeWindowToolStripMenuItem.Enabled = true;
+            this.CustomizeTimemeterModeToolStripMenuItem.Enabled = false;
+
+
+            ///Status value:
             StatusModeName = "Clocks mode";
-            
+            //return;
         }
         public MessageBox CustomMessageMode;
         public MessageBox DefaultMessageMode;
@@ -1001,7 +1051,37 @@ namespace CL_Timemeter
             this.TimemeterMode_ToolStripMenuItem.Checked = true;
             this.ClocksMode_ToolStripMenuItem.Enabled = true;
             this.ClocksMode_ToolStripMenuItem.Checked = false;
+
+            ///align function menu group visibility
+            this.pinToTopLeftToolStripMenuItem.Visible = true;
+            this.pinToTopMiddleToolStripMenuItem.Visible = true;
+            this.pinToTopRightToolStripMenuItem.Visible = true;
+            this.pinClocksToTopLeftToolStripMenuItem.Visible = false;
+            this.pinClocksToTopMiddleToolStripMenuItem.Visible = false;
+            this.pinClocksToTopRightToolStripMenuItem.Visible = false;
+
+            ///set default labels positions:
+            this.Info_Button_PictureBox.Visible = true;
+            this.Split_Label_1.SetBounds(186, 119, 42, 63); ///def position
+            this.Split_Label_2.SetBounds(78, 119, 42, 63); ///def position
+            this.Hours_Label.SetBounds(-8, 122, 100, 60); ///def position
+            this.Minutes_Label.SetBounds(106, 122, 100, 60); ///def position
+            this.Seconds_Label.SetBounds(218, 122, 100, 60); ///def position
+
+            ///Check size of window:
+            if (this.Width > 316 || this.Height < 339)
+            {
+                /// return window to default size:
+                ExpanderButton_Click(sender, e);
+            }
+
+            this.customizeWindowToolStripMenuItem.Enabled = false;
+            this.CustomizeTimemeterModeToolStripMenuItem.Enabled = true;
+
+
+            ///Status value:
             StatusModeName = "Timemeter";
+            //return;
         }
         /// <summary>
         /// Align Form to corner
@@ -1017,6 +1097,28 @@ namespace CL_Timemeter
             //MessageBox.Show(Screen_Resolution.Width.ToString()); //test
             string Screen_Width = Screen_Resolution.Width.ToString();
             int Horisontal_Align = ((Screen_Resolution.Width) - 375);
+            this.SetDesktopLocation(Horisontal_Align, 50);
+        }        
+        protected void SoftAlign_TopLeft(object sender, EventArgs e) //TODO
+        {
+            //Get Primary Screen Size:
+            Size Screen_Resolution = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Size;
+            //Size Screen_Width = System.Windows.SystemParameters.PrimaryScreenWidth;
+            //Size Screen_Height = System.Windows.SystemParameters.PrimaryScreenHeight;
+            //MessageBox.Show(Screen_Resolution.Width.ToString()); //test
+            string Screen_Width = Screen_Resolution.Width.ToString();
+            //int Horisontal_Align = ((Screen_Resolution.Width) - 375);
+            this.SetDesktopLocation(50, 50);
+        }        
+        protected void SoftAlign_TopMiddle(object sender, EventArgs e) //TODO
+        {
+            //Get Primary Screen Size:
+            Size Screen_Resolution = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Size;
+            //Size Screen_Width = System.Windows.SystemParameters.PrimaryScreenWidth;
+            //Size Screen_Height = System.Windows.SystemParameters.PrimaryScreenHeight;
+            //MessageBox.Show(Screen_Resolution.Width.ToString()); //test
+            string Screen_Width = Screen_Resolution.Width.ToString();
+            int Horisontal_Align = ((Screen_Resolution.Width)/2);
             this.SetDesktopLocation(Horisontal_Align, 50);
         }
 
@@ -1178,7 +1280,7 @@ namespace CL_Timemeter
 
         private void Align_Button_MouseLeave(object sender, EventArgs e)
         {
-            Align_Button.BackColor = default;
+            Align_Button.BackColor = System.Drawing.Color.Transparent;
         }
 
         private void CloseButton_Custom_MouseEnter(object sender, EventArgs e)
@@ -1403,13 +1505,14 @@ namespace CL_Timemeter
             //MainMenu_Rounded_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImageMainMenu_Button_Hover_FileName));
             Check_MainContextMenu_Close(sender, e);
             MainMenu_Rounded_Button.Cursor = Cursors.Hand;
-
+            MainMenu_Rounded_Button.BackColor = Color.YellowGreen;
         }
 
         private void MainMenu_Rounded_Button_MouseLeave(object sender, EventArgs e)
         {
             //MainMenu_Rounded_Button.BackgroundImage = Bitmap.FromFile(filename: Path.Combine(ImageContolElement_AutoCombinePathFolder, ImageMainMenu_Button_FileName));
             Check_MainContextMenu_Close(sender, e);
+            MainMenu_Rounded_Button.BackColor = Color.Transparent;
         }
         private void Check_MainContextMenu_Close(object sender, EventArgs e)
         {
@@ -1512,6 +1615,482 @@ namespace CL_Timemeter
             this.RealDate_Label.SetBounds(206,100, 94, 18);
             this.RealDate_Label.Visible = true;
         }
+
+
+        
+
+        /// <summary>
+        /// Align Form to custom side of screen (TODO bottom align)
+        ///  only for timemeter mode
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// default sizes:
+        Size Screen_Resolution = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Size; ///Get Primary Screen Size:
+        int DefaultWidthOfWindow = 316;
+        const int SmallWindowWidth = 425;
+        const int SmallWindowHeight = 65;
+        private void PinTimemeterToLeftToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ///Get Primary Screen Size:
+            //Size Screen_Resolution = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Size;
+            //string Screen_Width = Screen_Resolution.Width.ToString();
+            //int Horisontal_Align = ((Screen_Resolution.Width) - 375);
+            //this.SetDesktopLocation(0, 50);
+            //this.Width = 2;
+            int DefPinFormLeftX = 0;
+            int DefPinFormLeftY = 100;
+            int DefFromWidth = 316;
+            int DefFormHeight = 339;
+            string resiseLabelFont = "Microsoft Sans Serif; 40pt";
+            ///Set new size of window:
+            this.SetBounds(0, 0, SmallWindowWidth, 100);
+
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.ExpanderButton.Visible = true;
+            this.ExpanderButton.SetBounds(385, 5, 25, 55);
+            this.Start_Rounded_Button.SetBounds(355, 5, 25, 25);
+            this.StopButton.SetBounds(355, 35, 25, 25);
+            //this.Pause_Rounded_Button.Visible = true;
+            this.Pause_Rounded_Button.SetBounds(355, 5, 25, 25);
+            //this.StopButton.BackgroundImage = default;
+            //this.StopButton.BackColor = Color.DarkGray;
+
+            this.Height = 65;
+            this.Width = SmallWindowWidth;
+            //this.Minimise_Button.Visible = false;
+            this.Align_Button.Visible = false;
+            this.RealTime_Label.Visible = false;
+            //this.RealTime_Label.SetBounds(40, -5, 237, 60);
+            //this.RealTime_Label.AutoSize = true;
+            //this.RealTime_Label.Font.Size
+            //this.RealTime_Label.Location.Y = 2;
+            //Switch_Mode_Button_Click(sender, e);
+            //this.BackColor = Color.DimGray;
+            //this.ForeColor = Color.White;
+
+            //this.toolStripMenuItem4AlignToTopRight.Enabled = false; ///disable soft align to right corner by align button and by menu 
+
+            //DefMode_ON(sender, e);
+            /// modified labels positions:
+            this.Show_Time_RoundedButton.Visible = false;
+            this.Info_Button_PictureBox.Visible = false;
+            this.Split_Label_1.SetBounds(236, 0, 42, 63); ///for pinned top-left left
+            //this.Split_Label_1.SetBounds(186, 119, 42, 63); ///def position
+            this.Split_Label_2.SetBounds(128, 0, 42, 63); ///for pinned top-left left
+            //this.Split_Label_2.SetBounds(78, 119, 42, 63); ///def position
+            this.Hours_Label.SetBounds(42, 0, 100, 60); ///for pinned top-left left
+            //this.Hours_Label.SetBounds(-8, 122, 100, 60); ///def position
+            this.Minutes_Label.SetBounds(156, 0, 100, 60); ///for pinned top-left position
+            //this.Minutes_Label.SetBounds(106, 122, 100, 60); ///def position
+            this.Seconds_Label.SetBounds(268, 0, 100, 60); ///for pinned top-left position
+            //this.Seconds_Label.SetBounds(218, 122, 100, 60); ///def position
+            this.Align_Button.Visible = false;
+            this.FreeWindowToolStripMenuItem.Checked = false;
+            this.FixatedToolStripMenuItem.Checked = true;
+
+            this.RealTime_Label.Visible = false;
+            //RealTime_OutputToLabel(sender, e);
+            //Timemeter_ClearVolumes();
+            this.ExpanderButton.Text = ">";
+        }
+        /// <summary>
+        /// Aling small window to middle
+        /// </summary>
+
+        private void PinTimemeterToTopMiddleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.PinTimemeterToLeftToolStripMenuItem_Click(sender, e);
+            //string Screen_Width = Screen_Resolution.Width.ToString();
+            int Horisontal_Align = (Screen_Resolution.Width - Screen_Resolution.Width/2 - 200);
+            this.SetBounds(Horisontal_Align, 0, SmallWindowWidth, SmallWindowHeight);
+        }
+        /// <summary>
+        /// Aling small window of timemerer to middle
+        /// </summary>
+        private void PinTimemeterToTopRightToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.PinTimemeterToLeftToolStripMenuItem_Click(sender, e);
+            //string Screen_Width = Screen_Resolution.Width.ToString();
+            int Horisontal_Align = (Screen_Resolution.Width - (DefaultWidthOfWindow+100));
+            this.SetBounds(Horisontal_Align, 0, SmallWindowWidth, SmallWindowHeight);
+            this.SetDesktopLocation(Horisontal_Align, 0);
+        }
+
+
+        /// <summary>
+        /// Align Form to custom side of screen (TODO Top Right and bottom)
+        ///  only for clocks mode only
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// 31; 122
+        const int HorisDefVal = 31;
+        const int VertDefVal = 122;
+        private void PinClocksToLeftTopToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ///Get Primary Screen Size:
+            //Size Screen_Resolution = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Size;
+            //string Screen_Width = Screen_Resolution.Width.ToString();
+            //int Horisontal_Align = ((Screen_Resolution.Width) - 375);
+            this.SetDesktopLocation(0, 50);
+            //this.Width = 2;
+            //this.Height = 100;
+            int DefPinFormLeftX = 0;
+            int DefPinFormLeftY = 100;
+            int DefFromWidth = 316;
+            int DefFormHeight = 339;
+            string resiseLabelFont = "Microsoft Sans Serif; 40pt";
+            this.SetBounds(0, 0, 315, 100);
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.ExpanderButton.Visible = true;
+            //this.ExpanderButton.SetBounds(275, 0, 14, 50);
+            this.ExpanderButton.SetBounds(272, 5, 25, 55);
+            //this.Minimise_Button.Visible = false;
+            this.Align_Button.Visible = false;
+            this.RealTime_Label.Visible = true;
+            this.RealTime_Label.SetBounds(40, -5, 237, 60);
+            //this.RealTime_Label.AutoSize = true;
+            //this.RealTime_Label.Font.Size
+            //this.RealTime_Label.Location.Y = 2;
+            //Switch_Mode_Button_Click(sender, e);
+
+            //this.BackColor = Color.DimGray;
+            //this.ForeColor = Color.White;
+
+
+
+            Switch_Mode_Button_Click(sender, e);
+
+            RealTime_OutputToLabel(sender, e);
+            Timemeter_ClearVolumes();
+        }
+        private void PinClocksToTopMiddleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PinClocksToLeftTopToolStripMenuItem_Click(sender, e);
+            int Horisontal_Align = (Screen_Resolution.Width - Screen_Resolution.Width / 2 - 150);
+            this.SetBounds(Horisontal_Align, 0, 315, 65);
+        }
+        private void PinClocksToTopRightToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PinClocksToLeftTopToolStripMenuItem_Click(sender, e);
+            int Horisontal_Align = (Screen_Resolution.Width - DefaultWidthOfWindow);
+            this.SetBounds(Horisontal_Align, 0, 315, 65);
+        }
+
+        /// <summary>
+        /// Restore window to default size
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ExpanderButton_Click(object sender, EventArgs e)
+		{
+            this.Width = 316; //Default size
+            this.Height = 399; //Default size
+            //this.ExpanderButton.Text = "<";
+
+            //DefMode_ON(sender, e);
+
+            ///Restore window size:
+            this.SetBounds(0, 0, 316, 339);
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; 
+            //Get Primary Screen Size:
+            Size Screen_Resolution = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Size;
+            string Screen_Width = Screen_Resolution.Width.ToString();
+            int Horisontal_Align = (Screen_Resolution.Width - Screen_Resolution.Width/2 - 200);
+            this.SetDesktopLocation(Horisontal_Align, 100);
+
+            ///
+            ///return labels to default pos -->
+            ///--> ///set default labels positions:
+            this.Info_Button_PictureBox.Visible = true;
+            this.Split_Label_1.SetBounds(186, 119, 42, 63); ///def position
+            this.Split_Label_2.SetBounds(78, 119, 42, 63); ///def position
+            this.Hours_Label.SetBounds(-8, 122, 100, 60); ///def position
+            this.Minutes_Label.SetBounds(106, 122, 100, 60); ///def position
+            this.Seconds_Label.SetBounds(218, 122, 100, 60); ///def position
+            this.Start_Rounded_Button.SetBounds(112, 215, 75, 75); ///def position
+            this.StopButton.SetBounds(112, 182, 75, 30); ///def position
+            this.Pause_Rounded_Button.SetBounds(112, 215, 75, 75); ///def position
+            ///clocks label position
+            this.RealTime_Label.SetBounds(31, 122, 237, 60);
+
+            this.ShowTime_Button.Visible = true;
+            this.Show_Time_RoundedButton.Visible = true;
+            this.Align_Button.Visible = true;
+
+            this.ExpanderButton.Visible = false;
+
+            this.SetBounds(Horisontal_Align, 250, 316, 339);
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ShowAboveAllWindowsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.showAboveAllWindowsToolStripMenuItem.Checked == true)
+            {
+                this.TopMost = true;
+            }
+            if (this.showAboveAllWindowsToolStripMenuItem.Checked == false)
+            {
+                this.TopMost = false;
+            }
+        }
+
+        private void SetBackgroundColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.BackColor = Color.YellowGreen;
+            this.BackgroundImage = default;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        //Color ColorValue;
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SetCustomColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //this.BackColor = Color.YellowGreen;
+            //this.BackgroundImage = default;
+            this.colorDialog1.ShowDialog();
+            Color ColorValue = colorDialog1.Color;
+            this.BackgroundImage = default;
+            this.BackColor = ColorValue;
+            CheckTextColor();
+        }
+
+        //Color ColorOfForm;
+        //Color ColorOfTimeLables;
+        public bool CheckTextColor()
+        {
+            if (this.BackColor == Color.Black) {
+                this.RealTime_Label.ForeColor = Color.White;
+                this.RealDate_Label.ForeColor = Color.White;
+                DarkTimeLabel = true;
+            }
+            return DarkTimeLabel;
+        }
+
+        /// <summary>
+        /// For switch color of Time Labels
+        /// </summary>
+        public bool DarkTimeLabel = true; ///default (for black color of TimeLables)
+        /// <returns></returns>
+        public bool SetColor_ForLAbelsOfTime()
+        {
+            if (DarkTimeLabel == true)
+            {
+                RealTime_Label.ForeColor = Color.White;
+                RealDate_Label.ForeColor = Color.White;
+            }
+            if (DarkTimeLabel == false)
+            {
+                RealTime_Label.ForeColor = Color.Black;
+                RealDate_Label.ForeColor = Color.Black;
+                DarkTimeLabel = true;
+            }
+            DarkTimeLabel = false;
+            return DarkTimeLabel;
+        }
+
+        public void SetCustomColor_ForLAbelsOfTime(object sender, EventArgs e)
+        {
+                this.colorDialog1.ShowDialog();
+                Color ColorValue = colorDialog1.Color;
+                RealTime_Label.ForeColor = ColorValue;
+        }
+
+
+        private void reduceWindowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (StatusModeName == "Timemeter")
+            {
+                int DefPinFormLeftX = 0;
+                int DefPinFormLeftY = 100;
+                int DefFromWidth = 316;
+                int DefFormHeight = 339;
+                string resiseLabelFont = "Microsoft Sans Serif; 40pt";
+                ///Set new size of window:
+                //this.SetBounds(0, 0, SmallWindowWidth, 100);
+
+                //this.FormBorderStyle = FormBorderStyle.None;
+                this.ExpanderButton.Visible = true;
+                this.ExpanderButton.SetBounds(385, 5, 25, 55);
+                this.Start_Rounded_Button.SetBounds(355, 5, 25, 25);
+                this.StopButton.SetBounds(355, 35, 25, 25);
+                //this.Pause_Rounded_Button.Visible = true;
+                this.Pause_Rounded_Button.SetBounds(355, 5, 25, 25);
+                //this.StopButton.BackgroundImage = default;
+                //this.StopButton.BackColor = Color.DarkGray;
+
+                this.Height = 100;
+                this.Width = SmallWindowWidth;
+                //this.Minimise_Button.Visible = false;
+                this.Align_Button.Visible = false;
+                this.RealTime_Label.Visible = false;
+                //this.RealTime_Label.SetBounds(40, -5, 237, 60);
+                //this.RealTime_Label.AutoSize = true;
+                //this.RealTime_Label.Font.Size
+                //this.RealTime_Label.Location.Y = 2;
+                //Switch_Mode_Button_Click(sender, e);
+                //this.BackColor = Color.DimGray;
+                //this.ForeColor = Color.White;
+
+                //this.toolStripMenuItem4AlignToTopRight.Enabled = false; ///disable soft align to right corner by align button and by menu 
+
+                //DefMode_ON(sender, e);
+                /// modified labels positions:
+                this.Show_Time_RoundedButton.Visible = false;
+                this.Info_Button_PictureBox.Visible = false;
+                this.Split_Label_1.SetBounds(236, 0, 42, 63); ///for pinned top-left left
+                //this.Split_Label_1.SetBounds(186, 119, 42, 63); ///def position
+                this.Split_Label_2.SetBounds(128, 0, 42, 63); ///for pinned top-left left
+                //this.Split_Label_2.SetBounds(78, 119, 42, 63); ///def position
+                this.Hours_Label.SetBounds(42, 0, 100, 60); ///for pinned top-left left
+                //this.Hours_Label.SetBounds(-8, 122, 100, 60); ///def position
+                this.Minutes_Label.SetBounds(156, 0, 100, 60); ///for pinned top-left position
+                //this.Minutes_Label.SetBounds(106, 122, 100, 60); ///def position
+                this.Seconds_Label.SetBounds(268, 0, 100, 60); ///for pinned top-left position
+                //this.Seconds_Label.SetBounds(218, 122, 100, 60); ///def position
+                this.Align_Button.Visible = false;
+                this.FreeWindowToolStripMenuItem.Checked = false;
+                this.FixatedToolStripMenuItem.Checked = true;
+
+                this.RealTime_Label.Visible = false;
+                //RealTime_OutputToLabel(sender, e);
+                //Timemeter_ClearVolumes();
+                this.ExpanderButton.Text = ">";
+            }
+            if (StatusModeName == "Clocks mode")
+            {
+                    this.ExpanderButton.Visible = true;
+                    this.ExpanderButton.SetBounds(385, 5, 25, 55);
+                    this.Start_Rounded_Button.SetBounds(355, 5, 25, 25);
+                    this.StopButton.SetBounds(355, 35, 25, 25);
+                    //this.Pause_Rounded_Button.Visible = true;
+                    this.Pause_Rounded_Button.SetBounds(355, 5, 25, 25);
+                    //this.StopButton.BackgroundImage = default;
+                    //this.StopButton.BackColor = Color.DarkGray;
+
+
+
+
+                this.ExpanderButton.Visible = true;
+                ////this.ExpanderButton.SetBounds(275, 0, 14, 50);
+                this.ExpanderButton.SetBounds(272, 5, 25, 55);
+                ////this.Minimise_Button.Visible = false;
+                this.Align_Button.Visible = false;
+                this.RealTime_Label.Visible = true;
+                this.RealTime_Label.SetBounds(40, -5, 237, 60);
+
+
+                this.Height = 100;
+                //this.Width = SmallWindowWidth;
+                //this.Minimise_Button.Visible = false;
+                this.Align_Button.Visible = true;
+                this.RealTime_Label.Visible = true;
+            }
+
+        }
+
+        private void switchLabelsToWhiteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetColor_ForLAbelsOfTime();
+        }
+
+        private void setColorOfClocksLableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetCustomColor_ForLAbelsOfTime(sender, e);
+        }
+
+        private void customTextColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.colorDialog1.ShowDialog();
+            Color ColorValue = colorDialog1.Color;
+            Hours_Label.ForeColor = ColorValue;
+            Minutes_Label.ForeColor = ColorValue;
+            Seconds_Label.ForeColor = ColorValue;
+            Split_Label_1.ForeColor = ColorValue;
+            Split_Label_2.ForeColor = ColorValue;
+            Small_Timemeter_Label.ForeColor = ColorValue;
+        }
+
+        private void customBackgroundColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.colorDialog1.ShowDialog();
+            Color ColorValue = colorDialog1.Color;
+            this.BackgroundImage = default;
+            this.BackColor = ColorValue;
+            DisableAutoSwitchingOfFormColor(); 
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        /// <returns>StateOfAutoColor = true;</returns>
+        private bool DisableAutoSwitchingOfFormColor()
+        {
+            StateOfAutoColor = false;
+            return StateOfAutoColor;
+        }        
+        private bool ResetToAutoSwitchingOfFormColor()
+        {
+            StateOfAutoColor = true;
+            return StateOfAutoColor;
+        }
+
+        private bool Switch_AutoSwitchOfBackgroundColor()
+        {
+            //if (StateOfAutoColor == true)
+            //{
+            //    StateOfAutoColor = false;
+            //}
+            if (this.autoSwitchOfColorToolStripMenuItem.Checked == true)
+            {
+                StateOfAutoColor = true;
+                this.CustomBackgroundColorOfTimemeterToolStripMenuItem.Enabled = false;
+                this.CustomTextColorOfTimemeterToolStripMenuItem.Enabled = false;
+            }
+            if (this.autoSwitchOfColorToolStripMenuItem.Checked == false)
+            {
+                //ResetToAutoSwitchingOfFormColor();
+                StateOfAutoColor = false;
+                this.CustomBackgroundColorOfTimemeterToolStripMenuItem.Enabled = true;
+                this.CustomTextColorOfTimemeterToolStripMenuItem.Enabled = true;
+
+
+            }
+            //Timemeter_Cover();
+
+            return StateOfAutoColor;
+
+        }
+
+        private void AutoSwitchOfColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Switch_AutoSwitchOfBackgroundColor();
+
+            this.BackColor = System.Drawing.Color.FromArgb(255, 85, 85, 85); ///default if no AutoSwitchingofColor
+        }
+
+        private void DefaultSizeOfWindowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (StatusModeName == "Timemeter")
+            {
+                DefMode_ON(sender, e);
+            }
+            if (StatusModeName == "Clocks mode")
+            {
+                Switch_Mode_Button_Click(sender, e);
+            }
+        }
     }
-    
+
 }
